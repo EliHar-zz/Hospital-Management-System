@@ -1,2 +1,2 @@
-# hospital_db
-A database system for hospitals
+# Hospital-Management-System
+A management software for hospitals
