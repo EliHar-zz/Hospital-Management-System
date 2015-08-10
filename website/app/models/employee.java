@@ -1,23 +1,25 @@
 package models;
 
-import com.sun.tools.javac.code.Attribute;
+import com.avaje.ebean.Model;
+import java.util.List;
 
-public class employee {
+public class Employee extends Model{
 
-    private int id;
-    private String first_name;
-    private  String last_name;
-    private String phone_number;
-    private String start_date;
-    private double salary;
-    private int facility_id;
-    private Enum type;
+    public long id;
+    public String first_name;
+    public  String last_name;
+    public String phone_number;
+    public String start_date;
+    public double salary;
+    public int facility_id;
+    public Enum type;
 
-    public employee(){
+    public static Finder<Long, Employee> find = new Finder<Long, Employee>(Long.class, Employee.class);
 
+    public Employee(){
     }
 
-    public employee(int id, String first_name, String last_name, String phone_number, String start_date, double salary, int facility_id, Enum type) {
+    public Employee(long id, String first_name, String last_name, String phone_number, String start_date, double salary, int facility_id, Enum type) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -26,5 +28,17 @@ public class employee {
         this.salary = salary;
         this.facility_id = facility_id;
         this.type = type;
+    }
+
+    public static List<Employee> all(){
+        return find.all();
+    }
+
+    public static void create (Employee employee){
+        employee.save();
+    }
+
+    public static void delete (Long id){
+        find.ref(id).delete();
     }
 }
