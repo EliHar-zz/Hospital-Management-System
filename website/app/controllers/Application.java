@@ -11,5 +11,4 @@ public class Application extends Controller {
     {
         return ok(index.render("My first play app"));
     }
-
 }
