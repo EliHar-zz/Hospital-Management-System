@@ -13,6 +13,28 @@ public class Application extends Controller {
      * Handle default path requests
      */
     public Result index() {
-        return ok(index.render("testing"));
+        return ok(
+                index.render()
+        );
     }
+
+    public Result login() {
+        return ok(
+                login.render()
+        );
+    }
+
+    public Result admin() {
+        return ok(
+                admin.render()
+        );
+    }
+//    public static class Login {
+//
+//        public String email;
+//        public String password;
+//
+//    }
 }
+
+
