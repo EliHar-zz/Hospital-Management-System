@@ -11,4 +11,9 @@ public class Application extends Controller {
     {
         return ok(index.render("My first play app"));
     }
+
+    public Result admin()
+    {
+        return ok(index.render("I have no idea what I'm doing"));
+    }
 }
