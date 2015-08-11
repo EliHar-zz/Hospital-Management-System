@@ -41,6 +41,10 @@ input {
     float:right; 
 }
 
+button {
+    float: right;
+}
+
 select {
     float: right;
 }
@@ -49,4 +53,3 @@ select {
     color: red;
     margin: 0;
 }
-

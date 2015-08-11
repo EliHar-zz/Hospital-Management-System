@@ -15,4 +15,8 @@ public class Application extends Controller {
     public Result index() {
         return ok(index.render("Hi"));
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f49daa688aeb412191b9ad7edd13b31073d2f4e1
