@@ -12,7 +12,7 @@
     <form class="box" id="" method="POST" action="">
         <h3>Add or Remove Facility Services</h3>
 
-        <script>document.write(chooseFacility(0))</script>
+        <script>document.write(chooseFacility())</script>
 
         <hr/>
         
@@ -37,7 +37,7 @@
     <form class="box" id="" method="POST" action="">
         <h3>Order Supplies</h3>
 
-        <script>document.write(chooseFacility(true))</script>
+        <script>document.write(chooseFacility())</script>
         <label for="floor" style="font-weight:bold">Floor: </label>
         <select>
             <script>populateSelect(1,21,1)</script>
@@ -81,7 +81,7 @@
             </div>
 
             <div class="col last">
-                <h4>Add To Storage Unit</h4>
+                <h4>Add to Kitchen</h4>
                 <p class="todo">Must echo supplies from vendor_has_supplies</p><br/>
             </div><br/>
         </div>
