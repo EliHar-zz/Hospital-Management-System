@@ -1,7 +1,12 @@
-@(message: String)
+@()
 
-@main("Welcome to Play") {
+@main("Employees Page") {
 
-    @play20.welcome(message, style = "Java")
+    <ol ></ol>
 
+    <form method="POST" action="#">
+        <input type="text" name="name" placeholder="Your Name"/>
+        <input type="text" name="age" placeholder="Age"/>
+        <button>Add New Employee</button>
+    </form>
 }
