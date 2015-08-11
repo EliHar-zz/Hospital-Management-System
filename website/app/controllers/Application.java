@@ -20,7 +20,7 @@ public class Application extends Controller {
 
     public Result login() {
         return ok(
-                login.render()
+                login.render(form(Login.class))
         );
     }
 
@@ -29,11 +29,21 @@ public class Application extends Controller {
                 admin.render()
         );
     }
-//    public static class Login {
+    public static class Login {
+
+        public String employee_id;
+        public String password;
+    }
+
+//    public Result authenticate() {
+//        Form<Login> loginForm = form(Login.class).bindFromRequest();
 //
-//        public String email;
-//        public String password;
+//            Person person = Form.form(Person.class).bindFromRequest().get();
+//            JPA.em().persist(person);
+//            return redirect(routes.Application.index());
+//        }
 //
+//        return ok();
 //    }
 }
 
