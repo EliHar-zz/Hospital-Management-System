@@ -3,18 +3,14 @@
 
 # --- !Ups
 
-create table employees (
-  id                        bigint,
+create table Employees (
+  employee_id               bigint,
   first_name                varchar(255),
   last_name                 varchar(255),
   phone_number              varchar(255),
   start_date                varchar(255),
   salary                    double,
-  facility_id               integer)
-;
-
-create table employees (
-  username                  varchar(255),
+  facility_id               integer,
   password                  varchar(255))
 ;
 
@@ -25,9 +21,7 @@ create table employees (
 
 SET FOREIGN_KEY_CHECKS=0;
 
-drop table employees;
-
-drop table employees;
+drop table Employees;
 
 SET FOREIGN_KEY_CHECKS=1;
 

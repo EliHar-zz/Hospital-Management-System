@@ -26,21 +26,21 @@ public class Application extends Controller {
 
     public Result login() {
         return ok(
-                login.render(form(User.class))
+                login.render(form(Employees.class))
         );
     }
 
     public Result authenticate() {
-        Form<User> loginForm = form(User.class).bindFromRequest();
+        Form<Employees> loginForm = form(Employees.class).bindFromRequest();
 
-        String username = loginForm.get().username;
+        long employee_id = loginForm.get().employee_id;
         String password = loginForm.get().password;
 
-        if (User.authenticate(username, password) == null) {
+        if (Employees.authenticate(employee_id, password) == null) {
             return badRequest(login.render(loginForm));
         } else {
             session().clear();
-            session("username", loginForm.get().username);
+            session("employee_id", loginForm.get().employee_id+"");
             return ok();
         }
     }
