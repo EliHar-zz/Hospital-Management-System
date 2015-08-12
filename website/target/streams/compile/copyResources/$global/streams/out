@@ -1,7 +1,0 @@
-[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(/Users/Pargol/Documents/dev/Hospital-Management-System/website/conf/application.conf,/Users/Pargol/Documents/dev/Hospital-Management-System/website/target/scala-2.11/classes/application.conf)[0m
-[0m[[0mdebug[0m] [0m	(/Users/Pargol/Documents/dev/Hospital-Management-System/website/conf/evolutions,/Users/Pargol/Documents/dev/Hospital-Management-System/website/target/scala-2.11/classes/evolutions)[0m
-[0m[[0mdebug[0m] [0m	(/Users/Pargol/Documents/dev/Hospital-Management-System/website/conf/logback.xml,/Users/Pargol/Documents/dev/Hospital-Management-System/website/target/scala-2.11/classes/logback.xml)[0m
-[0m[[0mdebug[0m] [0m	(/Users/Pargol/Documents/dev/Hospital-Management-System/website/conf/routes,/Users/Pargol/Documents/dev/Hospital-Management-System/website/target/scala-2.11/classes/routes)[0m
-[0m[[0mdebug[0m] [0m	(/Users/Pargol/Documents/dev/Hospital-Management-System/website/conf/evolutions/default,/Users/Pargol/Documents/dev/Hospital-Management-System/website/target/scala-2.11/classes/evolutions/default)[0m
-[0m[[0mdebug[0m] [0m	(/Users/Pargol/Documents/dev/Hospital-Management-System/website/conf/evolutions/default/1.sql,/Users/Pargol/Documents/dev/Hospital-Management-System/website/target/scala-2.11/classes/evolutions/default/1.sql)[0m
