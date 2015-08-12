@@ -1,8 +1,12 @@
 package models;
 
 import com.avaje.ebean.Model;
+
+import javax.persistence.Table;
 import java.util.List;
 
+@javax.persistence.Entity
+@Table(name = "employees")
 public class Employee extends Model {
 
     public long id;
