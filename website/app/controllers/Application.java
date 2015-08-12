@@ -13,6 +13,6 @@ public class Application extends Controller {
      * Handle default path requests
      */
     public Result index() {
-        return ok(index.render("testing"));
+        return ok(index.render("oh hai"));
     }
 }
