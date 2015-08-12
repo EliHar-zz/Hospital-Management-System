@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Happyhealth - Stay Healthy</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+	<meta name="description" content="Website Description" />
+	<meta name="keywords" content="Website Keywords" />
+	<link rel="stylesheet" type="text/css" media="all" href="style/style.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="style/prettyPhoto.css" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" media="all" href="style/stylemobile.css" />
+	<!--<link rel="stylesheet" type="text/css" media="all" href="style/mobilenavigation.css" />-->
+
+	<script src="script/modernizr.js" type="text/javascript"></script>
+	<script src="script/jquery.js" type="text/javascript"></script>
+    <script src="script/jquery-ui.js" type="text/javascript"></script>
+    <script src="script/jquery.parallax-1.1.3.js" type="text/javascript"></script>
+    <script src="script/jquery.localscroll-1.2.7-min.js" type="text/javascript"></script>
+    <script src="script/jquery.scrollTo-1.4.2-min.js" type="text/javascript"></script>
+	<script src="script/jquery.flexslider.js" type="text/javascript"></script>
+	<script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
+	<script src="script/jquery.retina.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	$(document).ready(function (){
+        $("a[data-rel^='prettyPhoto']").prettyPhoto({
+			default_width: 600,
+			default_height: 420,
+			social_tools: false
+		});
+        $('#slideshow-tabs').tabs({ show: { effect: "fade", duration: 200 }, hide: { effect: "fade", duration: 300 } });
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|OperaMini/i.test(navigator.userAgent) || ($(window).width() < 1024) ) {	
+		} else {
+            $('#slideshow-tabs .ui-tabs-panel').parallax("50%", 0.5);
+            $('.content-home-1').parallax("0", 0.5);
+            $('.content-home-2').parallax("100%", 0.5);
+            $('.content-home-3').parallax("0", 0.5);
+            $('#title-content').parallax("50%", 0.5);
+            $("#content-side-title").show();
+            setTimeout(function() { $("#content-side-title").animate({width: 'toggle'}); },100);
+        }
+        $('.side-title .flexslider').flexslider({
+            animation: "slide",
+            pauseOnAction: true,
+        });
+        $('.link-side-title').click(function() {
+			$(this).next("#content-side-title").animate({width: 'toggle'});
+		});
+        $('#tabs-service').tabs({ show: { effect: "fade", duration: 200 }, hide: { effect: "fade", duration: 300 } });
+        $('#tabs-doctor').tabs({ show: { effect: "fade", duration: 200 }, hide: { effect: "fade", duration: 300 } });
+        $( ".accordion" ).accordion({
+	        heightStyle: "content"
+        });
+		$('a[data-rel]').each(function() {
+			$(this).attr('rel', $(this).data('rel'));
+		});
+		$('img[data-retina]').retina({checkIfImageExists: true});
+		$(".open-menu").click(function(){
+		    $("body").addClass("no-move");
+		});
+		$(".close-menu, .close-menu-big").click(function(){
+		    $("body").removeClass("no-move");
+		});
+	});
+	</script>
+</head>
+<body>
+	<header id="main-header" class="clearfix">
+        <aside id="container-header-top">
+            <div id="header-top" class="clearfix">
+                <h3>Hello! Welcome to Happy Health official website...</h3>
+                <nav id="social-container">
+                    <h4>1-800-6969-111</h4>
+                    <ul id="nav-social">
+                        <li><a href="#" id="icon-facebook">Facebook</a></li>
+                        <li><a href="#" id="icon-twitter">Twitter</a></li>
+                        <li><a href="#" id="icon-gplus">Google Plus</a></li>
+                        <li><a href="#" id="icon-linkedin">Linkedin</a></li>
+                        <li><a href="#" id="icon-pinterest">Pinterest</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <div id="header-full">
+            <div id="header" class="clearfix">
+                <a href="#nav" class="open-menu">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				    <span class="icon-bar"></span>
+				</a>
+                <a href="#" id="logo"><img src="images/logo.png" data-retina="images/logo-retina.png" alt="Happy Health - All Your Health Need" /></a>
+                <nav id="nav" class="clearfix">
+                    <a href="#" class="close-menu-big">Close</a>
+                    <div id="nav-container">
+                        <a href="#" class="close-menu">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <ul id="nav-main">
+                            <li><a href="index.scala.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="#">Blog</a>
+                                <ul>
+                                    <li><a href="newslist.html">News List</a></li>
+                                    <li><a href="newsdetail.html">News Detail</a></li>
+                                </ul>
+                            </li>
+                            <li class="current-menu-item"><a href="#">Other</a>
+                                <ul>
+                                    <li><a href="#">Color Variation</a>
+                                        <ul>
+                                            <li><a href="http://designeek.com/template/happyhealth/blue/">Blue</a></li>
+                                            <li><a href="index-2.html">Red</a></li>
+                                            <li><a href="../orange/index.html">Orange</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li><a href="fullpage.html">Full Page no Sidebar</a></li>
+                                    <li><a href="typography.html">Typography</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="testimonial.html">Testimonial</a></li>
+                            <li><a href="team.html">Doctor</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="content" class="clearfix">
+        <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
+            <h1><span>Frequently Asked Questions</span></h1>
+            <aside>
+                <a href="#content-side-title" class="link-side-title"><span></span><span></span><span></span></a>
+                <div id="content-side-title" class="title-testimonial">
+                    <div class="side-title">
+                        <h3>Patient Testimonial</h3>
+                        <img src="images/img-21.jpg" data-retina="images/img-21-retina.jpg" alt="John Doe" />
+                        <article>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et neque eget metus volutpat mollis volutpat sit amet est. Nullam at tellus diam. Cras porttitor</p>
+                            <h4>- Jane Doe</h4>
+                        </article>
+                    </div>
+                </div>
+            </aside>
+        </header>
+        <div id="main-content">
+            <article class="static-page">
+                <p>Pellentesque nunc nulla, aliquet sit amet nisl at, convallis vehicula risus. Ut dictum justo magna. Curabitur a tortor adipiscing massa posuere tristique. Aenean sem turpis, elementum sed erat eu, adipiscing fermentum nunc. Aliquam ut venenatis diam.</p>
+                <h2>General Questions</h2>
+									<div class="accordion">
+						  				<h3 class="title-faq">Praesent quis lacus non urna?<span></span></h3>
+									  	<div class="content-faq">
+									    	<p>Etiam auctor dignissim lacinia. Fusce congue sem id rutrum sollicitudin. Proin adipiscing ullamcorper lectus eu ornare. Aliquam egestas fringilla mauris vitae suscipit. Curabitur id ipsum dapibus, vehicula lorem et, suscipit arcu. Nunc facilisis enim ut ante convallis fringilla.</p>
+											<p>Praesent quis lacus non urna posuere vestibulum. Morbi eget urna consectetur, convallis erat a, lacinia massa. In metus mauris, congue eu interdum eget, hendrerit id leo. Sed vestibulum volutpat magna, ut mollis nulla aliquam ut.</p>
+									  	</div>
+						  				<h3 class="title-faq">Donec arcu nunc?<span></span></h3>
+									  	<div class="content-faq">
+									    	<p>Sed eget odio sed mi pharetra ultricies vitae eu est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla nunc ante, aliquam sed varius a, pharetra non quam. Proin viverra et lectus a porttitor. Proin pulvinar placerat sapien, vel aliquet mi. Aliquam pulvinar gravida sapien id posuere.</p>
+											<p>Suspendisse pellentesque convallis nulla, id auctor velit euismod sed. Nullam at commodo magna. Phasellus pellentesque erat non dui sagittis bibendum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+									  	</div>
+						  				<h3 class="title-faq">Who am I?<span></span></h3>
+									  	<div class="content-faq">
+									    	<p>Donec tincidunt molestie erat vel ultrices. Praesent imperdiet nulla nec sem ullamcorper nec semper magna varius. Donec malesuada libero ultrices metus bibendum accumsan. Etiam arcu turpis, pretium eu commodo eget.</p>
+											<ul>
+												<li>Nullam faucibus, lacus quis luctus mollis</li>
+												<li>Etiam ornare elit non mauris venenatis</li>
+												<li>Phasellus libero lacus, cursus eu egestas quis</li>
+												<li>Aliquam erat volutpat.</li>
+											</ul>
+									  	</div>
+									  	<h3 class="title-faq">Lorem Ipsum?<span></span></h3>
+									  	<div class="content-faq">
+									    	<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit</p>
+											<p>Donec tincidunt molestie erat vel ultrices. Praesent imperdiet nulla nec sem ullamcorper nec semper magna varius. Donec malesuada libero ultrices metus bibendum accumsan. Etiam arcu turpis, pretium eu commodo eget.</p>
+											<ul>
+												<li>Nullam faucibus, lacus quis luctus mollis</li>
+												<li>Etiam ornare elit non mauris venenatis</li>
+												<li>Phasellus libero lacus, cursus eu egestas quis</li>
+												<li>Aliquam erat volutpat.</li>
+											</ul>
+									  	</div>
+						  	 		</div>
+						  	 		<h2>Newbie Questions</h2>
+									<div class="accordion">
+						  				<h3 class="title-faq">Praesent quis lacus non urna?<span></span></h3>
+									  	<div class="content-faq">
+									    	<p>Etiam auctor dignissim lacinia. Fusce congue sem id rutrum sollicitudin. Proin adipiscing ullamcorper lectus eu ornare. Aliquam egestas fringilla mauris vitae suscipit. Curabitur id ipsum dapibus, vehicula lorem et, suscipit arcu. Nunc facilisis enim ut ante convallis fringilla.</p>
+											<p>Praesent quis lacus non urna posuere vestibulum. Morbi eget urna consectetur, convallis erat a, lacinia massa. In metus mauris, congue eu interdum eget, hendrerit id leo. Sed vestibulum volutpat magna, ut mollis nulla aliquam ut.</p>
+									  	</div>
+						  				<h3 class="title-faq">Donec arcu nunc?<span></span></h3>
+									  	<div class="content-faq">
+									    	<p>Sed eget odio sed mi pharetra ultricies vitae eu est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla nunc ante, aliquam sed varius a, pharetra non quam. Proin viverra et lectus a porttitor. Proin pulvinar placerat sapien, vel aliquet mi. Aliquam pulvinar gravida sapien id posuere.</p>
+											<p>Suspendisse pellentesque convallis nulla, id auctor velit euismod sed. Nullam at commodo magna. Phasellus pellentesque erat non dui sagittis bibendum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+									  	</div>
+						  				<h3 class="title-faq">Who am I?<span></span></h3>
+									  	<div class="content-faq">
+									    	<p>Donec tincidunt molestie erat vel ultrices. Praesent imperdiet nulla nec sem ullamcorper nec semper magna varius. Donec malesuada libero ultrices metus bibendum accumsan. Etiam arcu turpis, pretium eu commodo eget.</p>
+											<ul>
+												<li>Nullam faucibus, lacus quis luctus mollis</li>
+												<li>Etiam ornare elit non mauris venenatis</li>
+												<li>Phasellus libero lacus, cursus eu egestas quis</li>
+												<li>Aliquam erat volutpat.</li>
+											</ul>
+									  	</div>
+									  	<h3 class="title-faq">Lorem Ipsum?<span></span></h3>
+									  	<div class="content-faq">
+									    	<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit</p>
+											<p>Donec tincidunt molestie erat vel ultrices. Praesent imperdiet nulla nec sem ullamcorper nec semper magna varius. Donec malesuada libero ultrices metus bibendum accumsan. Etiam arcu turpis, pretium eu commodo eget.</p>
+											<ul>
+												<li>Nullam faucibus, lacus quis luctus mollis</li>
+												<li>Etiam ornare elit non mauris venenatis</li>
+												<li>Phasellus libero lacus, cursus eu egestas quis</li>
+												<li>Aliquam erat volutpat.</li>
+											</ul>
+									  	</div>
+						  	 		</div>		
+            </article>
+        </div>
+        <div id="sidebar">
+            <aside class="widget-container">
+                <div class="widget-wrapper clearfix">
+				    <h3 class="widget-title">Opening Hour</h3>
+                    <ul class="nav-schedule">
+                        <li class="clearfix"><strong>Mon</strong> <span>7am - 11am</span></li>
+				        <li class="clearfix"><strong>Tue - Wed</strong> <span>11am - 10pm</span></li>
+                        <li class="clearfix"><strong>Thu</strong> <span>10am - 9pm</span></li>
+				        <li class="clearfix"><strong>Fri</strong> <span>11am - 8pm</span></li>
+                        <li class="clearfix"><strong>Sat</strong> <span>9am - 3pm</span></li>
+                        <li class="clearfix"><strong>Sun</strong> <span>9am - 4pm</span></li>
+				        <li class="clearfix"><strong>Public Holiday</strong> <span>8am - 5pm</span></li>
+                    </ul>
+				</div>
+                <div class="binder-left"></div><div class="binder-right"></div>
+            </aside>
+            <aside class="widget-container">
+									<div class="widget-wrapper clearfix">
+										<h3 class="widget-title">Photo Gallery</h3>
+										<ul class="list-portfolio-sidebar clearfix">
+					        				<li><a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery-sidebar]"><img src="images/img-54.jpg" data-retina="images/img-54-retina.jpg" alt="WordPress - Get a Free Blog" /></a></li>				
+					        				<li><a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery-sidebar]"><img src="images/img-54.jpg" data-retina="images/img-54-retina.jpg" alt="WordPress - Get a Free Blog" /></a></li>	
+					        				<li class="last"><a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery-sidebar]"><img src="images/img-54.jpg" data-retina="images/img-54-retina.jpg" alt="WordPress - Get a Free Blog" /></a></li>	
+					        				<li><a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery-sidebar]"><img src="images/img-54.jpg" data-retina="images/img-54-retina.jpg" alt="WordPress - Get a Free Blog" /></a></li>	
+					        				<li><a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery-sidebar]"><img src="images/img-54.jpg" data-retina="images/img-54-retina.jpg" alt="WordPress - Get a Free Blog" /></a></li>	
+					        				<li class="last"><a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery-sidebar]"><img src="images/img-54.jpg" data-retina="images/img-54-retina.jpg" alt="WordPress - Get a Free Blog" /></a></li>		
+					        			</ul>
+					        			<a href="gallery.html" class="button-more">Check More Portfolio</a>
+									</div>
+								</aside>
+
+        </div>
+    </div>
+    <div id="content-footer" class="clearfix">
+        <p id="sub-title">Check some of our services, <a href="#">click here</a> to get more information about all the services</p>
+        <div id="tabs-service" class="clearfix">
+            <ul id="nav-tabs-service" class="clearfix">
+                <li><strong><span></span><a href="#panel-service-1"><img src="images/icon-services-1-retina.png" alt="General Checkup" /><em>General Checkup</em></a></strong></li>
+                <li><strong><span></span><a href="#panel-service-2"><img src="images/icon-services-2-retina.png" alt="Dentist" /><em>Dentist</em></a></strong></li>
+                <li><strong><span></span><a href="#panel-service-3"><img src="images/icon-services-3-retina.png" alt="Pharmacy" /><em>Pharmacy</em></a></strong></li>
+                <li><strong><span></span><a href="#panel-service-4"><img src="images/icon-services-4-retina.png" alt="Nusersery" /><em>Nursery &amp; Ward</em></a></strong></li>
+                <li><strong><span></span><a href="#panel-service-5"><img src="images/icon-services-5-retina.png" alt="Heart Attack" /><em>Heart Attack</em></a></strong></li>
+                <li><strong><span></span><a href="#panel-service-6"><img src="images/icon-services-6-retina.png" alt="Diagnostic Center" /><em>Diagnostic Center</em></a></strong></li>
+            </ul>
+            <div id="panel-tabs-service">
+                <div class="tabs-ui-panel" id="panel-service-1">
+                    <article class="static-page clearfix">
+                        <header>
+                            <h4 class="title-tabs-service">General Checkup</h4>
+                            <figure><img src="images/img-25.jpg" data-retina="images/img-25-retina.jpg" alt="General Checkup" /></figure>
+                        </header>
+                        <div class="content-tabs-service">
+                            <p>Sed vel condimentum augue, in rutrum mi. Curabitur lacinia dolor tellus, ac ullamcorper est pharetra quis. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim. Pellentesque et suscipit ligula, sed condimentum lectus. Pellentesque non cursus nisl. Vivamus risus elit, mattis in pulvinar vitae, porttitor at magna.</p>
+                            <p>Fusce sit amet hendrerit mi. In porttitor ut elit non tempus. Pellentesque et suscipit ligula, sed condimentum lectus. Pellentesque non cursus nisl. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim.</p>
+                            <a href="#" class="button-more">More Info</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="tabs-ui-panel" id="panel-service-2">
+                    <article class="static-page clearfix">
+                        <header>
+                            <h4 class="title-tabs-service">Dentist</h4>
+                            <figure><img src="images/img-26.jpg" data-retina="images/img-26-retina.jpg" alt="Dentist" /></figure>
+                        </header>
+                        <div class="content-tabs-service">
+                            <p>Fusce sit amet hendrerit mi. In porttitor ut elit non tempus. Pellentesque et suscipit ligula, sed condimentum lectus. Pellentesque non cursus nisl. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim.</p>
+                            <p>Sed vel condimentum augue, in rutrum mi. Curabitur lacinia dolor tellus, ac ullamcorper est pharetra quis. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim. Pellentesque et suscipit ligula, sed condimentum lectus.</p>
+                            <a href="#" class="button-more">More Info</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="tabs-ui-panel" id="panel-service-3">
+                    <article class="static-page clearfix">
+                        <header>
+                            <h4 class="title-tabs-service">Pharmacy</h4>
+                            <figure><img src="images/img-27.jpg" data-retina="images/img-27-retina.jpg" alt="Pharmacy" /></figure>
+                        </header>
+                        <div class="content-tabs-service">
+                            <p>Sed vel condimentum augue, in rutrum mi. Curabitur lacinia dolor tellus, ac ullamcorper est pharetra quis. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim. Pellentesque et suscipit ligula, sed condimentum lectus. Pellentesque non cursus nisl. Vivamus risus elit, mattis in pulvinar vitae, porttitor at magna.</p>
+                            <p>Fusce sit amet hendrerit mi. In porttitor ut elit non tempus. Pellentesque et suscipit ligula, sed condimentum lectus. Pellentesque non cursus nisl. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim.</p>
+                            <a href="#" class="button-more">More Info</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="tabs-ui-panel" id="panel-service-4">
+                    <article class="static-page clearfix">
+                        <header>
+                            <h4 class="title-tabs-service">Nursery &amp; Ward</h4>
+                            <figure><img src="images/img-26.jpg" data-retina="images/img-26-retina.jpg" alt="Dentist" /></figure>
+                        </header>
+                        <div class="content-tabs-service">
+                            <p>Fusce sit amet hendrerit mi. In porttitor ut elit non tempus. Pellentesque et suscipit ligula, sed condimentum lectus. Pellentesque non cursus nisl. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim.</p>
+                            <p>Sed vel condimentum augue, in rutrum mi. Curabitur lacinia dolor tellus, ac ullamcorper est pharetra quis. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim. Pellentesque et suscipit ligula, sed condimentum lectus.</p>
+                            <a href="#" class="button-more">More Info</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="tabs-ui-panel" id="panel-service-5">
+                    <article class="static-page clearfix">
+                        <header>
+                            <h4 class="title-tabs-service">Heart Attack</h4>
+                            <figure><img src="images/img-26.jpg" data-retina="images/img-26-retina.jpg" alt="Dentist" /></figure>
+                        </header>
+                        <div class="content-tabs-service">
+                            <p>Fusce sit amet hendrerit mi. In porttitor ut elit non tempus. Pellentesque et suscipit ligula, sed condimentum lectus. Pellentesque non cursus nisl. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim.</p>
+                            <p>Sed vel condimentum augue, in rutrum mi. Curabitur lacinia dolor tellus, ac ullamcorper est pharetra quis. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim. Pellentesque et suscipit ligula, sed condimentum lectus.</p>
+                            <a href="#" class="button-more">More Info</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="tabs-ui-panel" id="panel-service-6">
+                    <article class="static-page clearfix">
+                        <header>
+                            <h4 class="title-tabs-service">Diagnostic Center</h4>
+                            <figure><img src="images/img-27.jpg" data-retina="images/img-27-retina.jpg" alt="Pharmacy" /></figure>
+                        </header>
+                        <div class="content-tabs-service">
+                            <p>Sed vel condimentum augue, in rutrum mi. Curabitur lacinia dolor tellus, ac ullamcorper est pharetra quis. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim. Pellentesque et suscipit ligula, sed condimentum lectus. Pellentesque non cursus nisl. Vivamus risus elit, mattis in pulvinar vitae, porttitor at magna.</p>
+                            <p>Fusce sit amet hendrerit mi. In porttitor ut elit non tempus. Pellentesque et suscipit ligula, sed condimentum lectus. Pellentesque non cursus nisl. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim.</p>
+                            <a href="#" class="button-more">More Info</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="three-footer" class="clearfix">
+        <article class="clearfix">
+            <em><img src="images/icon-footer-1.png" data-retina="images/icon-footer-1-retina.png" alt="" /></em>
+            <strong>Call Us Now</strong>
+            <span>+62-4056-6787 or +62-345-356</span>
+        </article>
+        <article class="clearfix">
+            <a href="#"><em><img src="images/icon-footer-2.png" data-retina="images/icon-footer-2-retina.png" alt="" /></em>
+            <strong>Live Chat</strong>
+            <span>Chat with our Specialist</span>
+            </a>
+        </article>
+        <article class="last clearfix">
+            <a href="#"><em><img src="images/icon-footer-3.png" data-retina="images/icon-footer-3-retina.png" alt="" /></em>
+            <strong>Schedule</strong>
+            <span>Make Appointment &amp; Check our Schedule</span>
+            </a>
+        </article>
+    </div>
+    <footer id="main-footer">
+        <nav>
+            <ul id="nav-footer">
+                <li><a href="#">Home</a></li>        
+                <li><a href="#">About</a></li> 
+                <li><a href="#">Doctor</a></li> 
+                <li><a href="#">Services</a></li> 
+                <li><a href="#">Blog</a></li> 
+                <li><a href="#">Photo</a></li> 
+                <li><a href="#">Article</a></li> 
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <aside>
+            <h5 id="text-footer">P Sherman, 42 Wallaby Way, Sydney, Australia | Phone: +62834856, Fax: +62849684 | Email: hello@cubicthemes.com</h5>
+            <div id="footer-copyright" class="clearfix">
+                <p>Copyright &copy; 2013 Cubicthemes.com, All Rights Reserved</p>
+                <a href="#" id="logo-footer"><img src="images/logo-footer.png" data-retina="images/logo-footer-retina.png" alt="Happy Health" /></a>
+            </div>
+        </aside>
+    </footer>
+</body>
+</html>
