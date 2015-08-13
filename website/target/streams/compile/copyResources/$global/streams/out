@@ -1,0 +1,4 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/matthew/Hospital-Management-System/website/conf/application.conf,/home/matthew/Hospital-Management-System/website/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/matthew/Hospital-Management-System/website/conf/routes,/home/matthew/Hospital-Management-System/website/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/matthew/Hospital-Management-System/website/conf/logback.xml,/home/matthew/Hospital-Management-System/website/target/scala-2.11/classes/logback.xml)[0m
