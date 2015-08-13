@@ -83,7 +83,8 @@
                                     <li><a href="directorKitchen.php">Kitchens</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">tbd</a>
+                            <li><a href="#">Surgeries</a></li>
+                            <li><a href="#">Records</a>
                                 <ul>
                                     <li><a href="#">tbd</a>
                                         <ul>
@@ -98,9 +99,6 @@
                                     <li><a href="">tbd</a></li>
                                 </ul>
                             </li>
-                            <li><a href="">tbd</a></li>
-                            <li><a href="">tbd</a></li>
-                            <li><a href="">tbd</a></li>
                             <li><a href="">Logout</a></li>
                         </ul>
                     </div>
@@ -125,10 +123,10 @@
             h4 { font-weight: bold }
             label { float: left; }
             .nav { margin: 0 auto; padding: 40px; margin-bottom: 35px; width: 139px; height: 40px; background-color: #5B94AB; color:white; }
-            .form { margin-top: 30px; padding: 50px; border: 4px double black; width: 1070px; clear: both; }
+            .form { background-color: #5B94AB; color: white; text-shadow: 1px 1px 1px black; margin-top: 30px; padding: 50px; border: 4px double white; width: 1070px; clear: both; }
             .row { display: flex; }
             .col { flex: 1; width: 300px; min-height: 250px; }
-            .col.left { padding-right: 30px; border-right: 1px solid black; }
+            .col.left { padding-right: 30px; border-right: 1px solid white; }
             .col.right { padding-left: 30px; }
         </style>
 
