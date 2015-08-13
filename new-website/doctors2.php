@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['id']))
-    #header("location:../staff.html");
+#header("location:../staff.html");
 ?>
 
 <!DOCTYPE html>
@@ -139,26 +139,22 @@ if(!isset($_SESSION['id']))
     </header>
     <div class="box user_info">
         <h2>Facility: <?php #echo getEmployee().Facility?></h2></br>
+        <h2>Position: <?php #echo getEmployee().Type?></h2></br>
+        <h2>Supervisor: <?php #echo getEmployee().Supervisor?></h2></br>
         <h2>Maximum Hours: <?php #echo getEmployee().Facility?></h2></br>
         <h2>Sallary: <?php #echo getEmployee().Facility?></h2></br>
         <h2>Pay Frequency: <?php #echo getEmployee().Facility?></h2></br>
-<!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
-<!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
+        <!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
+        <!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
     </div>
+
 
 
     <div class="box user_info" id="dashboard">
         <form style="float: left;" method="POST" action="#">
-            <label style="float: left; margin-right: 5px;" for="patient_search">Search for people
-                <input style="float: right;" type="text" id="patient_search" placeholder="eg. John Doe" name="patient_search"> </label>
-
-            <label style="float: left; margin-left: 10px;" for="patient_search">Patient
-                <input type="radio" name="person_type" id="person_type" value="patient"> </label>
-
-            <label style="float: left; margin-right: 5px;margin-left: 20px;" for="patient_search">Junior Doctor
-                <input type="radio" name="person_type" id="person_type" value="junior_doctor"> </label>
-
-            <input style="float: right;" type="submit" value="&#x1f50d Search">
+            <label style="float: left; margin-right: 5px;" for="patient_search">Search for Patient </label>
+            <input style="float: left;" type="text" id="patient_search" placeholder="eg. John Doe" name="patient_search">
+            <input style="float: right;" type="submit" value=&#x1f50d>
         </form>
 
         <div id="result">
