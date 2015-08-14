@@ -140,7 +140,7 @@ if(!isset($_SESSION['id']))
     <div class="box user_info">
         <h2>Facility: <?php #echo getEmployee().Facility?></h2></br>
         <h2>Maximum Hours: <?php #echo getEmployee().Facility?></h2></br>
-        <h2>Sallary: <?php #echo getEmployee().Facility?></h2></br>
+        <h2>Salary: <?php #echo getEmployee().Facility?></h2></br>
         <h2>Pay Frequency: <?php #echo getEmployee().Facility?></h2></br>
 <!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
 <!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
