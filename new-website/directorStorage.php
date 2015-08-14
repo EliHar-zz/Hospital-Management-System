@@ -75,12 +75,42 @@
                     <div id="nav-container">
                         <ul id="nav-main">
                             <li><a href="director.php">Personal Info</a></li>
-                            <li><a href="directorServices.php">Services</a></li>
+                            <li><a href="#">Services</a>
+                                <ul>
+                                    <li><a href="directorServices.php?fac=palliative">Palliative</a></li>
+                                    <li><a href="directorServices.php?fac=childrens_unit">Childrens Unit</a></li>
+                                    <li><a href="directorServices.php?fac=surgical_unit">Surgical Unit</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#">Supplies</a>
                                 <ul>
-                                    <li><a href="directorStorage.php">Storage Units</a></li>
-                                    <li><a href="directorSupplies.php">Supply Rooms</a></li>
-                                    <li><a href="directorKitchen.php">Kitchens</a></li>
+                                    <li><a href="#">Storage Units</a>
+                                        <ul>
+                                            <li><a href="directorStorage.php?fac=palliative">Palliative</a></li>
+                                            <li><a href="directorStorage.php?fac=childrens_unit">Childrens Unit</a></li>
+                                            <li><a href="directorStorage.php?fac=surgical_unit">Surgical Unit</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Supply Rooms</a>
+                                        <ul>
+                                            <li><a href="#">Palliative First Floor</a></li>
+                                            <li><a href="#">Palliative Second Floor</a></li>
+                                            <li><a href="#">Palliative Third Floor</a></li>
+                                            <li><a href="#">Childrens Unit First Floor</a></li>
+                                            <li><a href="#">Childrens Unit Second Floor</a></li>
+                                            <li><a href="#">Childrens Unit Third Floor</a></li>
+                                            <li><a href="#">Surgical Unit First Floor</a></li>
+                                            <li><a href="#">Surgical Unit Second Floor</a></li>
+                                            <li><a href="#">Surgical Unit Third Floor</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Kitchens</a>
+                                        <ul>
+                                            <li><a href="directorKitchen.php?fac=palliative">Palliative</a></li>
+                                            <li><a href="directorKitchen.php?fac=childrens_unit">Childrens Unit</a></li>
+                                            <li><a href="directorKitchen.php?fac=surgical_unit">Surgical Unit</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                             <li><a href="directorSurgeries.php">Surgeries</a></li>
@@ -99,14 +129,13 @@
                                     <li><a href="">tbd</a></li>
                                 </ul>
                             </li>
-                            <li><a href="">Logout</a></li>
+                            <li><a href="logout.php">Logout</a></li>
                         </ul>
                     </div>
                 </nav>
             </div>
         </div>
     </header>
-
 
     <!-- ######################################### Main Image ##############################################-->
     <div id="content" class="clearfix">
@@ -150,7 +179,6 @@
          <!-- ######################################### Form ##############################################-->
         <form class="form" id="" method="POST" action="">
             <h3>Storage Unit</h3><br/>
-            <script>document.write(chooseFacility())</script>
 
             <hr/>
 
