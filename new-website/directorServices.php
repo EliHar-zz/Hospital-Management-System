@@ -161,8 +161,7 @@
             $result = mysqli_query($con, $query) or die("Unable to execute insert query<br/>$query");
         }
 
-        $query = 'SELECT service_id, service_name, service_complexity, service_cost FROM services
-          WHERE service_complexity <> "surgery"';
+        $query = 'SELECT service_id, service_name, service_complexity, service_cost FROM services';
         $attributes = array('service_id', 'service_name', 'service_complexity', 'service_cost');
         $table = get_table_w_del($query, $attributes);
 
@@ -214,6 +213,7 @@
                     <select name="complexity" id="complexity">
                         <option value="basic">Basic</option>
                         <option value="specialized">Specialized</option>
+                        <option value="surgery">Surgery</option>
                     </select><br/><br/>
 
                     <label for="cost">Cost: </label>
