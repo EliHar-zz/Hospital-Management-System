@@ -76,13 +76,7 @@
                     <div id="nav-container">
                         <ul id="nav-main">
                             <li><a href="director.php">Personal Info</a></li>
-                            <li><a href="#">Services</a>
-                                <ul>
-                                    <li><a href="directorServices.php?fac=palliative">Palliative</a></li>
-                                    <li><a href="directorServices.php?fac=childrens_unit">Childrens Unit</a></li>
-                                    <li><a href="directorServices.php?fac=surgical_unit">Surgical Unit</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="directorServices.php">Services</a></li>
                             <li><a href="#">Supplies</a>
                                 <ul>
                                     <li><a href="#">Storage Units</a>
@@ -94,15 +88,15 @@
                                     </li>
                                     <li><a href="#">Supply Rooms</a>
                                         <ul>
-                                            <li><a href="#">Palliative First Floor</a></li>
-                                            <li><a href="#">Palliative Second Floor</a></li>
-                                            <li><a href="#">Palliative Third Floor</a></li>
-                                            <li><a href="#">Childrens Unit First Floor</a></li>
-                                            <li><a href="#">Childrens Unit Second Floor</a></li>
-                                            <li><a href="#">Childrens Unit Third Floor</a></li>
-                                            <li><a href="#">Surgical Unit First Floor</a></li>
-                                            <li><a href="#">Surgical Unit Second Floor</a></li>
-                                            <li><a href="#">Surgical Unit Third Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=palliative&floor=first">Palliative First Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=palliative&floor=second">Palliative Second Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=palliative&floor=third">Palliative Third Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=childrens_unit&floor=first">Childrens Unit First Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=childrens_unit&floor=second">Childrens Unit Second Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=childrens_unit&floor=third">Childrens Unit Third Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=surgical_unit&floor=first">Surgical Unit Third Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=surgical_unit&floor=second">Surgical Unit Third Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=surgical_unit&floor=third">Surgical Unit Third Floor</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Kitchens</a>
@@ -174,6 +168,11 @@
             .col.left { padding-right: 30px; border-right: 1px solid white; }
             .col.right { padding-left: 30px; }
             input[type=text] { width: 300px; }
+            .output { color: black; text-shadow: 1px 1px 1px white; border: 1px solid black; padding: 5px }
+            .output.h { background-color: lightblue; border: 1px solid black; }
+            .del { font-size: 12pt; color: black;  }
+            .del:visited { color: black; }
+            .del:hover { color: #5B94AB }
         </style>
 
         <!-- ######################################### Form ##############################################-->
