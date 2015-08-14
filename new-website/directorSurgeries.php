@@ -66,6 +66,7 @@
 </head>
 <body>
 
+
     <!-- ######################################### Nav Bar ##############################################-->
     <header id="main-header" class="clearfix">
         <div id="header-full">
@@ -107,7 +108,6 @@
         </div>
     </header>
 
-
     <!-- ######################################### Main Image ##############################################-->
     <div id="content" class="clearfix">
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
@@ -129,7 +129,6 @@
         mysqli_close($con);
     ?>
 
-
     <div style="text-align:center">
         <!-- ######################################### Style ##############################################-->
         <style scoped>
@@ -138,37 +137,44 @@
             h4 { font-weight: bold }
             label { float: left; }
             .nav { margin: 0 auto; padding: 40px; margin-bottom: 35px; width: 139px; height: 40px; background-color: #5B94AB; color:white; }
-            .form { background-color: #5B94AB; color: white; text-shadow: 1px 1px 1px black; margin-top: 30px; padding: 50px; border: 4px double white; width: 1070px; clear: both; 
-                    margin-bottom: 50px; }
+            .form { background-color: #5B94AB; color: white; text-shadow: 1px 1px 1px black; margin-top: 30px; padding: 50px; border: 4px double white; width: 1070px; clear: both; }
             .row { display: flex; }
             .col { flex: 1; width: 300px; min-height: 250px; }
             .col.left { padding-right: 30px; border-right: 1px solid white; }
             .col.right { padding-left: 30px; }
             input[type=text] { width: 300px; }
+            .output { border: 1px solid black; color: black; text-shadow: 1px 1px 1px white; }
+            .output.h { background-color: lightgrey; }
         </style>
 
-         <!-- ######################################### Form ##############################################-->
-        <form class="form" id="" method="POST" action="">
-            <h3>Storage Unit</h3><br/>
+        <!-- ######################################### Form ##############################################-->
+        <form class="form" method="POST" action="<?php $_SERVER['PHP_SELF'] ?>" style="margin-top: 50px">
+            <h3 style="text-align: center">Surgeries</h3>
             <script>document.write(chooseFacility())</script>
 
             <hr/>
-
+            
             <div class="row">
                 <div class="col left">
-                    <h4>Current Supplies</h4><br/>
+                    <h4>Scheduled Surgeries</h4><br/>
                     <?php 
                         echo '<p style="color:red">I will echo table here</p>';
                     ?>
                 </div>
 
                 <div class="col right">
-                    <h4>Add To Supply Room</h4><br/>
-                    <p class="todo">will echo available to purchase supplies here</p><br/>
-                    <button type="button">Add Supplies</button>
-                </div><br/>
+                    <h4>Add Surgery</h4><br/>
+                    <label for="patient_id">Patient ID: </label>
+                    <input type="text" name="patient_id" id="patient_id"/><br/><br/>
+                    <label for="surgery">Type of Surgery: </label>
+                    <input type="text" name="surgery" id="surgery"/><br/><br/>
+                    <label for="cost">Date: </label>
+                    <input type="date" name="cost" id="cost"/><br/><br/><br/>
+                    <input type="submit" name="submit" value="Add Service"/><br/><br/>
+                </div>
             </div>
-        </form>
+        </form><br/><br/>
     </div>
 </body>
 </html>
+

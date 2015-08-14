@@ -84,7 +84,7 @@
                                     <li><a href="directorKitchen.php">Kitchens</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Surgeries</a></li>
+                            <li><a href="directorSurgeries.php">Surgeries</a></li>
                             <li><a href="#">Records</a>
                                 <ul>
                                     <li><a href="#">tbd</a>
@@ -114,9 +114,23 @@
             <h1><span style="color:red; font-weight: bold">Username</span></h1>
         </header>
 
-    <!-- ######################################### Main Content ##############################################-->
-    <div style="text-align:center">
+    <!-- ######################################### PHP ##############################################-->
+    <?php
+        require 'database.php';
 
+        //$query = '';
+        //$attributes = array();
+        //$table = get_table($query, $attributes);
+
+        if (isset($_POST['submit'])) {
+            // insert(array(), table)
+        }
+
+        mysqli_close($con);
+    ?>
+
+
+    <div style="text-align:center">
         <!-- ######################################### Style ##############################################-->
         <style scoped>
             a { float: left; color: white; margin: 5px; font-size: 20pt; text-decoration: none; }
@@ -129,6 +143,7 @@
             .col { flex: 1; width: 300px; min-height: 250px; }
             .col.left { padding-right: 30px; border-right: 1px solid white; }
             .col.right { padding-left: 30px; }
+            input[type=text] { width: 300px; }
         </style>
 
         <!-- ######################################### Form ##############################################-->

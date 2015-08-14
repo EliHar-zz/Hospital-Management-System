@@ -83,7 +83,7 @@
                                     <li><a href="directorKitchen.php">Kitchens</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Surgeries</a></li>
+                            <li><a href="directorSurgeries.php">Surgeries</a></li>
                             <li><a href="#">Records</a>
                                 <ul>
                                     <li><a href="#">tbd</a>
@@ -114,7 +114,22 @@
             <h1><span style="color:red; font-weight: bold">Username</span></h1>
         </header>
 
-    <!-- ######################################### Main Content ##############################################-->
+    <!-- ######################################### PHP ##############################################-->
+    <?php
+        require 'database.php';
+
+        //$query = '';
+        //$attributes = array();
+        //$table = get_table($query, $attributes);
+
+        if (isset($_POST['submit'])) {
+            // insert(array(), table)
+        }
+
+        mysqli_close($con);
+    ?>
+
+
     <div>
         <!-- ######################################### Style ##############################################-->
         <style scoped>
@@ -128,6 +143,7 @@
             .col { flex: 1; width: 300px; min-height: 250px; }
             .col.left { padding-right: 30px; border-right: 1px solid white; }
             .col.right { padding-left: 30px; }
+            input[type=text] { width: 300px; }
         </style>
 
          <!-- ######################################### Form ##############################################-->
@@ -140,8 +156,9 @@
             <div class="row">
                 <div class="col left">
                     <h4>Current Services</h4><br/>
-                    <p class="todo">Must echo all services from services_provided
-                        table here with delete button for each.</p><br/>
+                    <?php 
+                        echo '<p style="color:red">I will echo table here</p>';
+                    ?>
                 </div>
 
                 <div class="col right">
