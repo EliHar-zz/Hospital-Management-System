@@ -11,7 +11,7 @@
     // @query is the query we wish to apply to our database
     // @attributes is an array which holds the attribute names that we seek
     function get_table($query, $attributes) {
-
+        global $con;
         $result = mysqli_query($con, $query) or die('Unable to execute get table query <br/>' . mysqli_error($con));
 
         $html = '<table>';
@@ -24,7 +24,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
             $html .= '<tr>';
             foreach ($attributes as $attr) {
-                $html .= '<td class="output">'.$surgeries[$attr].'</td>'; 
+                $html .= '<td class="output">'.$row[$attr].'</td>';
             }
             $html .= '</tr>';
         }
@@ -33,16 +33,30 @@
         return $html;
     }
 
-    // This inserts the given attributes into the associated table. Must use all attributes of table and not a subset
-    // @attributes is an associative array. Key = attribute name, Value = cell value
-    // @table is the name of the table we wish to insert into
-    function insert($values, $table) {
-        $query = "INSERT INTO $table VALUES(";
-        for ($i=0; $i<sizeof($values)-1; $i++) {
-            $query .= $values[$i] . ', ';
+    // Same as get_table but with delete button
+    function get_table_w_del($query, $attributes) {
+        global $con;
+        $result = mysqli_query($con, $query) or die('Unable to execute get table query <br/>' . mysqli_error($con));
+
+        $html = '<table>';
+        $html .= '<tr>';
+        foreach ($attributes as $attr) {
+            $html .= "<th class='output h'>$attr</th>";
         }
-        $query .= $values[sizeof($values)-1] . ')';
-        return $query;
-        //$result = mysqli_query($con, $query) or die('Unable to execute insert query <br/>' . mysqli_error($con));
+        $html .= '<th class="output h"></th></tr>';
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $id = $row[$attributes[0]];
+            $html .= '<tr>';
+            foreach ($attributes as $attr) {
+                $html .= '<td class="output">'.$row[$attr].'</td>';
+            }
+            $html .= '<td style="background-color:lightgrey" class="output">
+                        <a class="del" href="'.$_SERVER['PHP_SELF'].'?del='.$id.'">Del</a>
+                        </td>';
+            $html .= '</tr>';
+        }
+        $html .= '</table>';
+
+        return $html;
     }
-?>

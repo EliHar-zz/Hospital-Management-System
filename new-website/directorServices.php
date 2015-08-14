@@ -75,13 +75,7 @@
                     <div id="nav-container">
                         <ul id="nav-main">
                             <li><a href="director.php">Personal Info</a></li>
-                            <li><a href="#">Services</a>
-                                <ul>
-                                    <li><a href="directorServices.php?fac=palliative">Palliative</a></li>
-                                    <li><a href="directorServices.php?fac=childrens_unit">Childrens Unit</a></li>
-                                    <li><a href="directorServices.php?fac=surgical_unit">Surgical Unit</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="directorServices.php">Services</a></li>
                             <li><a href="#">Supplies</a>
                                 <ul>
                                     <li><a href="#">Storage Units</a>
@@ -93,15 +87,15 @@
                                     </li>
                                     <li><a href="#">Supply Rooms</a>
                                         <ul>
-                                            <li><a href="#">Palliative First Floor</a></li>
-                                            <li><a href="#">Palliative Second Floor</a></li>
-                                            <li><a href="#">Palliative Third Floor</a></li>
-                                            <li><a href="#">Childrens Unit First Floor</a></li>
-                                            <li><a href="#">Childrens Unit Second Floor</a></li>
-                                            <li><a href="#">Childrens Unit Third Floor</a></li>
-                                            <li><a href="#">Surgical Unit First Floor</a></li>
-                                            <li><a href="#">Surgical Unit Second Floor</a></li>
-                                            <li><a href="#">Surgical Unit Third Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=palliative&floor=first">Palliative First Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=palliative&floor=second">Palliative Second Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=palliative&floor=third">Palliative Third Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=childrens_unit&floor=first">Childrens Unit First Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=childrens_unit&floor=second">Childrens Unit Second Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=childrens_unit&floor=third">Childrens Unit Third Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=surgical_unit&floor=first">Surgical Unit Third Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=surgical_unit&floor=second">Surgical Unit Third Floor</a></li>
+                                            <li><a href="directorSupplies.php?fac=surgical_unit&floor=third">Surgical Unit Third Floor</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Kitchens</a>
@@ -148,13 +142,29 @@
     <?php
         require 'database.php';
 
-        //$query = '';
-        //$attributes = array();
-        //$table = get_table($query, $attributes);
+        if (isset($_GET['del'])) {
+            global $con;
+            $id = $_GET['del'];
+            $query = "DELETE FROM services WHERE service_id=$id";
+            $result = mysqli_query($con, $query) or die('Unable to delete from DB <br/>'.$query);
+        }
 
         if (isset($_POST['submit'])) {
-            // insert(array(), table)
+            global $con;
+            $name = $_POST['name'];
+            $complexity = $_POST['complexity'];
+            $cost = $_POST['cost'];
+
+            $query = "INSERT INTO services(service_name, service_complexity, service_cost)
+                      VALUES('$name', '$complexity', '$cost')";
+
+            $result = mysqli_query($con, $query) or die("Unable to execute insert query<br/>$query");
         }
+
+        $query = 'SELECT service_id, service_name, service_complexity, service_cost FROM services
+          WHERE service_complexity <> "surgery"';
+        $attributes = array('service_id', 'service_name', 'service_complexity', 'service_cost');
+        $table = get_table_w_del($query, $attributes);
 
         mysqli_close($con);
     ?>
@@ -174,26 +184,38 @@
             .col.left { padding-right: 30px; border-right: 1px solid white; }
             .col.right { padding-left: 30px; }
             input[type=text] { width: 300px; }
+            .output { color: black; text-shadow: 1px 1px 1px white; border: 1px solid black; padding: 5px }
+            .output.h { background-color: lightblue; border: 1px solid black; }
+            .del { font-size: 12pt; color: black;  }
+            .del:visited { color: black; }
+            .del:hover { color: #5B94AB }
         </style>
 
          <!-- ######################################### Form ##############################################-->
-        <form class="form" method="POST" action="" style="margin-top: 50px">
+        <form class="form" method="POST" action="<?php $_SERVER['PHP_SELF'] ?>" style="margin-top: 50px">
             <h3 style="text-align: center">Services</h3>
 
-            <hr/>
+            <hr/><br/>
             
             <div class="row">
                 <div class="col left">
                     <h4>Current Services</h4><br/>
                     <?php 
-                        echo '<p style="color:red">I will echo table here</p>';
+                        echo $table;
                     ?>
                 </div>
 
                 <div class="col right">
-                    <h4>Add Service</h4><br/>
+                    <h4>Add Service</h4><br/><br/>
                     <label for="name">Name: </label>
                     <input type="text" name="name" id="name"/><br/><br/>
+
+                    <label for="complexity">Complexity: </label>
+                    <select name="complexity" id="complexity">
+                        <option value="basic">Basic</option>
+                        <option value="specialized">Specialized</option>
+                    </select><br/><br/>
+
                     <label for="cost">Cost: </label>
                     <input type="text" name="cost" id="cost"/><br/><br/><br/>
                     <input type="submit" name="submit" value="Add Service"/><br/><br/>
