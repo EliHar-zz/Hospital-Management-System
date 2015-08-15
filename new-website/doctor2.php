@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['id']))
-#header("location:../staff.html");
+#header("location:../staff-login.html");
 ?>
 
 <!DOCTYPE html>
@@ -113,8 +113,8 @@ if(!isset($_SESSION['id']))
                             </ul>
                         </li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="patients.html">Patients</a></li>
-                        <li><a href="staff.html">Staff</a></li>
+                        <li><a href="patient-login.html">Patients</a></li>
+                        <li><a href="staff-login.html">Staff</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
