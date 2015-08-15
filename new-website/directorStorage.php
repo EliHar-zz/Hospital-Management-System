@@ -1,3 +1,10 @@
+<?php
+// Start the session
+session_start();
+if(!isset($_SESSION['employee_id']))
+    header("location: ../staff-login.html");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,7 +130,7 @@
                                     <li><a href="">tbd</a></li>
                                 </ul>
                             </li>
-                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="php/logout.php">Logout</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -134,7 +141,7 @@
     <!-- ######################################### Main Image ##############################################-->
     <div id="content" class="clearfix">
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-            <h1><span style="color:red; font-weight: bold">Username</span></h1>
+            <h1><span style="color:red; font-weight: bold"><?php echo $_SESSION['employee_name'];?></span></h1>
         </header>
 
     <!-- ######################################### PHP ##############################################-->
