@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include("connect.php");// connect to DB
 
@@ -14,16 +15,15 @@ $row = mysqli_fetch_assoc($result);
 if ($row['employee_id']) {
 
     #start session
-
     $_SESSION = $row;
     $_SESSION ['user']='employee';
-
 
     switch ($_SESSION['employee_type_id']) {
         case 1:
             $_SESSION['employee_type'] = 'director';
 
             header("Location: ../director.php");
+
             die();
             break;
         case 2:

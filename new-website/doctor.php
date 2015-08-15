@@ -1,8 +1,8 @@
 <?php
 // Start the session
 session_start();
-if(!isset($_SESSION['id']))
-    #header("location:../staff-login.html");
+if(!isset($_SESSION['employee_id']))
+    header("location: ../staff-login.html");
 ?>
 
 <!DOCTYPE html>
@@ -124,7 +124,7 @@ if(!isset($_SESSION['id']))
 </header>
 <div id="content" class="clearfix">
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-        <h1><span><?php echo $_SESSION['name'];?></span></h1>
+        <h1><span><?php echo $_SESSION['employee_name'];?></span></h1>
         <aside>
             <a href="#content-side-title" class="link-side-title"><span></span><span></span><span></span></a>
             <div id="content-side-title" class="title-testimonial">

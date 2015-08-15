@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include("connect.php");// connect to DB
 
@@ -10,6 +11,7 @@ $sql = "SELECT * FROM patients WHERE patient_id ='".$patient_id."' AND password 
 $result = $conn->query($sql);
 $row = mysqli_fetch_assoc($result);
 
+$_SESSION = $row;
 
 if ($row['patient_id']) {
 
