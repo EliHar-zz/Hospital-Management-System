@@ -12,7 +12,7 @@
     // @attributes is an array which holds the attribute names that we seek
     function get_table($query, $attributes) {
         global $con;
-        $result = mysqli_query($con, $query) or die('Unable to execute get table query <br/>' . mysqli_error($con));
+        $result = mysqli_query($con, $query) or die('Unable to execute get table query <br/>' . $query);
 
         $html = '<table>';
         $html .= '<tr>';
@@ -60,3 +60,38 @@
 
         return $html;
     }
+
+    function get_table_w_purchase($query, $attributes, $facility) {
+        global $con;
+        $result = mysqli_query($con, $query) or die('Unable to execute get table query <br/>' . mysqli_error($con));
+
+        $html = '<table>';
+        $html .= '<tr>';
+        foreach ($attributes as $attr) {
+            $html .= "<th class='output h'>$attr</th>";
+        }
+        $html .= '<th class="output h">quantity</th><th class="output h"></th></tr>';
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $id = $row['supply_id'];
+
+            $html .= '<tr>';
+            foreach ($attributes as $attr) {
+                $html .= '<td class="output">'.$row[$attr].'</td>';
+            }
+            $html .= '<td class="output">
+                        <input style="width:50px" name="'.$id.'" type="text"/>
+                      </td>';
+            $html .= '<td style="background-color:lightgrey" class="output">
+                        <button type="submit" name="buy" value="'.$id.'">Buy</button>
+                        </td>';
+            $html .= '</tr>';
+        }
+        $html .= '</table>';
+
+        //$_SERVER['PHP_SELF'].'?fac='.$facility.'&buy='.$id
+        //<input type="submit" name="buy" value="Buy"/>
+        return $html;
+    }
+
+
