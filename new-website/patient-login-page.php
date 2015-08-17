@@ -1,3 +1,10 @@
+<?php
+// Start the session
+session_start();
+if(isset($_SESSION['patient_id']))
+    header("location: ../patient.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +114,7 @@
                             </li>
                             <li><a href="services.html">Services</a></li>
                             <li><a href="patient-login.html">Patients</a></li>
-                            <li><a href="staff-login.html">Staff</a></li>
+                            <li><a href="staff-login-page.php">Staff</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>

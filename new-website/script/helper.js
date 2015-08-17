@@ -19,3 +19,12 @@ function scheduleClicked(){
 function otherClicked(){
     document.getElementById("dashboard").innerHTML='<h2>Other</h2><table style="background: lightgray;"> <td> <td>---</td><td>---</td><td>---</td><td>---</td></td><tr> <td>---</td><td>---</td><td>---</td><td>---</td></tr><tr> <td>---</td><td>---</td><td>---</td><td>---</td></tr><tr> <td>---</td><td>---</td><td>---</td><td>---</td></tr></table> </div>';
 }
+
+
+
+function showPatientHistory(){
+
+    $.post("../php/patient-view.php", function(data, status){
+        document.getElementById("result").innerHTML='<h1 style="text-align: left; font-size: larger; font-family: Georgia; text-decoration: underline">Visits History</h1></br></br>'+data;
+    });
+}

@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['patient_id']))
-header("location: ../patient-login.html");
+header("location: ../patient-login-page.php");
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ header("location: ../patient-login.html");
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" media="all" href="style/stylemobile.css" />
     <!--<link rel="stylesheet" type="text/css" media="all" href="style/mobilenavigation.css" />-->
-
+    <script src="script/helper.js" type="text/javascript"></script>
     <script src="script/modernizr.js" type="text/javascript"></script>
     <script src="script/jquery.js" type="text/javascript"></script>
     <script src="script/jquery-ui.js" type="text/javascript"></script>
@@ -113,8 +113,8 @@ header("location: ../patient-login.html");
                             </ul>
                         </li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="patient-login.html">Patients</a></li>
-                        <li><a href="staff-login.html">Staff</a></li>
+                        <li><a href="patient-login-page.php">Patients</a></li>
+                        <li><a href="staff-login-page.php">Staff</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -138,33 +138,15 @@ header("location: ../patient-login.html");
         </aside>
     </header>
     <div class="box user_info">
-        <h2>Medicare Insurance Number: <?php #echo getEmployee().Facility?></h2></br>
-        <h2>Hospital Number: <?php #echo getEmployee().Facility?></h2></br>
-        <!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
-        <!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
+        <h1 style="text-align: center; font-size: larger; font-family: Georgia; text-decoration: underline">Patient's Information</h1></br>
+        <h2>Medicare Insurance Number: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['medicare']?></span></h2></br>
+        <h2>Hospital Card Number: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['hospital_card']?></span></h2>
+        </br></br></br>
+        <button class="historyButton" onclick="showPatientHistory()">Show Visits History</button>
     </div>
 
-        <div id="result">
-            <?php #while $row = mysqli_fetch_assoc($result)
-
-            #Populate tables
-            ?>
-            <h1>Visits</h1>
-            <table style="background: lightgray;">
-                <td>
-                <td>---</td><td>---</td><td>---</td><td>---</td>
-                </td>
-                <tr>
-                    <td>---</td><td>---</td><td>---</td><td>---</td>
-                </tr>
-                <tr>
-                    <td>---</td><td>---</td><td>---</td><td>---</td>
-                </tr>
-                <tr>
-                    <td>---</td><td>---</td><td>---</td><td>---</td>
-                </tr>
-            </table>
-        </div>
+    <div id="result">
+            <!-----   Load table  ----->
     </div>
     <footer id="main-footer">
         <aside>
