@@ -141,20 +141,80 @@ if(!isset($_SESSION['employee_id']))
     <!-- ######################################### Main Image ##############################################-->
     <div id="content" class="clearfix">
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-            <h1><span style="color:red; font-weight: bold"><?php echo $_SESSION['employee_name'];?></span></h1>
+            <h1><span style="color:white; font-weight: bold"><?php echo $_SESSION['employee_name'];?></span></h1>
         </header>
 
     <!-- ######################################### PHP ##############################################-->
     <?php
         require 'database.php';
 
-        //$query = '';
-        //$attributes = array();
-        //$table = get_table($query, $attributes);
+        $facility = $_GET['fac'];
+        $floor = $_GET['floor'];
 
-        if (isset($_POST['submit'])) {
-            // insert(array(), table)
+        if ($facility == 'palliative') {
+            $facility_id = 1;
+        } else if ($facility == 'childrens_unit') {
+            $facility_id = 2;
+        } else if ($facility == 'surgical_unit') {
+            $facility_id = 3;
         }
+
+        if ($floor == "first") {
+            $floor_num = 1;
+        } else if ($floor == "second") {
+            $floor_num = 2;
+        } else if ($floor == "third") {
+            $floor_num = 3;
+        }
+
+        if (isset($_POST['buy'])) {
+
+            $order_id = 0;
+            $supply_id = $_POST['buy'];
+            $quantity = $_POST[$supply_id];
+
+            // orders(order_id, date, facility_id, supply_id, quantity)
+            // facility_supplies(facility_id, supplies_id, quantity)
+
+            // insert into orders
+            $query = "INSERT INTO orders VALUES($order_id, now(), $facility_id, $floor_num, $supply_id, $quantity)";
+            $result = mysqli_query($con, $query) or die("Unable to process order ".mysqli_error($con));
+
+            // check if facility_supplies already contains purchased product
+            $query = "SELECT * FROM floor_supplies
+                      WHERE floors_facility_id=$facility_id
+                      AND supplies_supply_id=$supply_id";
+            $result = mysqli_query($con, $query) or die("Unable to query facility supplies");
+
+            // if facility_supplies has product, update quantity
+            if (mysqli_num_rows($result) > 0) {
+                $query = "UPDATE floor_supplies
+                          SET quantity=quantity+$quantity
+                          WHERE floors_facility_id=$facility_id
+                          AND floors_floor_number=$floor_num
+                          AND supplies_supply_id=$supply_id";
+                $result = mysqli_query($con, $query) or die("Unable to update facility supplies");
+            }
+            else { // if facility_supplies does not have product, insert purchase
+                $query = "INSERT INTO floor_supplies VALUES($facility_id, $floor_num, $supply_id, $quantity)";
+                $result = mysqli_query($con, $query) or die("Unable to insert new purchase");
+            }
+        }
+
+        $query = "SELECT supply_name, quantity
+                  FROM floor_supplies, supplies
+                  WHERE supply_id=supplies_supply_id
+                  AND floors_facility_id=1
+                  AND floors_floor_number=1";
+        $attributes = array('supply_name', 'quantity');
+        $storage = get_table($query, $attributes);
+
+        $query = "SELECT supply_id, supply_name, supply_cost, vendor_name
+                  FROM supplies, vendors
+                  WHERE vendors_vendor_id = vendor_id
+                  AND vendor_name NOT LIKE '%Food%'";
+        $attributes = array('supply_id', 'supply_name', 'supply_cost', 'vendor_name');
+        $vendor = get_table_w_purchase($query, $attributes, $facility);
 
         mysqli_close($con);
     ?>
@@ -181,26 +241,27 @@ if(!isset($_SESSION['employee_id']))
         </style>
 
          <!-- ######################################### Form ##############################################-->
-        <form class="form" id="" method="POST" action="">
-            <h3>Supply Room</h3><br/>
-            
+        <form class="form" method="POST" action="<?php $_SERVER['PHP_SELF'] . "?fac=$facility" ?>">
+            <h3>Floor Supplies</h3><br/>
+
             <hr/>
 
             <div class="row">
                 <div class="col left">
                     <h4>Current Supplies</h4><br/>
-                    <?php 
-                        echo '<p style="color:red">I will echo table here</p>';
+                    <?php
+                        echo $storage;
                     ?>
                 </div>
+
                 <div class="col right">
-                    <h4>Add to Supply Room</h4><br/>
-                    <p class="todo">will echo available to purchase supplies here</p><br/>
-                    <button type="button">Add Supplies</button>
+                    <h4>Add to Floor Supplies</h4><br/>
+                    <?php
+                        echo $vendor;
+                    ?>
                 </div><br/>
             </div>
         </form>
-
     </div>
 </body>
 </html>
