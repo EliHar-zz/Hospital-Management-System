@@ -54,7 +54,7 @@
             }
             $html .= '<td style="background-color:lightgrey" class="output">
                         <a class="del" href="'.$_SERVER['PHP_SELF'].'?fac='.$facility.'&del='.$id.'">Del</a>
-                        </td>';
+                      </td>';
             $html .= '</tr>';
         }
         $html .= '</table>';
@@ -62,7 +62,7 @@
         return $html;
     }
 
-    function get_table_w_purchase($query, $attributes, $facility) {
+    function get_table_w_purchase($query, $attributes) {
         global $con;
         $result = mysqli_query($con, $query) or die('Unable to execute get table query <br/>' . mysqli_error($con));
 

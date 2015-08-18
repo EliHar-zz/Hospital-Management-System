@@ -69,6 +69,16 @@
                 $("body").removeClass("no-move");
             });
         });
+
+        function selectDefault(id, value) {
+            var target = document.getElementById(id);
+            for (var i=0; i<target.length; i++) {
+                if (target.options[i].value == value) {
+                    target.selectedIndex = i;
+                    return;
+                }
+            }
+        }
     </script>
 </head>
 <body>
@@ -147,6 +157,11 @@
 
             include 'database.php';
 
+            function set_default_select($name, $stored_value, $default_value) {
+                $write_value = (empty($stored_value)) ? $default_value : $stored_value;
+                echo '<script>selectDefault("'.$name.'", "'.$write_value.'")</script>';
+            }
+
             if (isset($_POST['submit'])) {
                 $facility = $_GET['fac'];
                 $storage_id = $_POST['storage_type'];
@@ -217,10 +232,11 @@
                             <option value="3">Supply Room - 3rd Floor</option>
                             <option value="kitchen">Kitchen</option>
                         </select><br/><br/>
-
+                        <?php set_default_select('storage_type', $storage_id, 'facility'); ?>
 
                         <label for="year-month">Year-Month: </label>
-                        <input id="year-month" name="year-month" type="month"/><br/><br/><br/>
+                        <input id="year-month" name="year-month" type="month" value="<?php echo $date ?>"/><br/><br/><br/>
+
 
                         <input type="submit" name="submit" value="View Record"/>
                     </div><br/>
