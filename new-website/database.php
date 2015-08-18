@@ -90,8 +90,39 @@
         }
         $html .= '</table>';
 
-        //$_SERVER['PHP_SELF'].'?fac='.$facility.'&buy='.$id
-        //<input type="submit" name="buy" value="Buy"/>
+        return $html;
+    }
+
+    function get_table_w_sum($query, $attributes) {
+        global $con;
+        $result = mysqli_query($con, $query) or die('Unable to execute get table query <br/>' . $query);
+
+        setlocale(LC_MONETARY, 'en_US');
+        //echo money_format('%i', $number) . "\n";
+
+        $html = '<table>';
+        $html .= '<tr>';
+        foreach ($attributes as $attr) {
+            $html .= "<th class='output h'>$attr</th>";
+        }
+        $html .= '</tr>';
+
+        $sum = 0;
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $sum += $row['cost'];
+            $html .= '<tr>';
+            foreach ($attributes as $attr) {
+                $html .= '<td class="output">'.$row[$attr].'</td>';
+            }
+            $html .= '</tr>';
+        }
+        $html .= '<tr>
+                    <th colspan="3" style="text-align:left" class="output">Sum</th>
+                    <th class="output">$'.money_format('%i', $sum).'</th>
+                  </tr>';
+        $html .= '</table>';
+
         return $html;
     }
 

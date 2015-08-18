@@ -144,9 +144,6 @@
 
         <!-- ######################################### PHP ##############################################-->
         <?php
-            // SELECT date, supply_name, quantity, cost
-            // FROM orders NATURAL JOIN supplies
-            // WHERE facility_id=1 AND storage_id='facility' AND YEAR(date)=2012 AND MONTH(date)=1
 
             include 'database.php';
 
@@ -166,7 +163,7 @@
                           ORDER BY date";
 
                 $attributes = array('date', 'supply_name', 'quantity', 'cost');
-                $orders = get_table($query, $attributes);
+                $orders = get_table_w_sum($query, $attributes);
             }
 
 
