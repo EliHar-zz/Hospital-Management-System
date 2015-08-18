@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['employee_id']))
-    header("location: ../staff-login-page.php");
+    header("location: ../staff-login.html");
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +30,7 @@ if(!isset($_SESSION['employee_id']))
 	<script src="script/jquery.flexslider.js" type="text/javascript"></script>
 	<script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
 	<script src="script/jquery.retina.js" type="text/javascript"></script>
+    <script src="script/matt.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(document).ready(function (){
         $("a[data-rel^='prettyPhoto']").prettyPhoto({
@@ -38,7 +39,7 @@ if(!isset($_SESSION['employee_id']))
 			social_tools: false
 		});
         $('#slideshow-tabs').tabs({ show: { effect: "fade", duration: 200 }, hide: { effect: "fade", duration: 300 } });
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|OperaMini/i.test(navigator.userAgent) || ($(window).width() < 1024) ) {
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|OperaMini/i.test(navigator.userAgent) || ($(window).width() < 1024) ) {	
 		} else {
             $('#slideshow-tabs .ui-tabs-panel').parallax("50%", 0.5);
             $('.content-home-1').parallax("0", 0.5);
@@ -141,7 +142,7 @@ if(!isset($_SESSION['employee_id']))
     <!-- ######################################### Main Image ##############################################-->
     <div id="content" class="clearfix">
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-            <h1><span><?php echo $_SESSION['employee_name'];?></span></h1>
+            <h1><span style="color:white; font-weight: bold"><?php echo $_SESSION['employee_name'];?></span></h1>
         </header>
 
     <!-- ######################################### PHP ##############################################-->

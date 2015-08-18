@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['employee_id']))
-    header("location: ../staff-login-page.php");
+    header("location: ../staff-login.html");
 ?>
 
 <!DOCTYPE html>
@@ -147,19 +147,32 @@ if(!isset($_SESSION['employee_id']))
         </header>
 
     <!-- ######################################### PHP ##############################################-->
-    <?php
-        require 'database.php';
+        <?php
+            require 'database.php';
 
-        //$query = '';
-        //$attributes = array();
-        //$table = get_table($query, $attributes);
+            if (isset($_GET['del'])) {
+                global $con;
+                $id = $_GET['del'];
+                $query = "";
+                $result = mysqli_query($con, $query) or die('Unable to delete from DB <br/>'.$query);
+            }
 
-        if (isset($_POST['submit'])) {
-            // insert(array(), table)
-        }
+            if (isset($_POST['submit'])) {
+                global $con;
 
-        mysqli_close($con);
-    ?>
+                // grab variables
+
+                // insert into services_per_visit
+                $query = "";
+                $result = mysqli_query($con, $query) or die("Unable to execute insert query<br/>$query");
+            }
+
+            $query = '';
+            $attributes = array();
+            //$table = get_table_w_del($query, $attributes);
+
+            mysqli_close($con);
+        ?>
 
     <div style="text-align:center">
         <!-- ######################################### Style ##############################################-->
@@ -190,9 +203,12 @@ if(!isset($_SESSION['employee_id']))
             
             <div class="row">
                 <div class="col left">
-                    <h4>Scheduled Surgeries</h4><br/>
-                    <?php 
-                        echo '<p style="color:red">I will echo table here</p>';
+                    <h4>Current Surgeries</h4><br/>
+                    <?php
+                        if (isset($table)) {
+                            echo $table;
+                        } else
+                        echo '<p>To be implemented</p>';
                     ?>
                 </div>
 

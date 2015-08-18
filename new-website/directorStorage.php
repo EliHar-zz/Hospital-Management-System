@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['employee_id']))
-    header("location: ../staff-login-page.php");
+    header("location: ../staff-login.html");
 ?>
 
 <!DOCTYPE html>
@@ -162,16 +162,20 @@ if(!isset($_SESSION['employee_id']))
 
             $order_id = 0;
             $supply_id = $_POST['buy'];
-            $storage_id = 'facility';
             $quantity = $_POST[$supply_id];
 
+            $query = "SELECT supply_cost FROM supplies WHERE supply_id=$supply_id";
+            $result = mysqli_query($con, $query);
+            $arr = mysqli_fetch_assoc($result);
+            $cost = $quantity*$arr['supply_cost'];
 
             // orders(order_id, date, facility_id, supply_id, quantity)
             // facility_supplies(facility_id, supplies_id, quantity)
 
             // insert into orders
-            $query = "INSERT INTO orders VALUES($order_id, now(), $facility_id, $storage_id, $supply_id, $quantity)";
-            $result = mysqli_query($con, $query) or die("Unable to process order ".mysqli_error($con));
+            $query = "INSERT INTO orders
+                      VALUES($order_id, now(), $facility_id, 'facility', $supply_id, $quantity, $cost)";
+            $result = mysqli_query($con, $query) or die("Unable to process order ".mysqli_error($con). "<br>$query");
 
             // check if facility_supplies already contains purchased product
             $query = "SELECT * FROM facility_supplies WHERE facility_id=$facility_id AND supplies_id=$supply_id";

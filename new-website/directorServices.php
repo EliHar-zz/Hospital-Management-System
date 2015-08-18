@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['employee_id']))
-    header("location: ../staff-login-page.php");
+    header("location: ../staff-login.html");
 ?>
 
 

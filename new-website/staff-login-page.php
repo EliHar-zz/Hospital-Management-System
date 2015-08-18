@@ -55,7 +55,7 @@ if(isset($_SESSION['employee_id']))
             break;
         case 10:
             $_SESSION['employee_type'] = 'senior administrator';
-            header("Location: ../director.php");
+            header("Location: director.php");
             die();
             break;
         case 11:
