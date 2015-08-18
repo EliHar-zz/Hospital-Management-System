@@ -167,15 +167,9 @@ if(isset($_SESSION['employee_id']))
                             <li><a href="index.html">Home</a></li>
                             <li><a href="about.html">About Us</a></li>
                             <li><a href="services.html">Services</a></li>
-<<<<<<< HEAD:new-website/staff-login.html
-                            <li><a href="patient-login.html">Patients</a></li>
-                            <li><a href="staff-login.html">Staff</a></li>
-                            <li><a href="php/logout.php">logout</a></li>
-=======
                             <li><a href="patient-login-page.php">Patients</a></li>
                             <li><a href="staff-login-page.php">Staff</a></li>
-                            <li><a href="contact.html">Contact</a></li>
->>>>>>> 135e2731cc1520403186636862b7fca0f09bd314:new-website/staff-login-page.php
+                            <li><a href="php/logout.php">logout</a></li>
                         </ul>
                     </div>
                 </nav>

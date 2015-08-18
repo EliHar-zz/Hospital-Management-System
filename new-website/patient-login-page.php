@@ -93,13 +93,8 @@ if(isset($_SESSION['patient_id']))
                             <li><a href="about.html">About Us</a></li>
                             <li><a href="services.html">Services</a></li>
                             <li><a href="patient-login.html">Patients</a></li>
-<<<<<<< HEAD:new-website/patient-login.html
-                            <li><a href="staff-login.html">Staff</a></li>
-                            <li><a href="php/logout.php">logout</a></li>
-=======
                             <li><a href="staff-login-page.php">Staff</a></li>
-                            <li><a href="contact.html">Contact</a></li>
->>>>>>> 135e2731cc1520403186636862b7fca0f09bd314:new-website/patient-login-page.php
+                            <li><a href="php/logout.php">Logout</a></li>
                         </ul>
                     </div>
                 </nav>
