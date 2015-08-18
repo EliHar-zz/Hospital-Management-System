@@ -6,11 +6,10 @@ include("connect.php");// connect to DB
 $employee_id = $_POST['employee_id'];
 $password = $_POST['password'];
 
-$sql = "SELECT * FROM employees WHERE employee_id ='".$employee_id."' AND password ='".$password."'";
+$sql = "SELECT employee_id, facility_name, employee_type_id, start_date, end_date, password, employee_name FROM employees, facilities WHERE employee_id ='".$employee_id."' and password = '".$password."' and employees.facility_id = facilities.facility_id";
 
 $result = $conn->query($sql);
 $row = mysqli_fetch_assoc($result);
-
 
 if ($row['employee_id']) {
 
@@ -51,6 +50,15 @@ if ($row['employee_id']) {
             break;
         case 6:
             $_SESSION['employee_type'] = 'doctor';
+
+            $sql2 = "SELECT maximum_hours FROM doctors";
+
+            $result2 = $conn->query($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+
+
+            $_SESSION['maximum_hours'] = $row2['maximum_hours'];
+
             header("Location: ../doctor.php");
             die();
             break;

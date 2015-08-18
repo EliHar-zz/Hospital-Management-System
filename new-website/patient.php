@@ -115,7 +115,7 @@ header("location: ../patient-login-page.php");
                         <li><a href="services.html">Services</a></li>
                         <li><a href="patient-login-page.php">Patients</a></li>
                         <li><a href="staff-login-page.php">Staff</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="php/logout.php">Logout</a></li>
                     </ul>
                 </div>
             </nav>

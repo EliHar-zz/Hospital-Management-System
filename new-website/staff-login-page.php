@@ -189,7 +189,7 @@ if(isset($_SESSION['employee_id']))
                             </li>
                             <li><a href="services.html">Services</a></li>
                             <li><a href="patient-login-page.php">Patients</a></li>
-                            <li><a href="staff-login.html">Staff</a></li>
+                            <li><a href="staff-login-page.php">Staff</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
