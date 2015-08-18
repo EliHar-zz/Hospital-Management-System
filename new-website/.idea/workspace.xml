@@ -26,51 +26,65 @@
         <entry file="file://$PROJECT_DIR$/script/helper.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="104" column="18" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
+              <caret line="82" column="49" selection-start-line="82" selection-start-column="49" selection-end-line="82" selection-end-column="49" />
               <folding>
-                <marker date="1439888093000" expanded="true" signature="133:145" placeholder="..." />
-                <marker date="1439888093000" expanded="true" signature="187:218" placeholder="..." />
-                <marker date="1439888093000" expanded="true" signature="273:286" placeholder="..." />
-                <marker date="1439888093000" expanded="true" signature="393:424" placeholder="..." />
-                <marker date="1439888093000" expanded="true" signature="551:564" placeholder="..." />
-                <marker date="1439888093000" expanded="true" signature="711:733" placeholder="..." />
-                <marker date="1439888093000" expanded="true" signature="1100:1122" placeholder="..." />
-                <marker date="1439888093000" expanded="true" signature="1489:1511" placeholder="..." />
-                <marker date="1439888093000" expanded="true" signature="1872:1894" placeholder="..." />
-                <marker date="1439888093000" expanded="true" signature="2319:2404" placeholder="..." />
+                <marker date="1439932287000" expanded="true" signature="133:145" placeholder="..." />
+                <marker date="1439932287000" expanded="true" signature="187:218" placeholder="..." />
+                <marker date="1439932287000" expanded="true" signature="273:286" placeholder="..." />
+                <marker date="1439932287000" expanded="true" signature="393:424" placeholder="..." />
+                <marker date="1439932287000" expanded="true" signature="551:564" placeholder="..." />
+                <marker date="1439932287000" expanded="true" signature="711:733" placeholder="..." />
+                <marker date="1439932287000" expanded="true" signature="1100:1122" placeholder="..." />
+                <marker date="1439932287000" expanded="true" signature="1489:1511" placeholder="..." />
+                <marker date="1439932287000" expanded="true" signature="1872:1894" placeholder="..." />
+                <marker date="1439932287000" expanded="true" signature="2319:2404" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clickedSearchResult.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/clickedSearchResult.php">
+      <file leaf-file-name="employee_login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/employee_login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.25">
-              <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+            <state vertical-scroll-proportion="-8.375">
+              <caret line="89" column="83" selection-start-line="89" selection-start-column="83" selection-end-line="89" selection-end-column="83" />
+              <folding>
+                <marker date="1439931347000" expanded="true" signature="144:389" placeholder="SELECT emplo..employees..." />
+                <marker date="1439931347000" expanded="true" signature="1499:1547" placeholder="SELECT maxim..doctors..." />
+                <marker date="1439931347000" expanded="true" signature="2623:2879" placeholder="select junio..junior_doctors..." />
+                <marker date="1439931347000" expanded="true" signature="2623:2896" placeholder="select junio..junior_doctors..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="doctor2.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/doctor2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.5">
+              <caret line="4" column="93" selection-start-line="4" selection-start-column="93" selection-end-line="4" selection-end-column="93" />
+              <folding>
+                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h2#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h2#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h2#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h2#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h2#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h2#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="patient.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/patient.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.096618354">
+              <caret line="4" column="76" selection-start-line="4" selection-start-column="76" selection-end-line="4" selection-end-column="76" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="searchPeople.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/php/searchPeople.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6982344">
-              <caret line="29" column="307" selection-start-line="29" selection-start-column="307" selection-end-line="29" selection-end-column="307" />
-              <folding>
-                <marker date="1439886846000" expanded="true" signature="194:326" placeholder="SELECT emplo..patients..." />
-                <marker date="1439886846000" expanded="true" signature="398:581" placeholder="select * fro..employees..." />
-                <marker date="1439886846000" expanded="true" signature="398:626" placeholder="select emplo..employees..." />
-                <marker date="1439886846000" expanded="true" signature="690:914" placeholder="select emplo..employees..." />
-                <marker date="1439886846000" expanded="true" signature="1010:1037" placeholder="..." />
-                <marker date="1439886846000" expanded="true" signature="1048:1049" placeholder="..." />
-                <marker date="1439886846000" expanded="true" signature="1125:1126" placeholder="..." />
-                <marker date="1439886846000" expanded="true" signature="1125:1136" placeholder="..." />
-                <marker date="1439886846000" expanded="true" signature="1125:1233" placeholder="..." />
-                <marker date="1439886846000" expanded="true" signature="1125:1478" placeholder="..." />
-                <marker date="1439886846000" expanded="true" signature="1149:1218" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -78,26 +92,9 @@
       <file leaf-file-name="doctor.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/doctor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.958333">
-              <caret line="172" column="48" selection-start-line="172" selection-start-column="48" selection-end-line="172" selection-end-column="48" />
-              <folding>
-                <element signature="n#style#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#h2#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#h2#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#h2#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#label#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#3;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-1.25">
+              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -146,7 +143,6 @@
         <option value="$PROJECT_DIR$/doctors2.php" />
         <option value="$PROJECT_DIR$/php/connect.php" />
         <option value="$PROJECT_DIR$/staff.html" />
-        <option value="$PROJECT_DIR$/doctor2.php" />
         <option value="$PROJECT_DIR$/chief-nurse.php" />
         <option value="$PROJECT_DIR$/php/patient_login.php" />
         <option value="$PROJECT_DIR$/php/logout.php" />
@@ -164,14 +160,16 @@
         <option value="$PROJECT_DIR$/patient-login-page.php" />
         <option value="$PROJECT_DIR$/staff-login-page.php" />
         <option value="$PROJECT_DIR$/style/style.css" />
-        <option value="$PROJECT_DIR$/patient.php" />
-        <option value="$PROJECT_DIR$/php/employee_login.php" />
         <option value="$PROJECT_DIR$/director.php" />
         <option value="$PROJECT_DIR$/php/fetch-doctor-salary.php" />
-        <option value="$PROJECT_DIR$/doctor.php" />
         <option value="$PROJECT_DIR$/php/searchPeople.php" />
+        <option value="$PROJECT_DIR$/php/fetch-patient-history.php" />
         <option value="$PROJECT_DIR$/php/clickedSearchResult.php" />
+        <option value="$PROJECT_DIR$/php/employee_login.php" />
+        <option value="$PROJECT_DIR$/doctor.php" />
         <option value="$PROJECT_DIR$/script/helper.js" />
+        <option value="$PROJECT_DIR$/doctor2.php" />
+        <option value="$PROJECT_DIR$/patient.php" />
       </list>
     </option>
   </component>
@@ -216,7 +214,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -265,6 +262,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -352,22 +350,22 @@
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32740742" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19318181" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18019481" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902297" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32740742" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -385,9 +383,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19318181" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -413,6 +411,73 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/script/helper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="104" column="18" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
+          <folding>
+            <marker date="1439932287000" expanded="true" signature="133:145" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="187:218" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="273:286" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="393:424" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="551:564" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="711:733" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="1100:1122" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="1489:1511" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="1872:1894" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="2319:2404" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/clickedSearchResult.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding>
+            <marker date="1439923987000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..patients..." />
+            <marker date="1439923987000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..patients..." />
+            <marker date="1439923987000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..patients..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/searchPeople.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="307" selection-start-line="29" selection-start-column="307" selection-end-line="29" selection-end-column="307" />
+          <folding>
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="SELECT emplo..patients..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="select * fro..employees..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="select emplo..employees..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="select emplo..employees..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doctor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="172" column="48" selection-start-line="172" selection-start-column="48" selection-end-line="172" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2347" column="17" selection-start-line="2347" selection-start-column="17" selection-end-line="2347" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/php/employee_login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -432,7 +497,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.510433">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -491,14 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doctor2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.0434783">
-          <caret line="126" column="49" selection-start-line="126" selection-start-column="49" selection-end-line="126" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nurse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -531,16 +587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/patient_login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21669342">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <marker date="1439607361000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..patients..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/patient-login-page.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3611557">
@@ -565,78 +611,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/patient.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5778491">
-          <caret line="117" column="41" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/director.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.625">
           <caret line="142" column="8" selection-start-line="142" selection-start-column="8" selection-end-line="144" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/fetch-doctor-salary.php">
+    <entry file="file://$PROJECT_DIR$/php/patient_login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43338683">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.19323671">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="11" selection-end-column="35" />
           <folding>
-            <marker date="1439874979000" expanded="true" signature="-1:-1" placeholder="select count..visits..." />
-            <marker date="1439874979000" expanded="true" signature="-1:-1" placeholder="select count..visits..." />
-            <marker date="1439874979000" expanded="true" signature="-1:-1" placeholder="select count..visits..." />
-            <marker date="1439874979000" expanded="true" signature="-1:-1" placeholder="select count..visits..." />
-            <marker date="1439874979000" expanded="true" signature="-1:-1" placeholder="select count..visits..." />
+            <marker date="1439607361000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..patients..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/fetch-patient-history.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14446227">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doctor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.958333">
-          <caret line="172" column="48" selection-start-line="172" selection-start-column="48" selection-end-line="172" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.2415459">
+          <caret line="10" column="158" selection-start-line="10" selection-start-column="158" selection-end-line="10" selection-end-column="158" />
           <folding>
-            <element signature="n#style#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#h2#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#h2#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#h2#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#3;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1439923926000" expanded="true" signature="-1:-1" placeholder="SELECT visit..visits..." />
+            <marker date="1439923926000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439923926000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439923926000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/employee_login.php">
+    <entry file="file://$PROJECT_DIR$/php/searchPeople.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83146065">
-          <caret line="104" column="5" selection-start-line="19" selection-start-column="4" selection-end-line="104" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.072463766">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <marker date="1439863102000" expanded="true" signature="-1:-1" placeholder="SELECT emplo..employees..." />
-            <marker date="1439863102000" expanded="true" signature="-1:-1" placeholder="SELECT maxim..doctors..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="SELECT emplo..patients..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="select * fro..employees..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="select emplo..employees..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="select emplo..employees..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439916788000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/clickedSearchResult.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7487923">
+          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+          <folding>
+            <marker date="1439923987000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..patients..." />
+            <marker date="1439923987000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..patients..." />
+            <marker date="1439923987000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..patients..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/fetch-doctor-salary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4347826">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <marker date="1439888668000" expanded="true" signature="-1:-1" placeholder="select count..visits..." />
           </folding>
         </state>
       </provider>
@@ -644,47 +687,67 @@
     <entry file="file://$PROJECT_DIR$/script/helper.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="104" column="18" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
+          <caret line="82" column="49" selection-start-line="82" selection-start-column="49" selection-end-line="82" selection-end-column="49" />
           <folding>
-            <marker date="1439888093000" expanded="true" signature="133:145" placeholder="..." />
-            <marker date="1439888093000" expanded="true" signature="187:218" placeholder="..." />
-            <marker date="1439888093000" expanded="true" signature="273:286" placeholder="..." />
-            <marker date="1439888093000" expanded="true" signature="393:424" placeholder="..." />
-            <marker date="1439888093000" expanded="true" signature="551:564" placeholder="..." />
-            <marker date="1439888093000" expanded="true" signature="711:733" placeholder="..." />
-            <marker date="1439888093000" expanded="true" signature="1100:1122" placeholder="..." />
-            <marker date="1439888093000" expanded="true" signature="1489:1511" placeholder="..." />
-            <marker date="1439888093000" expanded="true" signature="1872:1894" placeholder="..." />
-            <marker date="1439888093000" expanded="true" signature="2319:2404" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="133:145" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="187:218" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="273:286" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="393:424" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="551:564" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="711:733" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="1100:1122" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="1489:1511" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="1872:1894" placeholder="..." />
+            <marker date="1439932287000" expanded="true" signature="2319:2404" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/clickedSearchResult.php">
+    <entry file="file://$PROJECT_DIR$/doctor.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.25">
-          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/searchPeople.php">
+    <entry file="file://$PROJECT_DIR$/php/employee_login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6982344">
-          <caret line="29" column="307" selection-start-line="29" selection-start-column="307" selection-end-line="29" selection-end-column="307" />
+        <state vertical-scroll-proportion="-8.375">
+          <caret line="89" column="83" selection-start-line="89" selection-start-column="83" selection-end-line="89" selection-end-column="83" />
           <folding>
-            <marker date="1439886846000" expanded="true" signature="194:326" placeholder="SELECT emplo..patients..." />
-            <marker date="1439886846000" expanded="true" signature="398:581" placeholder="select * fro..employees..." />
-            <marker date="1439886846000" expanded="true" signature="398:626" placeholder="select emplo..employees..." />
-            <marker date="1439886846000" expanded="true" signature="690:914" placeholder="select emplo..employees..." />
-            <marker date="1439886846000" expanded="true" signature="1010:1037" placeholder="..." />
-            <marker date="1439886846000" expanded="true" signature="1048:1049" placeholder="..." />
-            <marker date="1439886846000" expanded="true" signature="1125:1126" placeholder="..." />
-            <marker date="1439886846000" expanded="true" signature="1125:1136" placeholder="..." />
-            <marker date="1439886846000" expanded="true" signature="1125:1233" placeholder="..." />
-            <marker date="1439886846000" expanded="true" signature="1125:1478" placeholder="..." />
-            <marker date="1439886846000" expanded="true" signature="1149:1218" placeholder="..." />
+            <marker date="1439931347000" expanded="true" signature="144:389" placeholder="SELECT emplo..employees..." />
+            <marker date="1439931347000" expanded="true" signature="1499:1547" placeholder="SELECT maxim..doctors..." />
+            <marker date="1439931347000" expanded="true" signature="2623:2879" placeholder="select junio..junior_doctors..." />
+            <marker date="1439931347000" expanded="true" signature="2623:2896" placeholder="select junio..junior_doctors..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doctor2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5">
+          <caret line="4" column="93" selection-start-line="4" selection-start-column="93" selection-end-line="4" selection-end-column="93" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h2#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h2#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h2#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h2#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h2#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h2#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/patient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.096618354">
+          <caret line="4" column="76" selection-start-line="4" selection-start-column="76" selection-end-line="4" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>
