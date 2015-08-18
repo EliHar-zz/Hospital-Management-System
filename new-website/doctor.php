@@ -9,7 +9,7 @@ if(!isset($_SESSION['employee_id']))
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Happyhealth - Stay Healthy</title>
+    <title>OAMC - Doctor's Information</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Website Description" />
     <meta name="keywords" content="Website Keywords" />
@@ -145,6 +145,7 @@ if(!isset($_SESSION['employee_id']))
         <h1 style="text-align: center; font-size: larger; font-family: Georgia; text-decoration: underline">Doctor's Information</h1></br>
         <h2>Facility Name: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['facility_name']?></span></h2></br>
         <h2>Maximum Weekly Hours: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['maximum_hours']?></span></h2></br>
+        <h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['pay_frequency']?></span></h2></br>
 
         <h2>Salary over selected Period: <span id="doctorSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
         </h2>

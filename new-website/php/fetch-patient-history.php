@@ -3,8 +3,12 @@ session_start();
 
 include("connect.php");// connect to DB
 
+if ($_SESSION['patient_id'])
+    $patient_id = $_SESSION['patient_id'];
+else
+    $patient_id = $_SESSION['searched']['patient_id'];
 
-    $sql = "SELECT visits.start_date, visits.end_date, employee_name, facility_name FROM visits, employees, facilities WHERE visits.patient_id ='".$_SESSION['patient_id']."'  and visits.facility_id = facilities.facility_id and visits.doctor_id = employees.employee_id";
+    $sql = "SELECT visits.start_date, visits.end_date, employee_name, facility_name FROM visits, employees, facilities WHERE visits.patient_id ='".$patient_id."'  and visits.facility_id = facilities.facility_id and visits.doctor_id = employees.employee_id";
 
     $result = $conn->query($sql);
 

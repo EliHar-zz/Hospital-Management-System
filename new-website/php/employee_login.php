@@ -19,86 +19,99 @@ if ($row['employee_id']) {
 
     switch ($_SESSION['employee_type_id']) {
         case 1:
-            $_SESSION['employee_type'] = 'director';
+            $_SESSION['employee_type'] = 'Director';
 
             header("Location: ../director.php");
 
             die();
             break;
         case 2:
-            $_SESSION['employee_type'] = 'basic administration';
+            $_SESSION['employee_type'] = 'Administrator';
 
             header("Location: ../director.php");
             die();
             break;
         case 3:
-            $_SESSION['employee_type'] = 'regular nurse';
+            $_SESSION['employee_type'] = 'Regular nurse';
 
             header("Location: ../nurse.php");
             die();
             break;
         case 4:
-            $_SESSION['employee_type'] = 'junior doctor';
+            $_SESSION['employee_type'] = 'Junior doctor';
 
             header("Location: ../doctor2.php");
             die();
             break;
         case 5:
-            $_SESSION['employee_type'] = 'technician';
+            $_SESSION['employee_type'] = 'Technician';
             header("Location: ../technician.php");
             die();
             break;
         case 6:
-            $_SESSION['employee_type'] = 'doctor';
+            $_SESSION['employee_type'] = 'Doctor';
 
-            $sql2 = "SELECT maximum_hours FROM doctors";
+            $sql2 = "SELECT maximum_hours, pay_frequency FROM doctors";
 
             $result2 = $conn->query($sql2);
             $row2 = mysqli_fetch_assoc($result2);
 
 
             $_SESSION['maximum_hours'] = $row2['maximum_hours'];
+            $_SESSION['pay_frequency'] = $row2['pay_frequency'];
+
 
             header("Location: ../doctor.php");
             die();
             break;
         case 7:
-            $_SESSION['employee_type'] = 'childcare nurse';
+            $_SESSION['employee_type'] = 'Childcare Nurse';
             header("Location: ../nurse.php");
             die();
             break;
         case 8:
-            $_SESSION['employee_type'] = 'surgery nurse';
+            $_SESSION['employee_type'] = 'Surgery Nurse';
             header("Location: ../nurse.php");
             die();
             break;
         case 9:
-            $_SESSION['employee_type'] = 'shift supervisor nurse';
+            $_SESSION['employee_type'] = 'Shift Supervisor Nurse';
             header("Location: ../chief-nurse.php");
             die();
             break;
         case 10:
-            $_SESSION['employee_type'] = 'senior administrator';
+            $_SESSION['employee_type'] = 'Senior Administrator';
             header("Location: ../director.php");
             die();
             break;
         case 11:
-            $_SESSION['employee_type'] = 'intern';
+            $_SESSION['employee_type'] = 'Medicine Intern';
+
+            $sql2 = "select junior_doctors.maximum_hours, employee_name supervisor, junior_doctors.pay_frequency from junior_doctors, attending_of_junior, employees where attending_id = employee_id and junior_doctors.employee_types_id = 11 and attending_of_junior.junior_id = '".$employee_id."'";
+
+            $result2 = $conn->query($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            $_SESSION['maximum_hours'] = $row2['maximum_hours'];
+            $_SESSION['supervisor'] = $row2['supervisor'];
+            $_SESSION['pay_frequency'] = $row2['pay_frequency'];
+
+
             header("Location: ../doctor2.php");
             die();
             break;
         case 12:
-            $_SESSION['employee_type'] = 'resident 1';
+            $_SESSION['employee_type'] = 'Medical Resident 1-yr';
             header("Location: ../doctor2.php");
             die();
             break;
         case 13:
-            $_SESSION['employee_type'] = 'resident 2';
+            $_SESSION['employee_type'] = 'Medical Resident 2-yr';
             header("Location: ../doctor2.php");
             die();
             break;
         case 14:
-            $_SESSION['employee_type'] = 'resident 3';
+            $_SESSION['employee_type'] = 'Medical Resident 3';
             header("Location: ../doctor2.php");
             die();
             break;

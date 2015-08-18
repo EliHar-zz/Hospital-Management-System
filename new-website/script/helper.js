@@ -52,9 +52,12 @@ function searchPeople(){
     if(nameQuery.length>=3 && typeOption!==undefined) {
 
         document.getElementById("result").style.visibility = "visible";
-        $.post("../php/searchPeople.php", {name: nameQuery, type: typeOption}, function (data, status) {
+
+        $.post("../php/searchPeople.php", {name: nameQuery, typeOption: typeOption}, function (data, status) {
+
             document.getElementById("result").innerHTML = data;
         });
+
     }else if (nameQuery.length==0){
         document.getElementById("result").innerHTML="";
         document.getElementById("result").style.visibility = "hidden";
@@ -77,37 +80,41 @@ function closeSearchBox(){
     document.getElementById("result").style.visibility = "hidden";
 }
 
-function goToSearchResultPage(type_id,name){
+function goToSearchResultPage(type_id, name, id, typeOption){
     document.getElementById('searchBox').value = name;
 
-    $.post("../php/clickedOnSearchResult.php", {name: name, type_id: type_id}, function (data, status) {
+    $.post("../php/clickedSearchResult.php", {name: name, id: id, typeOption: typeOption}, function (data, status) {
+
+        switch (parseInt(type_id)) {
+
+            case 3:
+                location.href = "../nurse.php";
+                break;
+            case 7:
+                location.href = "../nurse.php";
+                break;
+            case 8:
+                location.href = "../nurse.php";
+                break;
+            case 9:
+                location.href = "../chief-nurse.php";
+                break;
+            case 11:
+                location.href = "../doctor2.php";
+                break;
+            case 12:
+                location.href = "../doctor2.php";
+                break;
+            case 13:
+                location.href = "../doctor2.php";
+                break;
+            case 14:
+                location.href = "../doctor2.php";
+                break;
+            default :
+                location.href = "../patient.php";
+        }
+
     });
 
-    switch (parseInt(type_id)) {
-
-        case 3:
-            location.href = "../nurse.php";
-            break;
-        case 7:
-            location.href = "../nurse.php";
-            break;
-        case 8:
-            location.href = "../nurse.php";
-            break;
-        case 9:
-            location.href = "../chief-nurse.php";
-            break;
-        case 11:
-            location.href = "../doctor2.php";
-            break;
-        case 12:
-            location.href = "../doctor2.php";
-            break;
-        case 13:
-            location.href = "../doctor2.php";
-            break;
-        case 14:
-            location.href = "../doctor2.php";
-            break;
-    }
 }

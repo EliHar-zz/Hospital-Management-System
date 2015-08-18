@@ -1,8 +1,11 @@
 <?php
 // Start the session
 session_start();
-if(!isset($_SESSION['patient_id']))
-header("location: ../patient-login-page.php");
+if(!isset($_SESSION['patient_id'])) {
+    if (!isset($_SESSION['searched']) && $_SESSION['searched_person_type'] !== 'patient') {
+        header("location: ../patient-login-page.php");
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -69,8 +72,10 @@ header("location: ../patient-login-page.php");
             });
         });
     </script>
+
 </head>
 <body>
+
 <header id="main-header" class="clearfix">
     <div id="header-full">
         <div id="header" class="clearfix">
@@ -124,23 +129,25 @@ header("location: ../patient-login-page.php");
 </header>
 <div id="content" class="clearfix">
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-        <h1><span><?php echo $_SESSION['patient_name'];?></span></h1>
-        <aside>
-            <a href="#content-side-title" class="link-side-title"><span></span><span></span><span></span></a>
-            <div id="content-side-title" class="title-testimonial">
-                <div class="side-title">
-                    <h3></h3>
-                    <article>
-                        <p>The best way to keep track of work</p>
-                    </article>
-                </div>
-            </div>
-        </aside>
+        <h1><span><?php
+                if ($_SESSION['patient_name'])
+                    echo $_SESSION['patient_name'];
+                elseif ($_SESSION['searched'])
+                echo $_SESSION['searched']['patient_name']?></span></h1>
     </header>
     <div class="box user_info">
         <h1 style="text-align: center; font-size: larger; font-family: Georgia; text-decoration: underline">Patient's Information</h1></br>
-        <h2>Medicare Insurance Number: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['medicare']?></span></h2></br>
-        <h2>Hospital Card Number: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['hospital_card']?></span></h2>
+        <h2>Medicare Insurance Number: <span style="color: #d7fca8; font-family: Georgia;"><?php
+                if ($_SESSION['medicare'])
+                    echo $_SESSION['medicare'];
+                elseif ($_SESSION['searched'])
+                    echo $_SESSION['searched']['medicare']?></span></h2></br>
+
+        <h2>Hospital Card Number: <span style="color: #d7fca8; font-family: Georgia;"><?php
+                if ($_SESSION['hospital_card'])
+                    echo $_SESSION['hospital_card'];
+                elseif ($_SESSION['searched'])
+                    echo $_SESSION['searched']['hospital_card']?></span></h2>
         </br></br></br>
         <button class="historyButton" onclick="showPatientHistory()">Show Visits History</button>
     </div>
