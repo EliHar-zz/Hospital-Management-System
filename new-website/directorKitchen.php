@@ -123,17 +123,9 @@ if(!isset($_SESSION['employee_id']))
                             <li><a href="directorSurgeries.php">Surgeries</a></li>
                             <li><a href="#">Records</a>
                                 <ul>
-                                    <li><a href="#">tbd</a>
-                                        <ul>
-                                            <li><a href="">tbd</a></li>
-                                            <li><a href="">tbd</a></li>
-                                            <li><a href="">tbd</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="">tbd</a></li>
-                                    <li><a href="">tbd</a></li>
-                                    <li><a href="">tbd</a></li>
-                                    <li><a href="">tbd</a></li>
+                                    <li><a href="directorRecords.php?fac=1">Palliative</a></li>
+                                    <li><a href="directorRecords.php?fac=2">Childrens Unit</a></li>
+                                    <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
                                 </ul>
                             </li>
                             <li><a href="php/logout.php">Logout</a></li>
