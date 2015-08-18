@@ -34,9 +34,10 @@
     }
 
     // Same as get_table but with delete button
-    function get_table_w_del($query, $attributes) {
+    function get_table_w_del($query, $attributes, $facility) {
         global $con;
-        $result = mysqli_query($con, $query) or die('Unable to execute get table query <br/>' . mysqli_error($con));
+        $result = mysqli_query($con, $query)
+                    or die('Unable to execute get table query <br/>' . mysqli_error($con). "<br>$query");
 
         $html = '<table>';
         $html .= '<tr>';
@@ -52,7 +53,7 @@
                 $html .= '<td class="output">'.$row[$attr].'</td>';
             }
             $html .= '<td style="background-color:lightgrey" class="output">
-                        <a class="del" href="'.$_SERVER['PHP_SELF'].'?del='.$id.'">Del</a>
+                        <a class="del" href="'.$_SERVER['PHP_SELF'].'?fac='.$facility.'&del='.$id.'">Del</a>
                         </td>';
             $html .= '</tr>';
         }
