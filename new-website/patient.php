@@ -91,27 +91,6 @@ header("location: ../patient-login-page.php");
                     <ul id="nav-main">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="#">Blog</a>
-                            <ul>
-                                <li><a href="newslist.html">News List</a></li>
-                                <li><a href="newsdetail.html">News Detail</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Other</a>
-                            <ul>
-                                <li><a href="#">Color Variation</a>
-                                    <ul>
-                                        <li><a href="index.html">Blue</a></li>
-                                        <li><a href="../red/index.html">Red</a></li>
-                                        <li><a href="../orange/index.html">Orange</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="fullpage.html">Full Page no Sidebar</a></li>
-                                <li><a href="typography.html">Typography</a></li>
-                            </ul>
-                        </li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="patient-login-page.php">Patients</a></li>
                         <li><a href="staff-login-page.php">Staff</a></li>
