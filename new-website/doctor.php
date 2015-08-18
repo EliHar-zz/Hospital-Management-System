@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['employee_id']))
-    header("location: ../staff-login.html");
+    header("location: ../staff-login-page.php");
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +19,9 @@ if(!isset($_SESSION['employee_id']))
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" media="all" href="style/stylemobile.css" />
-    <!--<link rel="stylesheet" type="text/css" media="all" href="style/mobilenavigation.css" />-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
+    <!--<link rel="stylesheet" type="text/css" media="all" href="style/mobilenavigation.css" />-->
     <script src="script/modernizr.js" type="text/javascript"></script>
     <script src="script/jquery.js" type="text/javascript"></script>
     <script src="script/jquery-ui.js" type="text/javascript"></script>
@@ -30,6 +31,20 @@ if(!isset($_SESSION['employee_id']))
     <script src="script/jquery.flexslider.js" type="text/javascript"></script>
     <script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
     <script src="script/jquery.retina.js" type="text/javascript"></script>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="script/helper.js" type="text/javascript"></script>
+
+    <script>
+        $(function() {
+            $( "#datepicker1" ).datepicker();
+        });
+        $(function() {
+            $( "#datepicker2" ).datepicker();
+        });
+    </script>
+
     <script type="text/javascript">
         $(document).ready(function (){
             $("a[data-rel^='prettyPhoto']").prettyPhoto({
@@ -113,9 +128,9 @@ if(!isset($_SESSION['employee_id']))
                             </ul>
                         </li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="patient-login.html">Patients</a></li>
-                        <li><a href="staff-login.html">Staff</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="patient-login-page.php">Patients</a></li>
+                        <li><a href="staff-login-page.php">Staff</a></li>
+                        <li><a href="php/logout.php">Logout</a></li>
                     </ul>
                 </div>
             </nav>
@@ -125,61 +140,43 @@ if(!isset($_SESSION['employee_id']))
 <div id="content" class="clearfix">
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
         <h1><span><?php echo $_SESSION['employee_name'];?></span></h1>
-        <aside>
-            <a href="#content-side-title" class="link-side-title"><span></span><span></span><span></span></a>
-            <div id="content-side-title" class="title-testimonial">
-                <div class="side-title">
-                    <h3></h3>
-                    <article>
-                        <p>The best way to keep track of work</p>
-                    </article>
-                </div>
-            </div>
-        </aside>
     </header>
     <div class="box user_info">
-        <h2>Facility: <?php #echo getEmployee().Facility?></h2></br>
-        <h2>Maximum Hours: <?php #echo getEmployee().Facility?></h2></br>
-        <h2>Salary: <?php #echo getEmployee().Facility?></h2></br>
-        <h2>Pay Frequency: <?php #echo getEmployee().Facility?></h2></br>
-<!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
-<!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
+        <h1 style="text-align: center; font-size: larger; font-family: Georgia; text-decoration: underline">Doctor's Information</h1></br>
+        <h2>Facility Name: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['facility_name']?></span></h2></br>
+        <h2>Maximum Weekly Hours: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['maximum_hours']?></span></h2></br>
+
+        <h2>Salary over selected Period: <span id="doctorSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
+        </h2>
+        </br>
+        <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker1"></label>
+        <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker2"></label>
+        <button style="margin-left: 20px;" class="submitButton" onclick="getDoctorSalary()">Apply</button>
+
+
+        </br></br></br>
     </div>
 
 
     <div class="box user_info" id="dashboard">
-        <form style="float: left;" method="POST" action="#">
-            <label style="float: left; margin-right: 5px;" for="patient_search">Search for people
-                <input style="float: right;" type="text" id="patient_search" placeholder="eg. John Doe" name="patient_search"> </label>
+        <div style="float: left;">
+            <label style="float: left; margin-right: 5px;" for="patient_search">Search for people&nbsp;&nbsp;
+                <input onkeyup="searchPeople()" class="inputField" style="float: right;" type="text" id="searchBox" placeholder="  eg. Jon Doe" name="patient_search"> </label>
 
-            <label style="float: left; margin-left: 10px;" for="patient_search">Patient
-                <input type="radio" name="person_type" id="person_type" value="patient"> </label>
+            <label style=" float: left; margin-left: 10px;" for="patient_search">Patient
+                <input onclick="searchPeople()" type="radio" name="person_type"  value="patient"> </label>
 
             <label style="float: left; margin-right: 5px;margin-left: 20px;" for="patient_search">Junior Doctor
-                <input type="radio" name="person_type" id="person_type" value="junior_doctor"> </label>
+                <input onclick="searchPeople()"  type="radio" name="person_type" value="junior_doctor"> </label>
 
-            <input style="float: right;" type="submit" value="&#x1f50d Search">
-        </form>
+            <label style="float: left; margin-right: 5px;margin-left: 20px;" for="patient_search">Nurse
+                <input onclick="searchPeople()"  type="radio" name="person_type"  value="nurse"> </label>
 
-        <div id="result">
-            <?php #while $row = mysqli_fetch_assoc($result)
+            <input style="float: right; margin-left: 20px;" type="submit" class="submitButton" onclick="searchPeople()" value="Search">
+        </div>
 
-            #Populate tables
-            ?>
-            <table style="background: lightgray;">
-                <td>
-                <td>---</td><td>---</td><td>---</td><td>---</td>
-                </td>
-                <tr>
-                    <td>---</td><td>---</td><td>---</td><td>---</td>
-                </tr>
-                <tr>
-                    <td>---</td><td>---</td><td>---</td><td>---</td>
-                </tr>
-                <tr>
-                    <td>---</td><td>---</td><td>---</td><td>---</td>
-                </tr>
-            </table>
+        <div id="result" style="color: #333333; text-align: left; float: left; width: 40%; margin-left: 130px;top:0px;">
+
         </div>
     </div>
     <footer id="main-footer">

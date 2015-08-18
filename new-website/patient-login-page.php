@@ -1,5 +1,10 @@
+<?php
+// Start the session
+session_start();
+if(isset($_SESSION['patient_id']))
+    header("location: ../patient.php");
+?>
 
-</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,8 +93,13 @@
                             <li><a href="about.html">About Us</a></li>
                             <li><a href="services.html">Services</a></li>
                             <li><a href="patient-login.html">Patients</a></li>
+<<<<<<< HEAD:new-website/patient-login.html
                             <li><a href="staff-login.html">Staff</a></li>
                             <li><a href="php/logout.php">logout</a></li>
+=======
+                            <li><a href="staff-login-page.php">Staff</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+>>>>>>> 135e2731cc1520403186636862b7fca0f09bd314:new-website/patient-login-page.php
                         </ul>
                     </div>
                 </nav>
@@ -98,33 +108,51 @@
     </header>
     <div id="content" class="clearfix">
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-            <h1><span>Staff Login</span></h1>
+            <h1><span>Patients Login</span></h1>
             <aside>
                 <a href="#content-side-title" class="link-side-title"><span></span><span></span><span></span></a>
                 <div id="content-side-title" class="title-testimonial">
                     <div class="side-title">
-                        <h3></h3>
-                        <article>
-                            <p>The best way to keep track of work</p>
-                        </article>
+                        <h3>Photo Gallery</h3>
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li>
+                                    <div class="slides-image"><img src="images/img-9.jpg" data-retina="images/img-9-retina.jpg" alt="" /></div>
+                                </li>
+                                <li>
+                                    <div class="slides-image"><img src="images/img-9.jpg" data-retina="images/img-9-retina.jpg" alt="" /></div>
+                                </li>
+                                <li>
+                                    <div class="slides-image"><img src="images/img-9.jpg" data-retina="images/img-9-retina.jpg" alt="" /></div>
+                                </li>
+                                <li>
+                                    <div class="slides-image"><img src="images/img-9.jpg" data-retina="images/img-9-retina.jpg" alt="" /></div>
+                                </li>
+                                <li>
+                                    <div class="slides-image"><img src="images/img-9.jpg" data-retina="images/img-9-retina.jpg" alt="" /></div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </aside>
         </header>
+
         <div class="login">
-        <form class="box" style="width:320px" id="login" method="POST" action="php/employee_login.php">
+            <form class="box" style="width:320px" id="login" method="POST" action="/php/patient_login.php">
 
-            <p>Please enter your credentials</p>
-            <br/>
-            <label for="employee_id">Employee ID: </label>
-            <input type="text" name="employee_id" id="employee_id"/><br/><br/>
+                <p>Please enter your credentials</p>
+                <br/>
+                <label for="patient_id">Patient ID: </label>
+                <input type="text" name="patient_id" id="patient_id"/><br/><br/>
 
-            <label for="password">Password: </label>
-            <input type="password" name="password" id="password"/><br/><br/><br/>
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password"/><br/><br/><br/>
 
-            <input type="submit" value="Login"/>
-        </form>
+                <input type="submit" value="Login"/>
+            </form>
         </div>
+
      <footer id="main-footer">
         <nav>
             <ul id="nav-footer">
@@ -132,6 +160,7 @@
                 <li><a href="#">About</a></li> 
                 <li><a href="#">Doctor</a></li> 
                 <li><a href="#">Services</a></li> 
+                <li><a href="#">Blog</a></li> 
                 <li><a href="#">Photo</a></li> 
                 <li><a href="#">Article</a></li> 
                 <li><a href="#">Contact</a></li>

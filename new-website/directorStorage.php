@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['employee_id']))
-    header("location: ../staff-login.html");
+    header("location: ../staff-login-page.php");
 ?>
 
 <!DOCTYPE html>
@@ -161,15 +161,16 @@ if(!isset($_SESSION['employee_id']))
         if (isset($_POST['buy'])) {
 
             $order_id = 0;
-            $date = date("Y-m-d");
             $supply_id = $_POST['buy'];
+            $storage_id = 'facility';
             $quantity = $_POST[$supply_id];
+
 
             // orders(order_id, date, facility_id, supply_id, quantity)
             // facility_supplies(facility_id, supplies_id, quantity)
 
             // insert into orders
-            $query = "INSERT INTO orders VALUES($order_id, $date, $facility_id, NULL, $supply_id, $quantity)";
+            $query = "INSERT INTO orders VALUES($order_id, now(), $facility_id, $storage_id, $supply_id, $quantity)";
             $result = mysqli_query($con, $query) or die("Unable to process order ".mysqli_error($con));
 
             // check if facility_supplies already contains purchased product
@@ -199,7 +200,8 @@ if(!isset($_SESSION['employee_id']))
 
         $query = "SELECT supply_id, supply_name, supply_cost, vendor_name
                   FROM supplies, vendors
-                  WHERE vendors_vendor_id = vendor_id";
+                  WHERE vendors_vendor_id = vendor_id
+                  AND vendor_name NOT LIKE '%Food%'";
         $attributes = array('supply_id', 'supply_name', 'supply_cost', 'vendor_name');
         $vendor = get_table_w_purchase($query, $attributes, $facility);
 
