@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['employee_id']))
-    header("location: ../staff-login.html");
+    header("location: ../login.php");
 ?>
 
 <!DOCTYPE html>
@@ -129,8 +129,11 @@ if(!isset($_SESSION['employee_id']))
                                     <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
                                 </ul>
                             </li>
-                            <li><a href="php/logout.php">Logout</a></li>
-                        </ul>
+                            <?php if (isset($_SESSION['user']))
+                                echo '<li><a href="php/logout.php">Logout</a></li>';
+                            else
+                                echo '<li><a href="contact.php">Contact</a></li>';
+                            ?>                        </ul>
                     </div>
                 </nav>
             </div>
@@ -142,6 +145,59 @@ if(!isset($_SESSION['employee_id']))
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
             <h1><span style="color:white; font-weight: bold"><?php echo $_SESSION['employee_name'];?></span></h1>
         </header>
+
+        <div class="box user_info">
+            <h2>Facility Name: <span style="color: #d7fca8; font-family: Georgia;"> <?php
+                    if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor')
+                        echo $_SESSION['searched']['facility_name'];
+                    elseif ($_SESSION['employee_id'])
+                        echo $_SESSION['facility_name']?></span></h2></br>
+
+            <h2>Maximum Weekly Hours: <span style="color: #d7fca8; font-family: Georgia;"> <?php
+                    if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor')
+                        echo $_SESSION['searched']['maximum_hours'];
+                    elseif ($_SESSION['employee_id'])
+                        echo $_SESSION['maximum_hours']?></span></h2></br>
+
+            <h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;"> <?php
+                    if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor')
+                        echo $_SESSION['searched']['pay_frequency'];
+                    elseif ($_SESSION['employee_id'])
+                        echo $_SESSION['pay_frequency']?></span></h2></br>
+
+            <h2>Salary over selected Period: <span id="doctorSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
+            </h2>
+            </br>
+            <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker1"></label>
+            <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker2"></label>
+            <button style="margin-left: 20px;" class="submitButton" onclick="getDoctorSalary()">Apply</button>
+
+
+            </br></br></br>
+        </div>
+
+
+        <div class="box user_info" id="dashboard">
+            <div style="float: left;">
+                <label style="float: left; margin-right: 5px;" for="patient_search">Search for people&nbsp;&nbsp;
+                    <input onkeyup="searchPeople()" class="inputField" style="float: right;" type="text" id="searchBox" placeholder="  eg. Jon Doe" name="patient_search"> </label>
+
+                <label style=" float: left; margin-left: 10px;" for="patient_search">Patient
+                    <input onclick="searchPeople()" type="radio" name="person_type"  value="patient"> </label>
+
+                <label style="float: left; margin-right: 5px;margin-left: 20px;" for="patient_search">Junior Doctor
+                    <input onclick="searchPeople()"  type="radio" name="person_type" value="junior_doctor"> </label>
+
+                <label style="float: left; margin-right: 5px;margin-left: 20px;" for="patient_search">Nurse
+                    <input onclick="searchPeople()"  type="radio" name="person_type"  value="nurse"> </label>
+
+                <input style="float: right; margin-left: 20px;" type="submit" class="submitButton" onclick="searchPeople()" value="Search">
+            </div>
+
+            <div id="result" style="color: #333333; text-align: left; float: left; width: 40%; margin-left: 130px;top:0px;">
+
+            </div>
+        </div>
 
     <!-- ######################################### PHP ##############################################-->
     <?php
@@ -159,31 +215,16 @@ if(!isset($_SESSION['employee_id']))
     ?>
 
 
-    <div style="text-align:center">
-        <!-- ######################################### Style ##############################################-->
-        <style scoped>
-            a { float: left; color: white; margin: 5px; font-size: 20pt; text-decoration: none; }
-            h3 { font-weight: bold; font-size: 16pt; }
-            h4 { font-weight: bold }
-            label { float: left; }
-            .nav { margin: 0 auto; padding: 40px; margin-bottom: 35px; width: 139px; height: 40px; background-color: #5B94AB; color:white; }
-            .form { background-color: #5B94AB; color: white; text-shadow: 1px 1px 1px black; margin-top: 30px; padding: 50px; border: 4px double white; width: 1070px; clear: both; }
-            .row { display: flex; }
-            .col { flex: 1; width: 300px; min-height: 250px; }
-            .col.left { padding-right: 30px; border-right: 1px solid white; }
-            .col.right { padding-left: 30px; }
-            input[type=text] { width: 300px; }
-            .output { color: black; text-shadow: 1px 1px 1px white; border: 1px solid black; padding: 5px }
-            .output.h { background-color: lightblue; border: 1px solid black; }
-            .del { font-size: 12pt; color: black;  }
-            .del:visited { color: black; }
-            .del:hover { color: #5B94AB }
-        </style>
 
-        <!-- ######################################### Form ##############################################-->
-        <div style="height: 1000px">
-            <h1 style="color:red">TO BE IMPLEMENTED</h1>
-        </div>
     </div>
+    <footer id="main-footer">
+        <aside>
+            <h5 id="text-footer">P Sherman, 42 Wallaby Way, Sydney, Australia | Phone: +62834856, Fax: +62849684 | Email: hello@cubicthemes.com</h5>
+            <div id="footer-copyright" class="clearfix">
+                <p>Copyright &copy; 2013 Cubicthemes.com, All Rights Reserved</p>
+                <a href="#" id="logo-footer"><img src="images/logo-footer.png" data-retina="images/logo-footer-retina.png" alt="Happy Health" /></a>
+            </div>
+        </aside>
+        </footer>
 </body>
 </html>

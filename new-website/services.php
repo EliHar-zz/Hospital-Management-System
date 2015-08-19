@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,13 +81,16 @@
                             <span class="icon-bar"></span>
                         </a>
                         <ul id="nav-main">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="patient-login-page.php">Patients</a></li>
-                            <li><a href="staff-login-page.php">Staff</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about.php">About Us</a></li>
+                            <li><a href="services.php">Services</a></li>
+
+                            <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
+                            <?php if (isset($_SESSION))
+                                echo '<li><a href="php/logout.php">Logout</a></li>';
+                            else
+                                echo '<li><a href="contact.php">Contact</a></li>';
+                            ?>                        </ul>
                     </div>
                 </nav>
             </div>
@@ -102,13 +106,13 @@
                 <p>OMAC offering service involving public health including: long-term care, primary care in 3 diffrent <b>Facilities</b></p>
             </article>
             <ul id="list-service" class="clearfix">
-                <li class="clearfix"><a href="servicesdetail.html"><strong><img src="images/icon-services-1-retina.png" alt="General Checkup" class="icon-service" /><span>Pallliative Care Unit</span></strong>
+                <li class="clearfix"><a href="servicesdetail.php"><strong><img src="images/icon-services-1-retina.png" alt="General Checkup" class="icon-service" /><span>Pallliative Care Unit</span></strong>
                 <img src="images/img-32.jpg" data-retina="images/img-32-retina.jpg" alt="General Checkup" class="image-service" />    
                 </a></li>
-                <li class="clearfix"><a href="servicesdetail.html"><strong><img src="images/icon-services-1-retina.png" alt="General Checkup" class="icon-service" /><span>the children's unit</span></strong>
+                <li class="clearfix"><a href="servicesdetail.php"><strong><img src="images/icon-services-1-retina.png" alt="General Checkup" class="icon-service" /><span>the children's unit</span></strong>
                 <img src="images/img-32.jpg" data-retina="images/img-32-retina.jpg" alt="General Checkup" class="image-service" />    
                 </a></li>
-                <li class="clearfix"><a href="servicesdetail.html"><strong><img src="images/icon-services-1-retina.png" alt="General Checkup" class="icon-service" /><span>the surgical unit</span></strong>
+                <li class="clearfix"><a href="servicesdetail.php"><strong><img src="images/icon-services-1-retina.png" alt="General Checkup" class="icon-service" /><span>the surgical unit</span></strong>
                 <img src="images/img-32.jpg" data-retina="images/img-32-retina.jpg" alt="General Checkup" class="image-service" />    
                 </a></li>
             </ul>

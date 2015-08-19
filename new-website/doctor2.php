@@ -2,8 +2,8 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['employee_id'])) {
-    if (!isset($_SESSION['searched']) && $_SESSION['searched_person_type'] === 'junior_doctor') {
-        header("location: ../patient-login-page.php");
+    if (isset($_SESSION['searched']) && $_SESSION['searched_person_type'] !== 'junior_doctor') {
+        header("location: ../login.php");
     }
 }
 ?>
@@ -108,34 +108,37 @@ if(!isset($_SESSION['employee_id'])) {
                         <span class="icon-bar"></span>
                     </a>
                     <ul id="nav-main">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About Us</a></li>
                         <li><a href="#">Blog</a>
                             <ul>
-                                <li><a href="newslist.html">News List</a></li>
-                                <li><a href="newsdetail.html">News Detail</a></li>
+                                <li><a href="newslist.php">News List</a></li>
+                                <li><a href="newsdetail.php">News Detail</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Other</a>
                             <ul>
                                 <li><a href="#">Color Variation</a>
                                     <ul>
-                                        <li><a href="index.html">Blue</a></li>
+                                        <li><a href="index.php">Blue</a></li>
                                         <li><a href="../red/index.html">Red</a></li>
                                         <li><a href="../orange/index.html">Orange</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="fullpage.html">Full Page no Sidebar</a></li>
-                                <li><a href="typography.html">Typography</a></li>
+                                <li><a href="gallery.php">Gallery</a></li>
+                                <li><a href="faq.php">FAQ</a></li>
+                                <li><a href="fullpage.php">Full Page no Sidebar</a></li>
+                                <li><a href="typography.php">Typography</a></li>
                             </ul>
                         </li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="patient-login-page.php">Patients</a></li>
-                        <li><a href="staff-login-page.php">Staff</a></li>
-                        <li><a href="php/logout.php">Logout</a></li>
-                    </ul>
+                        <li><a href="services.php">Services</a></li>
+
+                        <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
+                        <?php if (isset($_SESSION['employee_id']))
+                            echo '<li><a href="php/logout.php">Logout</a></li>';
+                        else
+                            echo '<li><a href="contact.php">Contact</a></li>';
+                        ?>                    </ul>
                 </div>
             </nav>
         </div>
@@ -143,15 +146,39 @@ if(!isset($_SESSION['employee_id'])) {
 </header>
 <div id="content" class="clearfix">
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-        <h1><span>Dr. <?php echo $_SESSION['employee_name'];?></span></h1>
+        <h1><span>Dr. <?php
+                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
+                    echo $_SESSION['searched']['employee_name'];
+                elseif ($_SESSION['employee_id'])
+                    echo $_SESSION['employee_name']?></span></h1>
     </header>
     <div class="box user_info">
         <h1 style="text-align: center; font-size: larger; font-family: Georgia; text-decoration: underline">Doctor's Information</h1></br>
-        <h2>Facility Name: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['facility_name']?></span></h2></br>
-        <h2>Position: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['employee_type']?></span></h2></br>
-        <h2>Supervisor: <span style="color: #d7fca8; font-family: Georgia;">Dr. <?php echo $_SESSION['supervisor']?></span></h2></br>
-        <h2>Maximum Weekly Hours: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['maximum_hours']?></span></h2></br>
-        <h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['pay_frequency']?></span></h2></br>
+        <h2>Facility Name: <span style="color: #d7fca8; font-family: Georgia;"><?php
+                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
+                    echo $_SESSION['searched']['facility_name'];
+                elseif ($_SESSION['employee_id'])
+                    echo $_SESSION['facility_name']?></span></h2></br>
+        <h2>Position: <span style="color: #d7fca8; font-family: Georgia;"><?php
+                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
+                    echo $_SESSION['searched']['employee_type'];
+                elseif ($_SESSION['employee_id'])
+                    echo $_SESSION['employee_type']?></span></h2></br>
+        <h2>Supervisor's Name: <span style="color: #d7fca8; font-family: Georgia;">Dr. <?php
+                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
+                    echo $_SESSION['searched']['supervisor'];
+                elseif ($_SESSION['employee_id'])
+                    echo $_SESSION['supervisor']?></span></h2></br>
+        <h2>Maximum Weekly Hours: <span style="color: #d7fca8; font-family: Georgia;"> <?php
+                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
+                    echo $_SESSION['searched']['maximum_hours'];
+                elseif ($_SESSION['employee_id'])
+                    echo $_SESSION['maximum_hours']?></span></h2></br>
+        <h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;"> <?php
+                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
+                    echo $_SESSION['searched']['pay_frequency'];
+                elseif ($_SESSION['employee_id'])
+                    echo $_SESSION['pay_frequency']?></span></h2></br>
 
         <h2>Salary over selected Period: <span id="doctorSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
         </h2>

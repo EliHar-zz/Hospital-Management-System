@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['employee_id']))
-    header("location: ../staff-login.html");
+    header("location: ../login.php");
 ?>
 
 
@@ -129,8 +129,11 @@ if(!isset($_SESSION['employee_id']))
                                     <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
                                 </ul>
                             </li>
-                            <li><a href="php/logout.php">Logout</a></li>
-                        </ul>
+                            <?php if (isset($_SESSION['user']))
+                                echo '<li><a href="php/logout.php">Logout</a></li>';
+                            else
+                                echo '<li><a href="contact.php">Contact</a></li>';
+                            ?>                        </ul>
                     </div>
                 </nav>
             </div>

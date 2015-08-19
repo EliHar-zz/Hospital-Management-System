@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,34 +84,37 @@
                             <span class="icon-bar"></span>
                         </a>
                         <ul id="nav-main">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="current-menu-item"><a href="about.html">About Us</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li class="current-menu-item"><a href="about.php">About Us</a></li>
                             <li><a href="#">Blog</a>
                                 <ul>
-                                    <li><a href="newslist.html">News List</a></li>
-                                    <li><a href="newsdetail.html">News Detail</a></li>
+                                    <li><a href="newslist.php">News List</a></li>
+                                    <li><a href="newsdetail.php">News Detail</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Other</a>
                                 <ul>
                                     <li><a href="#">Color Variation</a>
                                         <ul>
-                                            <li><a href="index.html">Blue</a></li>
+                                            <li><a href="index.php">Blue</a></li>
                                             <li><a href="../red/index.html">Red</a></li>
                                             <li><a href="../orange/index.html">Orange</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="fullpage.html">Full Page no Sidebar</a></li>
-                                    <li><a href="typography.html">Typography</a></li>
+                                    <li><a href="gallery.php">Gallery</a></li>
+                                    <li><a href="faq.php">FAQ</a></li>
+                                    <li><a href="fullpage.php">Full Page no Sidebar</a></li>
+                                    <li><a href="typography.php">Typography</a></li>
                                 </ul>
                             </li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="patient-login-page.php">Patients</a></li>
-                            <li><a href="staff-login-page.php">Staff</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
+                            <li><a href="services.php">Services</a></li>
+                            <li><a href="login.php">Testimonial</a></li>
+                            <li><a href="login.php">Doctor</a></li>
+                            <?php if (isset($_SESSION['employee_id']))
+                                echo '<li><a href="php/logout.php">Logout</a></li>';
+                            else
+                                echo '<li><a href="contact.php">Contact</a></li>';
+                            ?>                        </ul>
                     </div>
                 </nav>
             </div>
@@ -144,7 +151,7 @@
                 </div>
             </aside>
         </header>
-        <div id="main-content">
+        <div id="full-width">
             <article class="static-page">
                 <p><strong>Lorem ipsum dolor sit amet</strong>, consectetur adipiscing elit. Integer elementum tincidunt enim a ullamcorper. Donec vitae diam ante, at sagittis ipsum. Donec pretium euismod urna. Duis auctor nisl in magna pharetra condimentum. Sed luctus lorem ac augue aliquam in accumsan risus posuere. Sed ultricies ligula tristique ligula porttitor ac malesuada neque ultrices. Donec ipsum massa, scelerisque eu consequat et, eleifend ac mauris. Maecenas malesuada ligula quis augue elementum eget mollis mauris semper. Donec pellentesque, elit tempor iaculis adipiscing, massa libero vulputate magna, et sodales felis risus id orci. Phasellus porttitor sollicitudin condimentum. Proin sed mauris massa. Nunc nisl nibh, ornare nec imperdiet in, auctor vitae ante.</p>
 				<h2>H2 Tags Title</h2>
@@ -156,6 +163,8 @@
 						<img src="images/img-6.jpg" alt="Images" class="alignleft imgframe" />
 						<p>Nam odio sem, vulputate vitae gravida vitae, porta eu mi. Sed bibendum sodales sollicitudin. Sed scelerisque elementum magna ac feugiat. Nam ipsum arcu, molestie eu sagittis sit amet, lobortis id diam. Suspendisse luctus est et enim tempor molestie. Proin pretium accumsan elit cursus blandit. Sed aliquam porttitor viverra.</p> 
 						<p>Donec nibh arcu, accumsan at fringilla a, rhoncus a augue. Nulla sit amet lacus ut augue tempus blandit. Donec nibh arcu, accumsan at fringilla a, rhoncus a augue. Nulla sit amet lacus ut augue tempus blandit.</p>
+                <p>Nam odio sem, vulputate vitae gravida vitae, porta eu mi. Sed bibendum sodales sollicitudin. Sed scelerisque elementum magna ac feugiat. Nam ipsum arcu, molestie eu sagittis sit amet, lobortis id diam. Suspendisse luctus est et enim tempor molestie. Proin pretium accumsan elit cursus blandit. Sed aliquam porttitor viverra.</p> 
+						<p>Donec nibh arcu, accumsan at fringilla a, rhoncus a augue. Nulla sit amet lacus ut augue tempus blandit. Donec nibh arcu, accumsan at fringilla a, rhoncus a augue. Nulla sit amet lacus ut augue tempus blandit.</p>
 						<ul>
 							<li>Proin metus tortor, consectetur sit amet mattis id, lobortis sed leo.</li>
 							<li>Proin pretium accumsan elit cursus blandit.</li>
@@ -164,93 +173,6 @@
 							<li>Nulla sit amet lacus ut augue tempus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
 							<li>Maecenas sodales condimentum laoreet.</li>
 						</ul>
-						<h4>Table Sample</h4>
-						<table>
-							<thead>
-								<tr>
-									<th scope="col">Feature</th>
-									<th scope="col">Free Package</th>
-									<th scope="col">Business Package</th>
-									<th scope="col">Premium Package</th>
-								</tr>
-							</thead>
-							<tfoot>
-							    <tr>
-							        <td></td>
-							        <td><strong><a href="#">Order Now</a></strong></td>
-							        <td><strong><a href="#">Order Now</a></strong></td>
-							        <td><strong><a href="#">Order Now</a></strong></td>
-							    </tr>
-							</tfoot>
-							<tbody>
-								<tr class="odd">
-							        <td class="cellfeat">OS</td>
-							        <td>Linux</td>
-							        <td>Windows</td>
-							        <td>MacOs</td>
-							    </tr>
-							    <tr>
-							        <td class="cellfeat">24H Support</td>
-							        <td><img src="images/icon_20.png" alt="No" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							    </tr>
-							    <tr class="odd">
-							        <td class="cellfeat">Free Lifetime Update</td>
-							        <td><img src="images/icon_20.png" alt="No" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							    </tr>
-							    <tr>
-							        <td class="cellfeat">Email Address</td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							    </tr>
-							    <tr class="odd">
-							        <td class="cellfeat">Search Engine Optimisation</td>
-							        <td><img src="images/icon_20.png" alt="No" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							    </tr>
-							    <tr>
-							        <td class="cellfeat">24H Support</td>
-							        <td><img src="images/icon_20.png" alt="No" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							    </tr>
-							    <tr class="odd">
-							        <td class="cellfeat">Free Lifetime Update</td>
-							        <td><img src="images/icon_20.png" alt="No" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							    </tr>
-							    <tr>
-							        <td class="cellfeat">Email Address</td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							    </tr>
-							    <tr class="odd">
-							        <td class="cellfeat">Search Engine Optimisation</td>
-							        <td><img src="images/icon_20.png" alt="No" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							    </tr>
-							    <tr>
-							        <td class="cellfeat">Email Address</td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							        <td><img src="images/icon_9.png" alt="Yes" /></td>
-							    </tr>
-							    <tr class="odd">
-							        <td class="cellfeat">Price</td>
-							        <td><strong>Free</strong></td>
-							        <td><strong>$199</strong></td>
-							        <td><strong>$299</strong></td>
-							    </tr>
-							</tbody>
-						</table>
 						<h5>H5 Tags Title</h5>
 						<blockquote><p>Proin metus tortor, consectetur sit amet mattis id, lobortis sed leo. Vivamus sem ligula, eleifend nec rutrum ac, vehicula at massa. Quisque fermentum velit ac nibh hendrerit ultricies eget nec tortor. Quisque fermentum velit ac nibh hendrerit ultricies eget nec tortor.</p></blockquote>
 						<h6>H6 Tags Title</h6>
@@ -269,93 +191,6 @@
 								</div>
 								<div class="clear"></div>
             </article>
-        </div>
-        <div id="sidebar">
-            <aside class="widget-container">
-                <div class="widget-wrapper clearfix">
-				    <h3 class="widget-title">Opening Hour</h3>
-                    <ul class="nav-schedule">
-                        <li class="clearfix"><strong>Mon</strong> <span>7am - 11am</span></li>
-				        <li class="clearfix"><strong>Tue - Wed</strong> <span>11am - 10pm</span></li>
-                        <li class="clearfix"><strong>Thu</strong> <span>10am - 9pm</span></li>
-				        <li class="clearfix"><strong>Fri</strong> <span>11am - 8pm</span></li>
-                        <li class="clearfix"><strong>Sat</strong> <span>9am - 3pm</span></li>
-                        <li class="clearfix"><strong>Sun</strong> <span>9am - 4pm</span></li>
-				        <li class="clearfix"><strong>Public Holiday</strong> <span>8am - 5pm</span></li>
-                    </ul>
-				</div>
-                <div class="binder-left"></div><div class="binder-right"></div>
-            </aside>
-            <aside class="widget-container">
-                <div class="widget-wrapper clearfix">
-				    <h3 class="widget-title">About Happy Health</h3>
-				    <ul>			
-				        <li><a href="#">Abour Happy Health Hospital</a></li>
-                        <li><a href="#">History</a></li>
-                        <li><a href="#">Vision and Mission</a></li>
-                        <li><a href="#">Board of Director</a></li>
-                        <li><a href="#">Our Location</a></li>
-                        <li><a href="#">Contact Happy Health</a></li>
-				    </ul>
-				</div>
-                <div class="binder-left"></div><div class="binder-right"></div>
-            </aside>
-            <aside class="widget-container widget_wc_news">
-				<div class="widget-wrapper clearfix">
-				    <h3 class="widget-title">Latest Blog</h3>
-					<ul class="menu news-sidebar">			
-						<li class="clearfix">
-				            <img src="images/img-10.jpg" data-retina="images/img-10-retina.jpg" alt="Another Sample of Blog Post" class="imgframe alignleft" />				
-				            <h4><a href="#">Another Sample of Blog Post</a></h4>
-				            <span class="date-news">May 5, 2013</span>
-				            <h5><a href="#" title="Comment on Another Sample of Blog Post">No Comments</a></h5>
-				        </li>
-						<li class="clearfix">
-				            <img src="images/img-11.jpg" data-retina="images/img-11-retina.jpg" alt="Another Sample of Blog Post" class="imgframe alignleft" />		
-				            <h4><a href="#">Blog Post with Featured Image</a></h4>
-				            <span class="date-news">April 30, 2013</span>
-				            <h5><a href="#" title="Comment on Blog Post with Featured Image">Comments (3)</a></h5>
-				        </li>
-				        <li class="clearfix">
-				            <img src="images/img-12.jpg" data-retina="images/img-12-retina.jpg" alt="Another Sample of Blog Post" class="imgframe alignleft" />
-				            <h4><a href="#">Sample Gallery Post without Image</a></h4>
-				            <span class="date-news">April 30, 2013</span>
-				            <h5><a href="#" title="Comment on Sample Gallery Post without Featured Image">No Comments</a></h5>
-				        </li>
-				    </ul>
-				    <a href="#" class="button-more">Read More Blog Post</a>
-                </div>
-                <div class="binder-left"></div><div class="binder-right"></div>
-            </aside>
-            <aside id="gw_gallery-5" class="widget-container widget_gw_gallery">
-                <div class="widget-wrapper clearfix"><h3 class="widget-title">Gallery</h3>  
-                    <script type="text/javascript">
-				        jQuery(document).ready(function($){
-				            $("#gw_gallery-5-slide").flexslider({
-								animation: "slide",
-								animationLoop: false,
-								pauseOnAction: true
-				            });
-				        });
-				    </script>
-									<div id="gw_gallery-5-slide" class="flexslider">
-										<ul class="slides">
-											<li>
-												<div class="slides-image">
-													<a href="images/img-14-retina.jpg" data-rel="prettyPhoto[pp-gw_gallery-5]"><img src="images/img-14.jpg" alt="Beauty in Green"  data-retina="images/img-14-retina.jpg" /></a>
-												</div><h4><a href="images/img-14-retina.jpg" data-rel="prettyPhoto[pp-gw_gallery-5-slide]">Beauty in Green blue red brown</a></h4>
-											</li>
-							         		<li>
-												<div class="slides-image">
-													<a href="images/img-14-retina.jpg" data-rel="prettyPhoto[pp-gw_gallery-5]"><img src="images/img-14.jpg" alt="Eagle Nest"  data-retina="images/img-14-retina.jpg" /></a>
-												</div><h4><a href="images/img-14-retina.jpg" data-rel="prettyPhoto[pp-gw_gallery-5-slide]">Eagle Nest</a></h4>
-											</li>
-							         	</ul>
-							        </div>
-							        <a href="http://cubicthemes.com/develop/workchaos/blog/" class="button-more">More Photo</a>
-									</div>
-                <div class="binder-left"></div><div class="binder-right"></div>
-            </aside>
         </div>
     </div>
     <div id="content-footer" class="clearfix">

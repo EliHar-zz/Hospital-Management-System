@@ -17,6 +17,8 @@ if ($row['patient_id']) {
 
     #start session
     $_SESSION = $row;
+    $_SESSION ['user']='patient';
+
     header("Location: ../patient.php");
 
 } else {

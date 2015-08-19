@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,34 +85,37 @@
                             <span class="icon-bar"></span>
                         </a>
                         <ul id="nav-main">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about.php">About Us</a></li>
                             <li class="current-menu-item"><a href="#">Blog</a>
                                 <ul>
-                                    <li><a href="newslist.html">News List</a></li>
-                                    <li><a href="newsdetail.html">News Detail</a></li>
+                                    <li><a href="newslist.php">News List</a></li>
+                                    <li><a href="newsdetail.php">News Detail</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Other</a>
                                 <ul>
                                     <li><a href="#">Color Variation</a>
                                         <ul>
-                                            <li><a href="index.html">Blue</a></li>
+                                            <li><a href="index.php">Blue</a></li>
                                             <li><a href="../red/index.html">Red</a></li>
                                             <li><a href="../orange/index.html">Orange</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="fullpage.html">Full Page no Sidebar</a></li>
-                                    <li><a href="typography.html">Typography</a></li>
+                                    <li><a href="gallery.php">Gallery</a></li>
+                                    <li><a href="faq.php">FAQ</a></li>
+                                    <li><a href="fullpage.php">Full Page no Sidebar</a></li>
+                                    <li><a href="typography.php">Typography</a></li>
                                 </ul>
                             </li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="patient-login-page.php">Patients</a></li>
-                            <li><a href="staff-login-page.php">Staff</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
+                            <li><a href="services.php">Services</a></li>
+
+                            <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
+                            <?php if (isset($_SESSION['employee_id']))
+                                echo '<li><a href="php/logout.php">Logout</a></li>';
+                            else
+                                echo '<li><a href="contact.php">Contact</a></li>';
+                            ?>                        </ul>
                     </div>
                 </nav>
             </div>
@@ -263,7 +270,7 @@
                         <li class="clearfix">
                             <img src="images/img-30.jpg" data-retina="images/img-30-retina.jpg" alt="Roberto Rodindo" class="imgframe alignleft" />
                             <div class="team-sidebar-content">
-                                <h4><a href="teamdetail.html">Roberto Rodindo</a></h4>
+                                <h4><a href="teamdetail.php">Roberto Rodindo</a></h4>
                                 <h5>Dentist</h5>
                                 <p class="team-sidebar-social">
                                     <a href="http://twitter.com/" class="icon-twitter-team">Twitter</a>
@@ -274,7 +281,7 @@
 						<li class="clearfix">
 				            <img src="images/img-30.jpg" data-retina="images/img-30-retina.jpg" alt="Roberto Rodindo" class="imgframe alignleft" />
 							<div class="team-sidebar-content">
-                                <h4><a href="teamdetail.html">Malika</a></h4>
+                                <h4><a href="teamdetail.php">Malika</a></h4>
                                 <h5>Food Tester</h5>
                                 <p class="team-sidebar-social">
                                     <a href="http://twitter.com/" class="icon-twitter-team">Twitter</a>
@@ -284,7 +291,7 @@
                         <li class="clearfix">
 				            <img src="images/img-30.jpg" data-retina="images/img-30-retina.jpg" alt="Roberto Rodindo" class="imgframe alignleft" />
                             <div class="team-sidebar-content">
-                                <h4><a href="teamdetail.html">Ahok Widodo</a></h4>
+                                <h4><a href="teamdetail.php">Ahok Widodo</a></h4>
                                 <h5>Replacement Chef</h5>
                                 <p class="team-sidebar-social">
 				                    <a href="http://plus.google.com/" class="icon-gplus-team">Google Plus</a>
@@ -294,7 +301,7 @@
 						<li class="clearfix">
 				            <img src="images/img-30.jpg" data-retina="images/img-30-retina.jpg" alt="Roberto Rodindo" class="imgframe alignleft" />
 							<div class="team-sidebar-content">
-                                <h4><a href="teamdetail.html">Juna</a></h4>
+                                <h4><a href="teamdetail.php">Juna</a></h4>
                                 <h5>Senior Chef</h5>
                                 <p class="team-sidebar-social">
 								    <a href="http://twitter.com/" class="icon-twitter-team">Twitter</a>
@@ -303,7 +310,7 @@
                             </div>
                         </li>
 				    </ul>
-					<a href="staff-login-page.php" class="button-more">More Doctor</a>
+					<a href="login.php" class="button-more">More Doctor</a>
    
                 </div>
                 <div class="binder-left"></div><div class="binder-right"></div>

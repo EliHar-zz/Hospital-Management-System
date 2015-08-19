@@ -133,18 +133,10 @@ public class scheduleEmployees {
 		            	if (tempNurse[4].equals(currentService[5])){
 		            		// Check if start date of service is after start date of employee
 		            		if (tempNurse[2].compareTo(currentService[3]) <= 0){
-		            			System.out.println(tempNurse[2]);
-		            			System.out.println(currentService[3]);
-		            			System.out.println(tempNurse[2].compareTo(currentService[3]));
-		            			System.out.println(tempNurse[2].compareTo(currentService[3]) <= 0);
 		            			// Check if end date of employee is after end date of service
 		            			if (tempNurse[3].compareTo(currentService[4]) >= 0){
-		            				System.out.println(tempNurse[2]);
-			            			System.out.println(currentService[3]);
-			            			System.out.println(tempNurse[2].compareTo(currentService[3]));
-			            			System.out.println(tempNurse[2].compareTo(currentService[3]) <= 0);
 		            				found = true;
-		            				createSQLnurse(tempNurse[1], currentService[0]);	            
+		            				createSQLnurse(tempNurse[0], currentService[0]);	            
 		            			}
 		            		}
 		            	}
@@ -173,7 +165,7 @@ public class scheduleEmployees {
 		            			// Check if end date of employee is after end date of service
 		            			if (tempDoc[3].compareTo(currentService[4]) >= 0){
 		            				found = true;
-		            				createSQLdoctor(tempDoc[1], currentService[0]);	            
+		            				createSQLdoctor(tempDoc[0], currentService[0]);	            
 		            			}
 		            		}
 		            	}
@@ -202,7 +194,7 @@ public class scheduleEmployees {
 		            			// Check if end date of employee is after end date of service
 		            			if (tempIntern[3].compareTo(currentService[4]) >= 0){
 		            				found = true;
-		            				createSQLintern(tempIntern[1], currentService[0]);	            
+		            				createSQLintern(tempIntern[0], currentService[0]);	            
 		            			}
 		            		}
 		            	}
@@ -231,7 +223,7 @@ public class scheduleEmployees {
 		            			// Check if end date of employee is after end date of service
 		            			if (tempSurgNurse[3].compareTo(currentService[4]) >= 0){
 		            				found = true;
-		            				createSQLsurgerynurse(tempSurgNurse[1], currentService[0]);	            
+		            				createSQLsurgerynurse(tempSurgNurse[0], currentService[0]);	            
 		            			}
 		            		}
 		            	}
