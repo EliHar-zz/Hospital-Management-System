@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,34 +84,37 @@
                             <span class="icon-bar"></span>
                         </a>
                         <ul id="nav-main">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about.php">About Us</a></li>
                             <li><a href="#">Blog</a>
                                 <ul>
-                                    <li><a href="newslist.html">News List</a></li>
-                                    <li><a href="newsdetail.html">News Detail</a></li>
+                                    <li><a href="newslist.php">News List</a></li>
+                                    <li><a href="newsdetail.php">News Detail</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Other</a>
+                            <li class="current-menu-item"><a href="#">Other</a>
                                 <ul>
                                     <li><a href="#">Color Variation</a>
                                         <ul>
-                                            <li><a href="index.html">Blue</a></li>
+                                            <li><a href="index.php">Blue</a></li>
                                             <li><a href="../red/index.html">Red</a></li>
                                             <li><a href="../orange/index.html">Orange</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="fullpage.html">Full Page no Sidebar</a></li>
-                                    <li><a href="typography.html">Typography</a></li>
+                                    <li><a href="gallery.php">Gallery</a></li>
+                                    <li><a href="faq.php">FAQ</a></li>
+                                    <li><a href="fullpage.php">Full Page no Sidebar</a></li>
+                                    <li><a href="typography.php">Typography</a></li>
                                 </ul>
                             </li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="patient-login-page.php">Patients</a></li>
-                            <li><a href="staff-login-page.php">Staff</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
+                            <li><a href="services.php">Services</a></li>
+
+                            <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
+                            <?php if (isset($_SESSION['employee_id']))
+                                echo '<li><a href="php/logout.php">Logout</a></li>';
+                            else
+                                echo '<li><a href="contact.php">Contact</a></li>';
+                            ?>                        </ul>
                     </div>
                 </nav>
             </div>
@@ -115,7 +122,7 @@
     </header>
     <div id="content" class="clearfix">
         <header id="title-content" class="clearfix" style="background:url(images/img-31.jpg) no-repeat 50% 0 fixed">
-            <h1><span>General Checkup</span></h1>
+            <h1><span>Photo Gallery</span></h1>
             <aside>
                 <a href="#content-side-title" class="link-side-title"><span></span><span></span><span></span></a>
                 <div id="content-side-title" class="title-news">
@@ -164,64 +171,64 @@
                 </div>
             </aside>
         </header>
-        <div id="main-content">
+        <div id="full-width">
             <article class="static-page">
-                <figure class="featured-service">
-                    <img src="images/img-33.jpg" data-retina="images/img-33-retina.jpg" alt="" />
-                </figure>
                 <p>Sed vel condimentum augue, in rutrum mi. Curabitur lacinia dolor tellus, ac ullamcorper est pharetra quis. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim. Pellentesque et suscipit ligula, sed condimentum lectus. Pellentesque non cursus nisl.</p>
-                <h2>Accept Health Insurance</h2>
-                <p>Integer sed risus tortor. Nam dignissim velit eu velit tempor pellentesque. In semper pharetra ultricies. Nunc dapibus urna in purus pulvinar tempus. Quisque lectus erat, rutrum ac hendrerit in, pellentesque id tortor. In hac habitasse platea dictumst. Proin id tellus non enim hendrerit facilisis. Aliquam in nibh ut neque pellentesque elementum. Sed luctus cursus dapibus.</p>
-                <h3>Doctor</h3>
-                <ul class="list-doctor-tabs clearfix">
-                    <li><a href="teamdetail.html">
-                            <img src="images/img-35.jpg" data-retina="images/img-35-retina.jpg" alt="Dr. John Doe" />
-                            <strong>Dr. John Doe</strong>
-                            <span>Physiology</span>
-                            </a>
-                    </li>
-                    <li><a href="teamdetail.html">
-                            <img src="images/img-36.jpg" data-retina="images/img-36-retina.jpg" alt="Dr. Susan Murbaut Obengkembang" />
-                            <strong>Dr. Susan Murbaut Obengkembang</strong>
-                            <span>Paleontology</span>
-                            </a>
-                    </li>
-                    <li><a href="teamdetail.html">
-                            <img src="images/img-37.jpg" data-retina="images/img-37-retina.jpg" alt="Dr. John Doe" />
-                            <strong>Dr. Roberto Phd.</strong>
-                            <span>Dentist</span>
-                            </a>
-                    </li>
-                    <li><a href="teamdetail.html">
-                            <img src="images/img-38.jpg" data-retina="images/img-38-retina.jpg" alt="Dr. John Doe" />
-                            <strong>Ms. Sandra</strong>
-                            <span>Blood Master</span>
-                            </a>
-                        </li>
-                </ul>
-                <p>Integer imperdiet nunc sed sem ultrices pretium. Integer dictum lectus quis urna pharetra molestie. Cras malesuada dolor mauris, ac vestibulum dui condimentum vel. Donec dignissim fringilla libero, vitae ultricies neque aliquam a. Fusce non nunc dolor. Aenean quam velit, posuere vitae luctus non, rutrum vel tellus. Morbi non odio eget neque tempus tristique non nec metus. Curabitur molestie tortor a luctus commodo. Vivamus tristique varius urna ut adipiscing. Mauris placerat, mauris laoreet euismod feugiat, velit ante iaculis sapien, vel aliquet enim ante non est. Fusce luctus sapien neque, vel ultricies dui iaculis in. Ut aliquam arcu eu ultrices luctus. Nulla sed enim vel nibh mollis facilisis. Etiam mauris risus, pulvinar a magna ut, tincidunt ornare urna. Sed eros diam, accumsan ut quam a, ullamcorper aliquet purus.</p>
-                <h3>Schedule</h3>
-                <ul>
-                    <li><strong>Monday - Wednesday</strong> - Dr. John Doe</li>
-                    <li><strong>Thursday</strong> - Dr. Lisa</li>
-                </ul>
             </article>
-        </div>
-        <div id="sidebar">
-            <ul id="nav-service">
-                <li class="clearfix"><a href="#"><img src="images/icon-services-1-retina.png" alt="X-Ray and Laser Beam" /><span>X-Ray and Laser Beam</span></a></li>
-                <li class="clearfix"><a href="#"><img src="images/icon-services-2-retina.png" alt="Dentist" /><span>Dentist</span></a></li>
-                <li class="clearfix"><a href="#"><img src="images/icon-services-3-retina.png" alt="Pharmacy" /><span>Pharmacy</span></a></li>
-                <li class="clearfix current-menu-item"><a href="#"><img src="images/icon-services-4-retina.png" alt="Nursery" /><span>Nursery &amp; Ward</span></a></li>
-                <li class="clearfix"><a href="#"><img src="images/icon-services-5-retina.png" alt="Heart Attack" /><span>Heart Attack</span></a></li>
-                <li class="clearfix"><a href="#"><img src="images/icon-services-6-retina.png" alt="Blood" /><span>Blood &amp; Vascular</span></a></li>
-                <li class="clearfix"><a href="#"><img src="images/icon-services-1-retina.png" alt="X-Ray and Laser Beam" /><span>X-Ray and Laser Beam</span></a></li>
-                <li class="clearfix"><a href="#"><img src="images/icon-services-2-retina.png" alt="Dentist" /><span>Dentist</span></a></li>
-                <li class="clearfix"><a href="#"><img src="images/icon-services-3-retina.png" alt="Pharmacy" /><span>Pharmacy</span></a></li>
-                <li class="clearfix"><a href="#"><img src="images/icon-services-4-retina.png" alt="Nursery" /><span>Nursery &amp; Ward</span></a></li>
-                <li class="clearfix"><a href="#"><img src="images/icon-services-5-retina.png" alt="Heart Attack" /><span>Heart Attack</span></a></li>
-                <li class="clearfix"><a href="#"><img src="images/icon-services-6-retina.png" alt="Blood" /><span>Blood &amp; Vascular</span></a></li>
-            </ul>
+            <div class="gallery-category">
+                <ul class="list-gallery-category clearfix">
+                    <li><a href="images/slide-1.jpg" data-rel="prettyPhoto[category-1]"><img src="images/img-43.jpg" alt="Nursery Room" data-retina="images/img-43-retina.jpg" /></a></li>
+                    <li><a href="images/slide-2.jpg" data-rel="prettyPhoto[category-1]"><img src="images/img-44.jpg" alt="Lobby and Front Office" data-retina="images/img-44-retina.jpg" /></a></li>
+                    <li><a href="images/slide-1.jpg" data-rel="prettyPhoto[category-1]"><img src="images/img-45.jpg" alt="Winter in our Hospital" data-retina="images/img-45-retina.jpg" /></a></li>
+                    <li><a href="images/slide-2.jpg" data-rel="prettyPhoto[category-1]"><img src="images/img-46.jpg" alt="Canteen" data-retina="images/img-46-retina.jpg" /></a></li>
+                </ul>
+                <a href="gallery-category.php" class="more-category">Hospital Interior</a>
+            </div>
+            <div class="gallery-category">
+                <ul class="list-gallery-category clearfix">
+                    <li><a href="images/slide-1.jpg" data-rel="prettyPhoto[category-2]"><img src="images/img-47.jpg" alt="Sushi" data-retina="images/img-47-retina.jpg" /></a></li>
+                    <li><a href="images/slide-2.jpg" data-rel="prettyPhoto[category-2]"><img src="images/img-48.jpg" alt="Vegetarian Pizza" data-retina="images/img-48-retina.jpg" /></a></li>
+                    <li><a href="images/slide-1.jpg" data-rel="prettyPhoto[category-2]"><img src="images/img-49.jpg" alt="Beef Stew" data-retina="images/img-49-retina.jpg" /></a></li>
+                    <li><a href="images/slide-2.jpg" data-rel="prettyPhoto[category-2]"><img src="images/img-50.jpg" alt="" data-retina="images/img-50-retina.jpg" /></a></li>
+                </ul>
+                <a href="gallery-category.php" class="more-category">Canteen Food Menu</a>
+            </div>
+            <div class="gallery-category last">
+                <ul class="list-gallery-category clearfix">
+                    <li><a href="images/slide-1.jpg" data-rel="prettyPhoto[category-3]"><img src="images/img-43.jpg" alt="Nursery Room" data-retina="images/img-43-retina.jpg" /></a></li>
+                    <li><a href="images/slide-2.jpg" data-rel="prettyPhoto[category-3]"><img src="images/img-44.jpg" alt="Lobby and Front Office" data-retina="images/img-44-retina.jpg" /></a></li>
+                    <li><a href="images/slide-1.jpg" data-rel="prettyPhoto[category-3]"><img src="images/img-45.jpg" alt="Winter in our Hospital" data-retina="images/img-45-retina.jpg" /></a></li>
+                    <li><a href="images/slide-2.jpg" data-rel="prettyPhoto[category-3]"><img src="images/img-46.jpg" alt="Canteen" data-retina="images/img-46-retina.jpg" /></a></li>
+                </ul>
+                <a href="gallery-category.php" class="more-category">Hospital Interior</a>
+            </div>
+            <div class="gallery-category">
+                <ul class="list-gallery-category clearfix">
+                    <li><a href="images/slide-1.jpg" data-rel="prettyPhoto[category-4]"><img src="images/img-47.jpg" alt="Sushi" data-retina="images/img-47-retina.jpg" /></a></li>
+                    <li><a href="images/slide-2.jpg" data-rel="prettyPhoto[category-4]"><img src="images/img-48.jpg" alt="Vegetarian Pizza" data-retina="images/img-48-retina.jpg" /></a></li>
+                    <li><a href="images/slide-1.jpg" data-rel="prettyPhoto[category-4]"><img src="images/img-49.jpg" alt="Beef Stew" data-retina="images/img-49-retina.jpg" /></a></li>
+                    <li><a href="images/slide-2.jpg" data-rel="prettyPhoto[category-4]"><img src="images/img-50.jpg" alt="" data-retina="images/img-50-retina.jpg" /></a></li>
+                </ul>
+                <a href="gallery-category.php" class="more-category">Canteen Food Menu</a>
+            </div>
+            <div class="gallery-category">
+                <ul class="list-gallery-category clearfix">
+                    <li><a href="images/slide-1.jpg" data-rel="prettyPhoto[category-5]"><img src="images/img-43.jpg" alt="Nursery Room" data-retina="images/img-43-retina.jpg" /></a></li>
+                    <li><a href="images/slide-2.jpg" data-rel="prettyPhoto[category-5]"><img src="images/img-44.jpg" alt="Lobby and Front Office" data-retina="images/img-44-retina.jpg" /></a></li>
+                    <li><a href="images/slide-1.jpg" data-rel="prettyPhoto[category-5]"><img src="images/img-45.jpg" alt="Winter in our Hospital" data-retina="images/img-45-retina.jpg" /></a></li>
+                    <li><a href="images/slide-2.jpg" data-rel="prettyPhoto[category-5]"><img src="images/img-46.jpg" alt="Canteen" data-retina="images/img-46-retina.jpg" /></a></li>
+                </ul>
+                <a href="gallery-category.php" class="more-category">Hospital Interior</a>
+            </div>
+            <div class="gallery-category last">
+                <ul class="list-gallery-category clearfix">
+                    <li><a href="images/slide-1.jpg" data-rel="prettyPhoto[category-6]"><img src="images/img-47.jpg" alt="Sushi" data-retina="images/img-47-retina.jpg" /></a></li>
+                    <li><a href="images/slide-2.jpg" data-rel="prettyPhoto[category-6]"><img src="images/img-48.jpg" alt="Vegetarian Pizza" data-retina="images/img-48-retina.jpg" /></a></li>
+                    <li><a href="images/slide-1.jpg" data-rel="prettyPhoto[category-6]"><img src="images/img-49.jpg" alt="Beef Stew" data-retina="images/img-49-retina.jpg" /></a></li>
+                    <li><a href="images/slide-2.jpg" data-rel="prettyPhoto[category-6]"><img src="images/img-50.jpg" alt="" data-retina="images/img-50-retina.jpg" /></a></li>
+                </ul>
+                <a href="gallery-category.php" class="more-category">Canteen Food Menu</a>
+            </div>
         </div>
     </div>
     <div id="content-footer" class="clearfix">

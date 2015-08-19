@@ -2,8 +2,8 @@
 // Start the session
 session_start();
 if(!isset($_SESSION['patient_id'])) {
-    if (!isset($_SESSION['searched']) && $_SESSION['searched_person_type'] !== 'patient') {
-        header("location: ../patient-login-page.php");
+    if (isset($_SESSION['searched']) && $_SESSION['searched_person_type'] != 'patient') {
+        header("location: ../login.php");
     }
 }
 ?>
@@ -94,13 +94,16 @@ if(!isset($_SESSION['patient_id'])) {
                         <span class="icon-bar"></span>
                     </a>
                     <ul id="nav-main">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="patient-login-page.php">Patients</a></li>
-                        <li><a href="staff-login-page.php">Staff</a></li>
-                        <li><a href="php/logout.php">Logout</a></li>
-                    </ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About Us</a></li>
+                        <li><a href="services.php">Services</a></li>
+
+                        <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
+                        <?php if (isset($_SESSION['employee_id']))
+                            echo '<li><a href="php/logout.php">Logout</a></li>';
+                        else
+                            echo '<li><a href="contact.php">Contact</a></li>';
+                        ?>                    </ul>
                 </div>
             </nav>
         </div>

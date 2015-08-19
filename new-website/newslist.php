@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +53,6 @@
 			$(this).next("#content-side-title").animate({width: 'toggle'});
 		});
         $('#tabs-service').tabs({ show: { effect: "fade", duration: 200 }, hide: { effect: "fade", duration: 300 } });
-        $('#tabs-doctor').tabs({ show: { effect: "fade", duration: 200 }, hide: { effect: "fade", duration: 300 } });
 		$('a[data-rel]').each(function() {
 			$(this).attr('rel', $(this).data('rel'));
 		});
@@ -82,126 +85,180 @@
                             <span class="icon-bar"></span>
                         </a>
                         <ul id="nav-main">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="#">Blog</a>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about.php">About Us</a></li>
+                            <li class="current-menu-item"><a href="#">Blog</a>
                                 <ul>
-                                    <li><a href="newslist.html">News List</a></li>
-                                    <li><a href="newsdetail.html">News Detail</a></li>
+                                    <li><a href="newslist.php">News List</a></li>
+                                    <li><a href="newsdetail.php">News Detail</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Other</a>
                                 <ul>
                                     <li><a href="#">Color Variation</a>
                                         <ul>
-                                            <li><a href="index.html">Blue</a></li>
+                                            <li><a href="index.php">Blue</a></li>
                                             <li><a href="../red/index.html">Red</a></li>
                                             <li><a href="../orange/index.html">Orange</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="fullpage.html">Full Page no Sidebar</a></li>
-                                    <li><a href="typography.html">Typography</a></li>
+                                    <li><a href="gallery.php">Gallery</a></li>
+                                    <li><a href="faq.php">FAQ</a></li>
+                                    <li><a href="fullpage.php">Full Page no Sidebar</a></li>
+                                    <li><a href="typography.php">Typography</a></li>
                                 </ul>
                             </li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="patient-login-page.php">Patients</a></li>
-                            <li><a href="staff-login-page.php">Staff</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
+                            <li><a href="services.php">Services</a></li>
+
+                            <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
+                            <?php if (isset($_SESSION['employee_id']))
+                                echo '<li><a href="php/logout.php">Logout</a></li>';
+                            else
+                                echo '<li><a href="contact.php">Contact</a></li>';
+                            ?>                        </ul>
                     </div>
                 </nav>
             </div>
         </div>
     </header>
     <div id="content" class="clearfix">
+        <header id="title-content" class="clearfix" style="background:url(images/img-8.jpg) no-repeat 50% 0 fixed">
+            <h1><span>Latest Blog</span></h1>
+            <aside>
+                <a href="#content-side-title" class="link-side-title"><span></span><span></span><span></span></a>
+                <div id="content-side-title" class="title-testimonial">
+                    <div class="side-title">
+                        <h3>Patient Testimonial</h3>
+                        <img src="images/img-21.jpg" data-retina="images/img-21-retina.jpg" alt="John Doe" />
+                        <article>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et neque eget metus volutpat mollis volutpat sit amet est. Nullam at tellus diam. Cras porttitor</p>
+                            <h4>- Jane Doe</h4>
+                        </article>
+                    </div>
+                </div>
+            </aside>
+        </header>
         <div id="main-content">
-            <header id="intro-team" class="clearfix">
-                <img src="images/img-42.jpg" data-retina="images/img-42-retina.jpg" alt="Dr. Susan Murbaut" />
-                <h1>Dr. Susan Murbaut Obengkembang</h1>
-                <h2><strong><a href="#">Email</a></strong><span>Oral and Maxillofacial Surgery</span></h2>
-                <ul id="list-social-team">
-                    <li id="list-social-team-facebook"><a href="#">Facebook</a></li>
-                    <li id="list-social-team-twitter"><a href="#">Twitter</a></li>
-                    <li id="list-social-team-linkedin"><a href="#">Linkedin</a></li>
-                    <li id="list-social-team-gplus"><a href="#">Google Plus</a></li>
-                </ul>
-                <div class="separator"></div>
-            </header>
-            <article class="static-page">
-                <h3>Donec posuere ipsum odio, in congue orci sollicitudin eget. Aliquam leo tortor, gravida nec sapien vitae, fermentum semper orci.</h3>
-                <p>Pellentesque nunc nulla, aliquet sit amet nisl at, convallis vehicula risus. Ut dictum justo magna. Curabitur a tortor adipiscing massa posuere tristique. Aenean sem turpis, elementum sed erat eu, adipiscing fermentum nunc. Aliquam ut venenatis diam. Nullam tincidunt quam sed dui convallis, in imperdiet mi mollis. Aliquam pulvinar non metus eget tempor. Sed in quam et ipsum scelerisque auctor vel a magna. Nam nec eros libero. Phasellus quis dignissim sapien. Proin in feugiat leo. Donec at tellus sed mauris hendrerit dignissim at id nibh. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim. Sed vel condimentum augue, in rutrum mi. Curabitur lacinia dolor tellus, ac ullamcorper est pharetra quis.</p>
-                <p>Proin in feugiat leo. Donec at tellus sed mauris hendrerit dignissim at id nibh. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim. Sed vel condimentum augue, in rutrum mi. Curabitur lacinia dolor tellus, ac ullamcorper est pharetra quis.</p>
-                <p>Pellentesque et suscipit ligula, sed condimentum lectus. Pellentesque non cursus nisl. Vivamus risus elit, mattis in pulvinar vitae, porttitor at magna. Fusce sit amet hendrerit mi. In porttitor ut elit non tempus. Nullam fringilla nunc</p>
-                <h3>Board Certifications</h3>
-                <p>Oral &amp; Maxillofacial Surgery - (American Board of Oral and Maxillofacial Surgery)</p>
-                <h3>Residencies</h3>
-                <p>Oral &amp; Maxillofacial Surgery - (Alameda County Medical Center)</p>
+            <article class="post type-post status-publish format-standard hentry news static-page clearfix sticky">
+                <header class="clearfix">
+                    <h2 class="title-news"><a href="#">This is sample of sticky Post</a></h2>
+                </header>
+                <figure><img src="images/img-23.jpg" data-retina="images/img-23-retina.jpg" alt="We are closed our first Restaurant" /></figure>				
+                <div class="news-wrapper">
+                    <p>Pellentesque imperdiet est turpis, et dictum turpis tempor et. Donec sit amet erat ut sapien ultricies consequat vel quis nisi. Morbi tincidunt lacus eget mi congue bibendum. Praesent viverra lacinia varius. Curabitur posuere id risus id tempus. Nullam sit amet nulla tristique, fringilla augue ut, mattis nisi. Nullam fermentum ultrices eros.</p>
+                    <p>Morbi tincidunt lacus eget mi congue bibendum. Praesent viverra lacinia varius. Curabitur posuere id risus id tempus. Nullam sit amet nulla tristique, fringilla augue ut, mattis nisi. Nullam fermentum ultrices eros.</p>
+                </div>
+                <div class="news-info-bar clearfix">
+                    <time datetime="2013-10-04">October 4, 2013</time>
+                    <a href="#" class="link-comment">Comments (3)</a>
+                    <strong class="news-info">
+                        <a href="#" title="Health Tips" >Health Tips</a>, <a href="#" title="Medical" >Medical</a>
+                    </strong>
+                    <a href="#" class="more-link">Read More</a>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard hentry news static-page clearfix">
+                <header class="clearfix">
+                    <h2 class="title-news"><a href="#">Blog title sample post is here</a></h2>
+                </header>
+                <figure><img src="images/img-23.jpg" data-retina="images/img-23-retina.jpg" alt="We are closed our first Restaurant" /></figure>				
+                <div class="news-wrapper">
+                    <p>Pellentesque imperdiet est turpis, et dictum turpis tempor et. Donec sit amet erat ut sapien ultricies consequat vel quis nisi. Morbi tincidunt lacus eget mi congue bibendum. Praesent viverra lacinia varius. Curabitur posuere id risus id tempus. Nullam sit amet nulla tristique, fringilla augue ut, mattis nisi. Nullam fermentum ultrices eros.</p>
+                    <p>Morbi tincidunt lacus eget mi congue bibendum. Praesent viverra lacinia varius. Curabitur posuere id risus id tempus. Nullam sit amet nulla tristique, fringilla augue ut, mattis nisi. Nullam fermentum ultrices eros.</p>
+                </div>
+                <div class="news-info-bar clearfix">
+                    <time datetime="2013-10-04">October 4, 2013</time>
+                    <a href="#" class="link-comment">Comments (3)</a>
+                    <strong class="news-info">
+                        <a href="#" title="Health Tips" >Health Tips</a>, <a href="#" title="Medical" >Medical</a>
+                    </strong>
+                    <a href="#" class="more-link">Read More</a>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard hentry news static-page clearfix">
+                <header class="clearfix">
+                    <h2 class="title-news"><a href="#">Blog title sample post is here</a></h2>
+                </header>
+                <figure><img src="images/img-23.jpg" data-retina="images/img-23-retina.jpg" alt="We are closed our first Restaurant" /></figure>				
+                <div class="news-wrapper">
+                    <p>Pellentesque imperdiet est turpis, et dictum turpis tempor et. Donec sit amet erat ut sapien ultricies consequat vel quis nisi. Morbi tincidunt lacus eget mi congue bibendum. Praesent viverra lacinia varius. Curabitur posuere id risus id tempus. Nullam sit amet nulla tristique, fringilla augue ut, mattis nisi. Nullam fermentum ultrices eros.</p>
+                    <p>Morbi tincidunt lacus eget mi congue bibendum. Praesent viverra lacinia varius. Curabitur posuere id risus id tempus. Nullam sit amet nulla tristique, fringilla augue ut, mattis nisi. Nullam fermentum ultrices eros.</p>
+                </div>
+                <div class="news-info-bar clearfix">
+                    <time datetime="2013-10-04">October 4, 2013</time>
+                    <a href="#" class="link-comment">Comments (3)</a>
+                    <strong class="news-info">
+                        <a href="#" title="Health Tips" >Health Tips</a>, <a href="#" title="Medical" >Medical</a>
+                    </strong>
+                    <a href="#" class="more-link">Read More</a>
+                </div>
+            </article>
+            <article class="post type-post status-publish format-standard hentry news static-page clearfix">
+                <header class="clearfix">
+                    <h2 class="title-news"><a href="#">Blog Post without Featured Image</a></h2>
+                </header>			
+                <div class="news-wrapper full">
+                    <p>Pellentesque imperdiet est turpis, et dictum turpis tempor et. Donec sit amet erat ut sapien ultricies consequat vel quis nisi. Morbi tincidunt lacus eget mi congue bibendum. Praesent viverra lacinia varius. Curabitur posuere id risus id tempus. Nullam sit amet nulla tristique, fringilla augue ut, mattis nisi. Nullam fermentum ultrices eros.</p>
+                    <p>Morbi tincidunt lacus eget mi congue bibendum. Praesent viverra lacinia varius. Curabitur posuere id risus id tempus.</p>
+                </div>
+                <div class="news-info-bar clearfix">
+                    <time datetime="2013-10-04">October 4, 2013</time>
+                    <a href="#" class="link-comment">Comments (3)</a>
+                    <strong class="news-info">
+                        <a href="#" title="Health Tips" >Health Tips</a>, <a href="#" title="Medical" >Medical</a>
+                    </strong>
+                    <a href="#" class="more-link">Read More</a>
+                </div>
             </article>
         </div>
         <div id="sidebar">
             <aside class="widget-container">
                 <div class="widget-wrapper clearfix">
-				    <h3 class="widget-title">Schedule</h3>
-                    <ul class="nav-schedule">
-                        <li class="clearfix"><strong>Mon</strong> <span>7am - 11am</span></li>
-				        <li class="clearfix"><strong>Tue - Wed</strong> <span>11am - 10pm</span></li>
-                    </ul>
+				    <h3 class="widget-title">About Happy Health</h3>
+				    <article class="text-widget ">
+					   <img src="images/img-24.jpg" alt="About Us" class="imgframe" />
+				        <p>We make amazing design &amp; application with our professional team.</p>
+                        <p>Integer adipiscing, elit vel malesuada pharetra, nunc sem placerat erat, sed consequat lectus diam vel nunc. Sed pulvinar est non neque porttitor mollis. Aenean placerat, dui laoreet posuere accumsan</p>
+                        <ul>
+				            <li><strong>Address:</strong> P Sherman, 42 Wallaby Way, Sydney, Australia</li>
+				            <li><strong>Email:</strong> hello@cubicthemes.com</li>
+				            <li><strong>Phone:</strong> +62 8 45 6868</li>
+							</ul>	
+					<iframe class="map-area" src="http://maps.google.com/?ie=UTF8&amp;ll=37.055177,-95.668945&amp;spn=11.79095,12.150879&amp;t=m&amp;z=6&amp;output=embed"></iframe>
+		</article>		<a href="http://cubicthemes.com/develop/veteranfood/about-us/" class="button-more">More About Us</a>
+
 				</div>
                 <div class="binder-left"></div><div class="binder-right"></div>
             </aside>
             <aside class="widget-container">
 				<div class="widget-wrapper clearfix">
-				    <h3 class="widget-title">Doctor &amp; Nurse</h3>
-				    <ul class="menu team-sidebar">								
-                        <li class="clearfix">
-                            <img src="images/img-30.jpg" data-retina="images/img-30-retina.jpg" alt="Roberto Rodindo" class="imgframe alignleft" />
-                            <div class="team-sidebar-content">
-                                <h4><a href="teamdetail.html">Roberto Rodindo</a></h4>
-                                <h5>Dentist</h5>
-                                <p class="team-sidebar-social">
-                                    <a href="http://twitter.com/" class="icon-twitter-team">Twitter</a>
-                                    <a href="http://linkedin.com/" class="icon-linkedin-team">Linkedin</a>
-                                </p>
+				    <script type="text/javascript">
+                    jQuery(document).ready(function($){
+                        $('#tabs-widget').tabs({ show: { effect: "fade", duration: 200 }, hide: { effect: "fade", duration: 500 } });
+                    });
+                    </script>
+                    <div id="tabs-widget">
+                    <ul class="tabs-widget">
+                        <li class="first-tabs"><a href="#panel1">Testimonial</a></li>
+                        <li class="last-tabs"><a href="#panel2">Flickr</a></li>
+                    </ul>
+                    <div class="ui-tabs-panel" id="panel1">
+                        <article class="text-widget">
+                            <img src="images/img-28.jpg" data-retina="images/img-28-retina.jpg" alt="Susi Blondeabis" class="imgframe alignleft testimonial" />				
+                            <div class="testimonial-header">
+                                <h4>Susi Blondeabis</h4>
+                                <h5>Cubicthemes</h5>
                             </div>
-                        </li>
-						<li class="clearfix">
-				            <img src="images/img-30.jpg" data-retina="images/img-30-retina.jpg" alt="Roberto Rodindo" class="imgframe alignleft" />
-							<div class="team-sidebar-content">
-                                <h4><a href="teamdetail.html">Malika</a></h4>
-                                <h5>General Checkup</h5>
-                                <p class="team-sidebar-social">
-                                    <a href="http://twitter.com/" class="icon-twitter-team">Twitter</a>
-																												                </p>
-				            </div>
-                        </li>
-                        <li class="clearfix">
-				            <img src="images/img-30.jpg" data-retina="images/img-30-retina.jpg" alt="Roberto Rodindo" class="imgframe alignleft" />
-                            <div class="team-sidebar-content">
-                                <h4><a href="teamdetail.html">Ahok Widodo</a></h4>
-                                <h5>Phisiology</h5>
-                                <p class="team-sidebar-social">
-				                    <a href="http://plus.google.com/" class="icon-gplus-team">Google Plus</a>
-								</p>
-                            </div>
-                        </li>
-						<li class="clearfix">
-				            <img src="images/img-30.jpg" data-retina="images/img-30-retina.jpg" alt="Roberto Rodindo" class="imgframe alignleft" />
-							<div class="team-sidebar-content">
-                                <h4><a href="teamdetail.html">Juna</a></h4>
-                                <h5>Surgery</h5>
-                                <p class="team-sidebar-social">
-                                    <a href="http://twitter.com/" class="icon-facebook-team">Facebook</a>
-								    <a href="http://twitter.com/" class="icon-twitter-team">Twitter</a>
-									<a href="http://linkedin.com/" class="icon-linkedin-team">Linkedin</a>
-                                    <a href="http://plus.google.com/" class="icon-gplus-team">Google Plus</a>
-								</p>
-                            </div>
-                        </li>
-				    </ul>
-					<a href="staff-login-page.php" class="button-more">More Doctor</a>
-   
+                            <blockquote><p>Cras posuere pulvinar faucibus. Vivamus ut ullamcorper augue. Praesent vel odio non lorem iaculis interdum in volutpat lorem. Maecenas facilisis turpis nec faucibus venenatis. Phasellus dolor nulla, fringilla sed dui vitae, dignissim fermentum justo. Proin et vestibulum felis. Donec dictum est est, eu tempor mi tincidunt a.</p>
+                            </blockquote>
+                        </article>			
+                    </div>
+                    <div class="ui-tabs-panel" id="panel2">
+                        <div class="flickr">
+				        <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=6&amp;display=latest&amp;&amp;layout=h&amp;source=user&amp;user=71168470@N08&amp;size=t"></script> 
+				        </div>
+				    </div>
+                    </div>
                 </div>
                 <div class="binder-left"></div><div class="binder-right"></div>
             </aside>
@@ -214,7 +271,7 @@
                 <li><strong><span></span><a href="#panel-service-1"><img src="images/icon-services-1-retina.png" alt="General Checkup" /><em>General Checkup</em></a></strong></li>
                 <li><strong><span></span><a href="#panel-service-2"><img src="images/icon-services-2-retina.png" alt="Dentist" /><em>Dentist</em></a></strong></li>
                 <li><strong><span></span><a href="#panel-service-3"><img src="images/icon-services-3-retina.png" alt="Pharmacy" /><em>Pharmacy</em></a></strong></li>
-                <li><strong><span></span><a href="#panel-service-4"><img src="images/icon-services-4-retina.png" /><em>Nursery &amp; Ward</em></a></strong></li>
+                <li><strong><span></span><a href="#panel-service-4"><img src="images/icon-services-4-retina.png" alt="Nuersery" /><em>Nursery &amp; Ward</em></a></strong></li>
                 <li><strong><span></span><a href="#panel-service-5"><img src="images/icon-services-5-retina.png" alt="Heart Attack" /><em>Heart Attack</em></a></strong></li>
                 <li><strong><span></span><a href="#panel-service-6"><img src="images/icon-services-6-retina.png" alt="Diagnostic Center" /><em>Diagnostic Center</em></a></strong></li>
             </ul>

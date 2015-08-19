@@ -1,8 +1,6 @@
 <?php
 // Start the session
 session_start();
-if(!isset($_SESSION['employee_id']))
-    header("location: ../staff-login-page.php");
 ?>
 
 <!DOCTYPE html>
@@ -90,33 +88,37 @@ if(!isset($_SESSION['employee_id']))
                         <span class="icon-bar"></span>
                     </a>
                     <ul id="nav-main">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About Us</a></li>
                         <li><a href="#">Blog</a>
                             <ul>
-                                <li><a href="newslist.html">News List</a></li>
-                                <li><a href="newsdetail.html">News Detail</a></li>
+                                <li><a href="newslist.php">News List</a></li>
+                                <li><a href="newsdetail.php">News Detail</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Other</a>
                             <ul>
                                 <li><a href="#">Color Variation</a>
                                     <ul>
-                                        <li><a href="index.html">Blue</a></li>
+                                        <li><a href="index.php">Blue</a></li>
                                         <li><a href="../red/index.html">Red</a></li>
                                         <li><a href="../orange/index.html">Orange</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="fullpage.html">Full Page no Sidebar</a></li>
-                                <li><a href="typography.html">Typography</a></li>
+                                <li><a href="gallery.php">Gallery</a></li>
+                                <li><a href="faq.php">FAQ</a></li>
+                                <li><a href="fullpage.php">Full Page no Sidebar</a></li>
+                                <li><a href="typography.php">Typography</a></li>
                             </ul>
                         </li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="patient-login-page.php">Patients</a></li>
-                        <li><a href="staff-login-page.php">Staff</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="services.php">Services</a></li>
+
+                        <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
+                        <?php if (isset($_SESSION['employee_id']))
+                            echo '<li><a href="php/logout.php">Logout</a></li>';
+                        else
+                            echo '<li><a href="contact.php">Contact</a></li>';
+                        ?>
                     </ul>
                 </div>
             </nav>
@@ -124,48 +126,24 @@ if(!isset($_SESSION['employee_id']))
     </div>
 </header>
 <div id="content" class="clearfix">
+
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-        <h1><span><?php echo $_SESSION['employee_name'];?></span></h1>
-        <aside>
-            <a href="#content-side-title" class="link-side-title"><span></span><span></span><span></span></a>
-            <div id="content-side-title" class="title-testimonial">
-                <div class="side-title">
-                    <h3></h3>
-                    <article>
-                        <p>The best way to keep track of work</p>
-                    </article>
-                </div>
-            </div>
-        </aside>
+        <h1><span><?php
+                if ($_SESSION['searched'] && $_SESSION['user']!== 'nurse')
+                    echo $_SESSION['searched']['employee_name'];
+                elseif ($_SESSION['employee_id'])
+                    echo $_SESSION['employee_name']?></span></h1>
     </header>
-    <div class="box user_info" style="margin-bottom: 0px;">
-        <h2>Facility: <?php #echo getEmployee().Facility?></h2></br>
-        <h2>Maximum Hours: <?php #echo getEmployee().Facility?></h2></br>
-        <h2>Sallary: <?php #echo getEmployee().Facility?></h2></br>
-        <h2>Pay Frequency: <?php #echo getEmployee().Facility?></h2></br>
-        <!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
-        <!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
+    <div class="box user_info">
+        <h1 style="text-align: center; font-size: larger; font-family: Georgia; text-decoration: underline">Technician's Information</h1></br>
+        <h2>Facility Name: <span style="color: #d7fca8; font-family: Georgia;"><?php echo $_SESSION['searched']['facility_name'];?></span></h2></br>
+        <h2>Position: <span style="color: #d7fca8; font-family: Georgia;"><?php echo $_SESSION['searched']['employee_type'];?></span></h2></br>
+        <h2>Hours per week: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['hours_per_week'];?></span></h2></br>
+        <h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['pay_frequency'];?></span></h2></br>
+        <h2>Years to raise: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['years_to_raise'];?></span></h2>
+
     </div>
-        <div class="slideshow-tabs" style="top: 0px; margin-left: -1.4%; width: 102.6%; text-align: center;">
-            <ul class="nav-tabs-slideshowss">
-                <li onclick="searchClicked()"><a><strong>Search</strong><br />
-                    </a>
-                </li>
-                <li onclick="servicesClicked()">
-                    <a><strong>Services</strong><br />
-                    </a>
-                </li>
-                <li onclick="scheduleClicked()">
-                    <a><strong>Schedule</strong><br />
-                    </a>
-                </li>
-                <li onclick="otherClicked()">
-                    <a><strong>Other</strong><br />
-                    </a>
-                </li>
-            </ul>
-        </div>
-    <div class="box user_info" id="dashboard">
+
     </div>
 
     <footer id="main-footer">
