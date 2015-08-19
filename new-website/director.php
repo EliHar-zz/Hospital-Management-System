@@ -20,7 +20,6 @@ if(!isset($_SESSION['employee_id']))
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" type="text/css" media="all" href="style/stylemobile.css" />
 	<!--<link rel="stylesheet" type="text/css" media="all" href="style/mobilenavigation.css" />-->
-
 	<script src="script/modernizr.js" type="text/javascript"></script>
 	<script src="script/jquery.js" type="text/javascript"></script>
     <script src="script/jquery-ui.js" type="text/javascript"></script>
@@ -30,7 +29,8 @@ if(!isset($_SESSION['employee_id']))
 	<script src="script/jquery.flexslider.js" type="text/javascript"></script>
 	<script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
 	<script src="script/jquery.retina.js" type="text/javascript"></script>
-	<script type="text/javascript">
+    <script src="script/helper.js" type="text/javascript"></script>
+    <script type="text/javascript">
 	$(document).ready(function (){
         $("a[data-rel^='prettyPhoto']").prettyPhoto({
 			default_width: 600,
@@ -110,6 +110,19 @@ if(!isset($_SESSION['employee_id']))
         </div>
 
         <div id="header-full" style="height: 50px; width: 100%;">
+            <div style="float: left; margin-top: 10px; margin-left: 40px; color:white;">
+                <input onkeyup="searchPeople()" class="inputField" style="float: left;font-size: small;" type="text" id="searchBox" placeholder="     Search for " name="patient_search">
+
+                <label style=" float: left; margin-left: 10px; margin-top: 15px;" for="patient_search">
+                    <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="patient">&nbsp;Patient</label>
+
+                <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                    <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="junior_doctor">&nbsp;Doctor</label>
+
+                <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                    <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type"  value="nurse">&nbsp;Nurse</label>
+
+            </div>
             <div id="header" class="clearfix" >
                 <nav id="nav" class="clearfix" style="margin-top: 5px; margin-left: 0px; text-align: left;">
                     <div id="nav-container" >
@@ -193,38 +206,6 @@ if(!isset($_SESSION['employee_id']))
                     elseif ($_SESSION['employee_id'])
                         echo $_SESSION['pay_frequency']?></span></h2></br>
 
-            <h2>Salary over selected Period: <span id="doctorSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
-            </h2>
-            </br>
-            <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker1"></label>
-            <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker2"></label>
-            <button style="margin-left: 20px;" class="submitButton" onclick="getDoctorSalary()">Apply</button>
-
-
-            </br></br></br>
-        </div>
-
-
-        <div class="box user_info" id="dashboard">
-            <div style="float: left;">
-                <label style="float: left; margin-right: 5px;" for="patient_search">Search for people&nbsp;&nbsp;
-                    <input onkeyup="searchPeople()" class="inputField" style="float: right;" type="text" id="searchBox" placeholder="  eg. Jon Doe" name="patient_search"> </label>
-
-                <label style=" float: left; margin-left: 10px;" for="patient_search">Patient
-                    <input onclick="searchPeople()" type="radio" name="person_type"  value="patient"> </label>
-
-                <label style="float: left; margin-right: 5px;margin-left: 20px;" for="patient_search">Junior Doctor
-                    <input onclick="searchPeople()"  type="radio" name="person_type" value="junior_doctor"> </label>
-
-                <label style="float: left; margin-right: 5px;margin-left: 20px;" for="patient_search">Nurse
-                    <input onclick="searchPeople()"  type="radio" name="person_type"  value="nurse"> </label>
-
-                <input style="float: right; margin-left: 20px;" type="submit" class="submitButton" onclick="searchPeople()" value="Search">
-            </div>
-
-            <div id="result" style="color: #333333; text-align: left; float: left; width: 40%; margin-left: 130px;top:0px;">
-
-            </div>
         </div>
 
     <!-- ######################################### PHP ##############################################-->
@@ -245,14 +226,5 @@ if(!isset($_SESSION['employee_id']))
 
 
     </div>
-    <footer id="main-footer">
-        <aside>
-            <h5 id="text-footer">P Sherman, 42 Wallaby Way, Sydney, Australia | Phone: +62834856, Fax: +62849684 | Email: hello@cubicthemes.com</h5>
-            <div id="footer-copyright" class="clearfix">
-                <p>Copyright &copy; 2013 Cubicthemes.com, All Rights Reserved</p>
-                <a href="#" id="logo-footer"><img src="images/logo-footer.png" data-retina="images/logo-footer-retina.png" alt="Happy Health" /></a>
-            </div>
-        </aside>
-        </footer>
 </body>
 </html>
