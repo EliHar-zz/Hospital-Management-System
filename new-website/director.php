@@ -30,7 +30,6 @@ if(!isset($_SESSION['employee_id']))
 	<script src="script/jquery.flexslider.js" type="text/javascript"></script>
 	<script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
 	<script src="script/jquery.retina.js" type="text/javascript"></script>
-    <script src="script/matt.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(document).ready(function (){
         $("a[data-rel^='prettyPhoto']").prettyPhoto({
@@ -75,13 +74,46 @@ if(!isset($_SESSION['employee_id']))
 
 
     <!-- ######################################### Nav Bar ##############################################-->
-    <header id="main-header" class="clearfix">
+    <header id="main-header" class="clearfix" >
+
+
         <div id="header-full">
             <div id="header" class="clearfix">
-                <img src="images/logo.png" data-retina="images/logo-retina.png" >
+                <a href="#nav" class="open-menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a href="#" id="logo"><img src="images/logo.png" data-retina="images/logo-retina.png" ></a>
                 <nav id="nav" class="clearfix">
+                    <a href="#" class="close-menu-big">Close</a>
                     <div id="nav-container">
+                        <a href="#" class="close-menu">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
                         <ul id="nav-main">
+                            <li class="current-menu-item"><a href="index.php">Home</a></li>
+                            <li><a href="about.php">About Us</a></li>
+                            <li><a href="services.php">Facilities</a></li>
+
+                            <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
+                            <?php if (isset($_SESSION['employee_id']))
+                                echo '<li><a href="php/logout.php">Logout</a></li>';
+                            else
+                                echo '<li><a href="contact.php">Contact</a></li>';
+                            ?>                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div id="header-full" style="height: 50px; width: 100%;">
+            <div id="header" class="clearfix" >
+                <nav id="nav" class="clearfix" style="margin-top: 5px; margin-left: 0px; text-align: left;">
+                    <div id="nav-container" >
+                        <ul id="nav-main" >
                             <li><a href="director.php">Personal Info</a></li>
                             <li><a href="#">Services</a>
                                 <ul>
@@ -129,11 +161,7 @@ if(!isset($_SESSION['employee_id']))
                                     <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
                                 </ul>
                             </li>
-                            <?php if (isset($_SESSION['user']))
-                                echo '<li><a href="php/logout.php">Logout</a></li>';
-                            else
-                                echo '<li><a href="contact.php">Contact</a></li>';
-                            ?>                        </ul>
+                                                  </ul>
                     </div>
                 </nav>
             </div>

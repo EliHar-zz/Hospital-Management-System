@@ -1,7 +1,7 @@
 <?php
     define('DB_HOST', 'eliasharoun.com');
     define('DB_USER', 'appmo489_root');
-    define('DB_PASSWORD', 'comp353');
+    define('DB_PASSWORD', 'vFiXc$+)sv)s');
     define('DB_NAME', 'appmo489_hospital');
 
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)

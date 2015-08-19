@@ -74,65 +74,100 @@ if(!isset($_SESSION['employee_id']))
 <body>
 
 
-    <!-- ######################################### Nav Bar ##############################################-->
-    <header id="main-header" class="clearfix">
-        <div id="header-full">
-            <div id="header" class="clearfix">
-                <img src="images/logo.png" data-retina="images/logo-retina.png" >
-                <nav id="nav" class="clearfix">
-                    <div id="nav-container">
-                        <ul id="nav-main">
-                            <li><a href="director.php">Personal Info</a></li>
-                            <li><a href="directorServices.php">Services</a></li>
-                            <li><a href="#">Supplies</a>
-                                <ul>
-                                    <li><a href="#">Storage Units</a>
-                                        <ul>
-                                            <li><a href="directorStorage.php?fac=palliative">Palliative</a></li>
-                                            <li><a href="directorStorage.php?fac=childrens_unit">Childrens Unit</a></li>
-                                            <li><a href="directorStorage.php?fac=surgical_unit">Surgical Unit</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Supply Rooms</a>
-                                        <ul>
-                                            <li><a href="directorSupplies.php?fac=palliative&floor=first">Palliative First Floor</a></li>
-                                            <li><a href="directorSupplies.php?fac=palliative&floor=second">Palliative Second Floor</a></li>
-                                            <li><a href="directorSupplies.php?fac=palliative&floor=third">Palliative Third Floor</a></li>
-                                            <li><a href="directorSupplies.php?fac=childrens_unit&floor=first">Childrens Unit First Floor</a></li>
-                                            <li><a href="directorSupplies.php?fac=childrens_unit&floor=second">Childrens Unit Second Floor</a></li>
-                                            <li><a href="directorSupplies.php?fac=childrens_unit&floor=third">Childrens Unit Third Floor</a></li>
-                                            <li><a href="directorSupplies.php?fac=surgical_unit&floor=first">Surgical Unit Third Floor</a></li>
-                                            <li><a href="directorSupplies.php?fac=surgical_unit&floor=second">Surgical Unit Third Floor</a></li>
-                                            <li><a href="directorSupplies.php?fac=surgical_unit&floor=third">Surgical Unit Third Floor</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Kitchens</a>
-                                        <ul>
-                                            <li><a href="directorKitchen.php?fac=palliative">Palliative</a></li>
-                                            <li><a href="directorKitchen.php?fac=childrens_unit">Childrens Unit</a></li>
-                                            <li><a href="directorKitchen.php?fac=surgical_unit">Surgical Unit</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="directorSurgeries.php">Surgeries</a></li>
-                            <li><a href="#">Records</a>
-                                <ul>
-                                    <li><a href="directorRecords.php?fac=1">Palliative</a></li>
-                                    <li><a href="directorRecords.php?fac=2">Childrens Unit</a></li>
-                                    <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
-                                </ul>
-                            </li>
-                            <?php if (isset($_SESSION['user']))
-                                echo '<li><a href="php/logout.php">Logout</a></li>';
-                            else
-                                echo '<li><a href="contact.php">Contact</a></li>';
-                            ?>                        </ul>
-                    </div>
-                </nav>
-            </div>
+<!-- ######################################### Nav Bar ##############################################-->
+<header id="main-header" class="clearfix" >
+
+
+    <div id="header-full">
+        <div id="header" class="clearfix">
+            <a href="#nav" class="open-menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a href="#" id="logo"><img src="images/logo.png" data-retina="images/logo-retina.png" ></a>
+            <nav id="nav" class="clearfix">
+                <a href="#" class="close-menu-big">Close</a>
+                <div id="nav-container">
+                    <a href="#" class="close-menu">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <ul id="nav-main">
+                        <li class="current-menu-item"><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About Us</a></li>
+                        <li><a href="services.php">Facilities</a></li>
+
+                        <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
+                        <?php if (isset($_SESSION['employee_id']))
+                            echo '<li><a href="php/logout.php">Logout</a></li>';
+                        else
+                            echo '<li><a href="contact.php">Contact</a></li>';
+                        ?>                        </ul>
+                </div>
+            </nav>
         </div>
-    </header>
+    </div>
+
+    <div id="header-full" style="height: 50px; width: 100%;">
+        <div id="header" class="clearfix" >
+            <nav id="nav" class="clearfix" style="margin-top: 5px; margin-left: 0px; text-align: left;">
+                <div id="nav-container" >
+                    <ul id="nav-main" >
+                        <li><a href="director.php">Personal Info</a></li>
+                        <li><a href="#">Services</a>
+                            <ul>
+                                <li><a href="directorServices.php?fac=palliative">Palliative</a></li>
+                                <li><a href="directorServices.php?fac=childrens_unit">Childrens Unit</a></li>
+                                <li><a href="directorServices.php?fac=surgical_unit">Surgical Unit</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Supplies</a>
+                            <ul>
+                                <li><a href="#">Storage Units</a>
+                                    <ul>
+                                        <li><a href="directorStorage.php?fac=palliative">Palliative</a></li>
+                                        <li><a href="directorStorage.php?fac=childrens_unit">Childrens Unit</a></li>
+                                        <li><a href="directorStorage.php?fac=surgical_unit">Surgical Unit</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Supply Rooms</a>
+                                    <ul>
+                                        <li><a href="directorSupplies.php?fac=palliative&floor=first">Palliative First Floor</a></li>
+                                        <li><a href="directorSupplies.php?fac=palliative&floor=second">Palliative Second Floor</a></li>
+                                        <li><a href="directorSupplies.php?fac=palliative&floor=third">Palliative Third Floor</a></li>
+                                        <li><a href="directorSupplies.php?fac=childrens_unit&floor=first">Childrens Unit First Floor</a></li>
+                                        <li><a href="directorSupplies.php?fac=childrens_unit&floor=second">Childrens Unit Second Floor</a></li>
+                                        <li><a href="directorSupplies.php?fac=childrens_unit&floor=third">Childrens Unit Third Floor</a></li>
+                                        <li><a href="directorSupplies.php?fac=surgical_unit&floor=first">Surgical Unit Third Floor</a></li>
+                                        <li><a href="directorSupplies.php?fac=surgical_unit&floor=second">Surgical Unit Third Floor</a></li>
+                                        <li><a href="directorSupplies.php?fac=surgical_unit&floor=third">Surgical Unit Third Floor</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Kitchens</a>
+                                    <ul>
+                                        <li><a href="directorKitchen.php?fac=palliative">Palliative</a></li>
+                                        <li><a href="directorKitchen.php?fac=childrens_unit">Childrens Unit</a></li>
+                                        <li><a href="directorKitchen.php?fac=surgical_unit">Surgical Unit</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="directorSurgeries.php">Surgeries</a></li>
+                        <li><a href="#">Records</a>
+                            <ul>
+                                <li><a href="directorRecords.php?fac=1">Palliative</a></li>
+                                <li><a href="directorRecords.php?fac=2">Childrens Unit</a></li>
+                                <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
 
 
     <!-- ######################################### Main Image ##############################################-->
