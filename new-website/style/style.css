@@ -2774,6 +2774,17 @@ select {
     margin: 0;
 }
 
+.box.user_info {
+    background-color: #5B94AB;
+    width: 90%;
+    color: white;
+    font-weight: bold;
+    border: white;
+    margin-bottom: 50px;
+    top:0px;
+    margin-left: 1%;
+}
+
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
 		only screen and (min--moz-device-pixel-ratio: 2),
