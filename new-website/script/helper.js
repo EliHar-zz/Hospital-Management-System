@@ -80,10 +80,10 @@ function closeSearchBox(){
     document.getElementById("result").style.visibility = "hidden";
 }
 
-function goToSearchResultPage(type_id, name, id, typeOption){
+function goToSearchResultPage(type_id, name, searched_id, typeOption){
     document.getElementById('searchBox').value = name;
 
-    $.post("../php/clickedSearchResult.php", {name: name, id: id, typeOption: typeOption}, function (data, status) {
+    $.post("../php/clickedSearchResult.php", {type_id:type_id, name: name, id: searched_id, typeOption: typeOption}, function (data, status) {
 
         switch (parseInt(type_id)) {
 

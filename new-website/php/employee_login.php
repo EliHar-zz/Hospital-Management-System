@@ -15,11 +15,11 @@ if ($row['employee_id']) {
 
     #start session
     $_SESSION = $row;
-    $_SESSION ['user']='employee';
 
     switch ($_SESSION['employee_type_id']) {
         case 1:
             $_SESSION['employee_type'] = 'Director';
+            $_SESSION ['user']='director';
 
             header("Location: ../director.php");
 
@@ -27,29 +27,46 @@ if ($row['employee_id']) {
             break;
         case 2:
             $_SESSION['employee_type'] = 'Administrator';
+            $_SESSION ['user']='administrator';
 
             header("Location: ../director.php");
             die();
             break;
         case 3:
-            $_SESSION['employee_type'] = 'Regular nurse';
+            $_SESSION['employee_type'] = 'Regular Nurse';
+            $_SESSION ['user']='nurse';
+
+            $sql2 = "select hours_per_shift, shifts_per_week, years_to_raise from nurses where employee_types_id = 3";
+
+            $result2 = $conn->query($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            $_SESSION['hours_per_shift'] = $row2['hours_per_shift'];
+            $_SESSION['shifts_per_week'] = $row2['shifts_per_week'];
+            $_SESSION['years_to_raise'] = $row2['years_to_raise'];
 
             header("Location: ../nurse.php");
             die();
             break;
         case 4:
-            $_SESSION['employee_type'] = 'Junior doctor';
+            $_SESSION['employee_type'] = 'Junior Doctor';
+            $_SESSION ['user']='doctor2';
+
+            $sql2 = "select junior_doctors.maximum_hours, employee_name supervisor, junior_doctors.pay_frequency from junior_doctors, attending_of_junior, employees where attending_id = employee_id and junior_doctors.employee_types_id = 4 and attending_of_junior.junior_id = '".$employee_id."'";
+
+            $result2 = $conn->query($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            $_SESSION['maximum_hours'] = $row2['maximum_hours'];
+            $_SESSION['supervisor'] = $row2['supervisor'];
+            $_SESSION['pay_frequency'] = $row2['pay_frequency'];
 
             header("Location: ../doctor2.php");
             die();
             break;
-        case 5:
-            $_SESSION['employee_type'] = 'Technician';
-            header("Location: ../technician.php");
-            die();
-            break;
         case 6:
             $_SESSION['employee_type'] = 'Doctor';
+            $_SESSION ['user']='doctor';
 
             $sql2 = "SELECT maximum_hours, pay_frequency FROM doctors";
 
@@ -66,26 +83,63 @@ if ($row['employee_id']) {
             break;
         case 7:
             $_SESSION['employee_type'] = 'Childcare Nurse';
+            $_SESSION ['user']='nurse';
+
+            $sql2 = "select hours_per_shift, shifts_per_week, years_to_raise from nurses where employee_types_id = 7";
+
+            $result2 = $conn->query($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            $_SESSION['hours_per_shift'] = $row2['hours_per_shift'];
+            $_SESSION['shifts_per_week'] = $row2['shifts_per_week'];
+            $_SESSION['years_to_raise'] = $row2['years_to_raise'];
+
             header("Location: ../nurse.php");
             die();
             break;
         case 8:
             $_SESSION['employee_type'] = 'Surgery Nurse';
+            $_SESSION ['user']='nurse';
+
+            $sql2 = "select hours_per_shift, shifts_per_week, years_to_raise from nurses where employee_types_id = 8";
+
+            $result2 = $conn->query($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            $_SESSION['hours_per_shift'] = $row2['hours_per_shift'];
+            $_SESSION['shifts_per_week'] = $row2['shifts_per_week'];
+            $_SESSION['years_to_raise'] = $row2['years_to_raise'];
+
             header("Location: ../nurse.php");
             die();
             break;
         case 9:
             $_SESSION['employee_type'] = 'Shift Supervisor Nurse';
+            $_SESSION ['user']='chief-nurse';
+
+            $sql2 = "select hours_per_shift, shifts_per_week, years_to_raise from nurses where employee_types_id = 9";
+
+            $result2 = $conn->query($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            $_SESSION['hours_per_shift'] = $row2['hours_per_shift'];
+            $_SESSION['shifts_per_week'] = $row2['shifts_per_week'];
+            $_SESSION['years_to_raise'] = $row2['years_to_raise'];
+
             header("Location: ../chief-nurse.php");
             die();
             break;
         case 10:
             $_SESSION['employee_type'] = 'Senior Administrator';
+            $_SESSION ['user']='administrator';
+
             header("Location: ../director.php");
             die();
             break;
         case 11:
-            $_SESSION['employee_type'] = 'Medicine Intern';
+            $_SESSION['employee_type'] = 'Medical Intern';
+            $_SESSION ['user']='doctor2';
+
 
             $sql2 = "select junior_doctors.maximum_hours, employee_name supervisor, junior_doctors.pay_frequency from junior_doctors, attending_of_junior, employees where attending_id = employee_id and junior_doctors.employee_types_id = 11 and attending_of_junior.junior_id = '".$employee_id."'";
 
@@ -102,16 +156,49 @@ if ($row['employee_id']) {
             break;
         case 12:
             $_SESSION['employee_type'] = 'Medical Resident 1-yr';
+            $_SESSION ['user']='doctor2';
+
+            $sql2 = "select junior_doctors.maximum_hours, employee_name supervisor, junior_doctors.pay_frequency from junior_doctors, attending_of_junior, employees where attending_id = employee_id and junior_doctors.employee_types_id = 12 and attending_of_junior.junior_id = '".$employee_id."'";
+
+            $result2 = $conn->query($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            $_SESSION['maximum_hours'] = $row2['maximum_hours'];
+            $_SESSION['supervisor'] = $row2['supervisor'];
+            $_SESSION['pay_frequency'] = $row2['pay_frequency'];
+
             header("Location: ../doctor2.php");
             die();
             break;
         case 13:
             $_SESSION['employee_type'] = 'Medical Resident 2-yr';
+            $_SESSION ['user']='doctor2';
+
+            $sql2 = "select junior_doctors.maximum_hours, employee_name supervisor, junior_doctors.pay_frequency from junior_doctors, attending_of_junior, employees where attending_id = employee_id and junior_doctors.employee_types_id = 13 and attending_of_junior.junior_id = '".$employee_id."'";
+
+            $result2 = $conn->query($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            $_SESSION['maximum_hours'] = $row2['maximum_hours'];
+            $_SESSION['supervisor'] = $row2['supervisor'];
+            $_SESSION['pay_frequency'] = $row2['pay_frequency'];
+
             header("Location: ../doctor2.php");
             die();
             break;
         case 14:
             $_SESSION['employee_type'] = 'Medical Resident 3';
+            $_SESSION ['user']='doctor2';
+
+            $sql2 = "select junior_doctors.maximum_hours, employee_name supervisor, junior_doctors.pay_frequency from junior_doctors, attending_of_junior, employees where attending_id = employee_id and junior_doctors.employee_types_id = 14 and attending_of_junior.junior_id = '".$employee_id."'";
+
+            $result2 = $conn->query($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            $_SESSION['maximum_hours'] = $row2['maximum_hours'];
+            $_SESSION['supervisor'] = $row2['supervisor'];
+            $_SESSION['pay_frequency'] = $row2['pay_frequency'];
+
             header("Location: ../doctor2.php");
             die();
             break;

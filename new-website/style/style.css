@@ -2769,7 +2769,7 @@ table tbody tr td.cellfeat, table tbody tr.odd td.cellfeat {
     text-align: left;
     padding: 50px;
     display: inline-block;
-    border: 4px double black;
+    border: 4px double cadetblue;
     background-color: white;
 }
 

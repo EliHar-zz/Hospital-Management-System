@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,63 +84,86 @@
                             <span class="icon-bar"></span>
                         </a>
                         <ul id="nav-main">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="current-menu-item"><a href="about.html">About Us</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about.php">About Us</a></li>
                             <li><a href="#">Blog</a>
                                 <ul>
-                                    <li><a href="newslist.html">News List</a></li>
-                                    <li><a href="newsdetail.html">News Detail</a></li>
+                                    <li><a href="newslist.php">News List</a></li>
+                                    <li><a href="newsdetail.php">News Detail</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Other</a>
+                            <li class="current-menu-item"><a href="#">Other</a>
                                 <ul>
                                     <li><a href="#">Color Variation</a>
                                         <ul>
-                                            <li><a href="index.html">Blue</a></li>
+                                            <li><a href="index.php">Blue</a></li>
                                             <li><a href="../red/index.html">Red</a></li>
                                             <li><a href="../orange/index.html">Orange</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="fullpage.html">Full Page no Sidebar</a></li>
-                                    <li><a href="typography.html">Typography</a></li>
+                                    <li><a href="gallery.php">Gallery</a></li>
+                                    <li><a href="faq.php">FAQ</a></li>
+                                    <li><a href="fullpage.php">Full Page no Sidebar</a></li>
+                                    <li><a href="typography.php">Typography</a></li>
                                 </ul>
                             </li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="patient-login-page.php">Testimonial</a></li>
-                            <li><a href="staff-login-page.php">Doctor</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
+                            <li><a href="services.php">Services</a></li>
+
+                            <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
+                            <?php if (isset($_SESSION['employee_id']))
+                                echo '<li><a href="php/logout.php">Logout</a></li>';
+                            else
+                                echo '<li><a href="contact.php">Contact</a></li>';
+                            ?>                        </ul>
                     </div>
                 </nav>
             </div>
         </div>
     </header>
     <div id="content" class="clearfix">
-        <header id="title-content" class="clearfix" style="background:url(images/img-8.jpg) no-repeat 50% 0 fixed">
-            <h1><span>About Happy Health Hospital</span></h1>
+        <header id="title-content" class="clearfix" style="background:url(images/img-31.jpg) no-repeat 50% 0 fixed">
+            <h1><span>Hospital Interior</span></h1>
             <aside>
                 <a href="#content-side-title" class="link-side-title"><span></span><span></span><span></span></a>
-                <div id="content-side-title" class="title-gallery">
+                <div id="content-side-title" class="title-news">
                     <div class="side-title">
-                        <h3>Photo Gallery</h3>
+                        <h3>Latest News</h3>
                         <div class="flexslider">
                             <ul class="slides">
                                 <li>
-                                    <div class="slides-image"><img src="images/img-9.jpg" data-retina="images/img-9-retina.jpg" alt="" /></div>
+                                    <div class="slides-image">
+                                        <img src="images/img-22.jpg" data-retina="images/img-22-retina.jpg" alt="" />
+                                    </div>
+                                    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
+                                    <h5>18 August 2013</h5>
                                 </li>
                                 <li>
-                                    <div class="slides-image"><img src="images/img-9.jpg" data-retina="images/img-9-retina.jpg" alt="" /></div>
+                                    <div class="slides-image">
+                                        <img src="images/img-22.jpg" data-retina="images/img-22-retina.jpg" alt="" />
+                                    </div>
+                                    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
+                                    <h5>18 August 2013</h5>
                                 </li>
                                 <li>
-                                    <div class="slides-image"><img src="images/img-9.jpg" data-retina="images/img-9-retina.jpg" alt="" /></div>
+                                    <div class="slides-image">
+                                        <img src="images/img-22.jpg" data-retina="images/img-22-retina.jpg" alt="" />
+                                    </div>
+                                    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
+                                    <h5>18 August 2013</h5>
                                 </li>
                                 <li>
-                                    <div class="slides-image"><img src="images/img-9.jpg" data-retina="images/img-9-retina.jpg" alt="" /></div>
+                                    <div class="slides-image">
+                                        <img src="images/img-22.jpg" data-retina="images/img-22-retina.jpg" alt="" />
+                                    </div>
+                                    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
+                                    <h5>18 August 2013</h5>
                                 </li>
                                 <li>
-                                    <div class="slides-image"><img src="images/img-9.jpg" data-retina="images/img-9-retina.jpg" alt="" /></div>
+                                    <div class="slides-image">
+                                        <img src="images/img-22.jpg" data-retina="images/img-22-retina.jpg" alt="" />
+                                    </div>
+                                    <h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
+                                    <h5>18 August 2013</h5>
                                 </li>
                             </ul>
                         </div>
@@ -146,44 +173,94 @@
         </header>
         <div id="full-width">
             <article class="static-page">
-                <p><strong>Lorem ipsum dolor sit amet</strong>, consectetur adipiscing elit. Integer elementum tincidunt enim a ullamcorper. Donec vitae diam ante, at sagittis ipsum. Donec pretium euismod urna. Duis auctor nisl in magna pharetra condimentum. Sed luctus lorem ac augue aliquam in accumsan risus posuere. Sed ultricies ligula tristique ligula porttitor ac malesuada neque ultrices. Donec ipsum massa, scelerisque eu consequat et, eleifend ac mauris. Maecenas malesuada ligula quis augue elementum eget mollis mauris semper. Donec pellentesque, elit tempor iaculis adipiscing, massa libero vulputate magna, et sodales felis risus id orci. Phasellus porttitor sollicitudin condimentum. Proin sed mauris massa. Nunc nisl nibh, ornare nec imperdiet in, auctor vitae ante.</p>
-				<h2>H2 Tags Title</h2>
-				<p>Phasellus eget odio in dui tempus tempor. Vivamus eu tortor mauris, in adipiscing sapien. <a href="#">Cras erat metus</a>, aliquet et varius quis, pharetra in nulla. Etiam suscipit tincidunt blandit. Sed ac mi sem, ac auctor urna. Duis mollis scelerisque ligula sit amet feugiat. Nullam eros orci, eleifend sit amet lobortis id, pretium vel ligula. Donec at molestie metus. Praesent dignissim dolor lacus, sit amet lobortis orci. Nullam consectetur blandit elit, at elementum ligula porta in. Proin metus tortor, consectetur sit amet mattis id, lobortis sed leo. Vivamus sem ligula, eleifend nec rutrum ac, vehicula at massa. Quisque fermentum velit ac nibh hendrerit ultricies eget nec tortor. Mauris gravida tempor ornare. Etiam eget porttitor metus.</p>
-						<div class="separator"><a href="#">Top</a></div>
-						<h3>H3 Tags Title</h3>
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in anim id est laborum. Allamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in anim id est laborum. </p>
-						<h4>H4 Tags Title</h4>
-						<img src="images/img-6.jpg" alt="Images" class="alignleft imgframe" />
-						<p>Nam odio sem, vulputate vitae gravida vitae, porta eu mi. Sed bibendum sodales sollicitudin. Sed scelerisque elementum magna ac feugiat. Nam ipsum arcu, molestie eu sagittis sit amet, lobortis id diam. Suspendisse luctus est et enim tempor molestie. Proin pretium accumsan elit cursus blandit. Sed aliquam porttitor viverra.</p> 
-						<p>Donec nibh arcu, accumsan at fringilla a, rhoncus a augue. Nulla sit amet lacus ut augue tempus blandit. Donec nibh arcu, accumsan at fringilla a, rhoncus a augue. Nulla sit amet lacus ut augue tempus blandit.</p>
-                <p>Nam odio sem, vulputate vitae gravida vitae, porta eu mi. Sed bibendum sodales sollicitudin. Sed scelerisque elementum magna ac feugiat. Nam ipsum arcu, molestie eu sagittis sit amet, lobortis id diam. Suspendisse luctus est et enim tempor molestie. Proin pretium accumsan elit cursus blandit. Sed aliquam porttitor viverra.</p> 
-						<p>Donec nibh arcu, accumsan at fringilla a, rhoncus a augue. Nulla sit amet lacus ut augue tempus blandit. Donec nibh arcu, accumsan at fringilla a, rhoncus a augue. Nulla sit amet lacus ut augue tempus blandit.</p>
-						<ul>
-							<li>Proin metus tortor, consectetur sit amet mattis id, lobortis sed leo.</li>
-							<li>Proin pretium accumsan elit cursus blandit.</li>
-							<li>Sed aliquam porttitor viverra.</li>
-							<li>Donec nibh arcu, accumsan at fringilla a, rhoncus a augue.</li>
-							<li>Nulla sit amet lacus ut augue tempus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-							<li>Maecenas sodales condimentum laoreet.</li>
-						</ul>
-						<h5>H5 Tags Title</h5>
-						<blockquote><p>Proin metus tortor, consectetur sit amet mattis id, lobortis sed leo. Vivamus sem ligula, eleifend nec rutrum ac, vehicula at massa. Quisque fermentum velit ac nibh hendrerit ultricies eget nec tortor. Quisque fermentum velit ac nibh hendrerit ultricies eget nec tortor.</p></blockquote>
-						<h6>H6 Tags Title</h6>
-						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris cursus mi nec turpis interdum cursus semper neque scelerisque. Suspendisse sit amet arcu risus. Aenean mollis tristique eros et feugiat. Praesent urna mi, adipiscing et pharetra eget, dapibus sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse sit amet arcu risus. Aenean mollis tristique eros et feugiat. Praesent urna mi, adipiscing et pharetra eget, dapibus sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-								<div class="colhalf">
-									<h3>Title H3</h3>
-						<blockquote><p>Proin metus tortor, consectetur sit amet mattis id, lobortis sed leo. Vivamus sem ligula, eleifend nec rutrum ac, vehicula at massa. Quisque fermentum velit ac nibh hendrerit ultricies eget nec tortor. Quisque fermentum velit ac nibh hendrerit ultricies eget nec tortor.</p></blockquote>
-						<h6>H6 Tags Title</h6>
-						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris cursus mi nec turpis interdum cursus semper neque scelerisque. Suspendisse sit amet arcu risus. Aenean mollis tristique eros et feugiat. Praesent urna mi, adipiscing et pharetra eget, dapibus sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse sit amet arcu risus. Aenean mollis tristique eros et feugiat. Praesent urna mi, adipiscing et pharetra eget, dapibus sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-								</div>
-								<div class="colhalf lastcol">
-									<h2>This is Last Column</h2>
-									<p>Phasellus eget odio in dui tempus tempor. Vivamus eu tortor mauris, in adipiscing sapien. Cras erat metus, aliquet et varius quis, pharetra in nulla. Etiam suscipit tincidunt blandit. Sed ac mi sem, ac auctor urna. Duis mollis scelerisque ligula sit amet feugiat. Nullam eros orci, eleifend sit amet lobortis id, pretium vel ligula. Donec at molestie metus. Praesent dignissim dolor lacus, sit amet lobortis orci. Nullam consectetur blandit elit, at elementum ligula porta in. Proin metus tortor, consectetur sit amet mattis id, lobortis sed leo. Vivamus sem ligula, eleifend nec rutrum ac, vehicula at massa. Quisque fermentum velit ac nibh hendrerit ultricies eget nec tortor. Mauris gravida tempor ornare. Etiam eget porttitor metus.</p>
-									<div class="separator"><a href="#">Top</a></div>
-									<p>Nullam consectetur blandit elit, at elementum ligula porta in. Proin metus tortor, consectetur sit amet mattis id, lobortis sed leo. Vivamus sem ligula, eleifend nec rutrum ac, vehicula at massa. Quisque fermentum velit ac nibh hendrerit ultricies eget nec tortor. Mauris gravida tempor ornare. Etiam eget porttitor metus.</p>
-								</div>
-								<div class="clear"></div>
+                <p>Sed vel condimentum augue, in rutrum mi. Curabitur lacinia dolor tellus, ac ullamcorper est pharetra quis. Nam fermentum nibh vitae quam luctus vulputate. Vestibulum posuere libero a adipiscing dignissim. Pellentesque et suscipit ligula, sed condimentum lectus. Pellentesque non cursus nisl.</p>
             </article>
+            <ul id="list-gallery-detail">
+                <li>
+                    <a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery]">
+                        <img src="images/img-51.jpg" data-retina="images/img-51-retina.jpg" alt="Operation Room with Patient inside" />
+                    <br />
+                    <strong>Operation Room with Patient inside</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery]">
+                        <img src="images/img-52.jpg" data-retina="images/img-52-retina.jpg" alt="Pharmacy Room" />
+                    <br />
+                    <strong>Pharmacy Room</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery]">
+                        <img src="images/img-51.jpg" data-retina="images/img-51-retina.jpg" alt="Some Green Tea" />
+                    <br />
+                    <strong>Some Green Tea</strong>
+                    </a>
+                </li>
+                <li class="last">
+                    <a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery]">
+                        <img src="images/img-52.jpg" data-retina="images/img-52-retina.jpg" alt="Pharmacy Room" />
+                    <br />
+                    <strong>Pharmacy Room</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery]">
+                        <img src="images/img-51.jpg" data-retina="images/img-51-retina.jpg" alt="Operation Room with Patient inside" />
+                    <br />
+                    <strong>Operation Room with Patient inside</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery]">
+                        <img src="images/img-52.jpg" data-retina="images/img-52-retina.jpg" alt="Pharmacy Room" />
+                    <br />
+                    <strong>Pharmacy Room</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery]">
+                        <img src="images/img-51.jpg" data-retina="images/img-51-retina.jpg" alt="Some Green Tea" />
+                    <br />
+                    <strong>Some Green Tea</strong>
+                    </a>
+                </li>
+                <li class="last">
+                    <a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery]">
+                        <img src="images/img-52.jpg" data-retina="images/img-52-retina.jpg" alt="Pharmacy Room" />
+                    <br />
+                    <strong>Pharmacy Room</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery]">
+                        <img src="images/img-51.jpg" data-retina="images/img-51-retina.jpg" alt="Operation Room with Patient inside" />
+                    <br />
+                    <strong>Operation Room with Patient inside</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery]">
+                        <img src="images/img-52.jpg" data-retina="images/img-52-retina.jpg" alt="Pharmacy Room" />
+                    <br />
+                    <strong>Pharmacy Room</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery]">
+                        <img src="images/img-51.jpg" data-retina="images/img-51-retina.jpg" alt="Some Green Tea" />
+                    <br />
+                    <strong>Some Green Tea</strong>
+                    </a>
+                </li>
+                <li class="last">
+                    <a href="images/slide-1.jpg" data-rel="prettyPhoto[gallery]">
+                        <img src="images/img-52.jpg" data-retina="images/img-52-retina.jpg" alt="Pharmacy Room" />
+                    <br />
+                    <strong>Pharmacy Room</strong>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
     <div id="content-footer" class="clearfix">

@@ -4,77 +4,72 @@ session_start();
 if(isset($_SESSION['employee_id']))
     switch ($_SESSION['employee_type_id']) {
         case 1:
-            $_SESSION['employee_type'] = 'director';
+            $_SESSION['employee_type'] = 'Director';
 
             header("Location: ../director.php");
 
             die();
             break;
         case 2:
-            $_SESSION['employee_type'] = 'basic administration';
+            $_SESSION['employee_type'] = 'Administrator';
 
             header("Location: ../director.php");
             die();
             break;
         case 3:
-            $_SESSION['employee_type'] = 'regular nurse';
+            $_SESSION['employee_type'] = 'Regular Nurse';
 
             header("Location: ../nurse.php");
             die();
             break;
         case 4:
-            $_SESSION['employee_type'] = 'junior doctor';
+            $_SESSION['employee_type'] = 'Junior Doctor';
 
             header("Location: ../doctor2.php");
             die();
             break;
-        case 5:
-            $_SESSION['employee_type'] = 'technician';
-            header("Location: ../technician.php");
-            die();
-            break;
         case 6:
-            $_SESSION['employee_type'] = 'doctor';
+            $_SESSION['employee_type'] = 'Doctor';
             header("Location: ../doctor.php");
             die();
             break;
         case 7:
-            $_SESSION['employee_type'] = 'childcare nurse';
+            $_SESSION['employee_type'] = 'Childcare Nurse';
             header("Location: ../nurse.php");
             die();
             break;
         case 8:
-            $_SESSION['employee_type'] = 'surgery nurse';
+            $_SESSION['employee_type'] = 'Surgery Nurse';
             header("Location: ../nurse.php");
             die();
             break;
         case 9:
-            $_SESSION['employee_type'] = 'shift supervisor nurse';
+            $_SESSION['employee_type'] = 'Shift Supervisor Nurse';
             header("Location: ../chief-nurse.php");
             die();
             break;
         case 10:
-            $_SESSION['employee_type'] = 'senior administrator';
+            $_SESSION['employee_type'] = 'Senior Administrator';
             header("Location: director.php");
             die();
             break;
         case 11:
-            $_SESSION['employee_type'] = 'intern';
+            $_SESSION['employee_type'] = 'Medical Intern';
             header("Location: ../doctor2.php");
             die();
             break;
         case 12:
-            $_SESSION['employee_type'] = 'resident 1';
+            $_SESSION['employee_type'] = 'Medical Resident 1-yr';
             header("Location: ../doctor2.php");
             die();
             break;
         case 13:
-            $_SESSION['employee_type'] = 'resident 2';
+            $_SESSION['employee_type'] = 'Medical Resident 2-yr';
             header("Location: ../doctor2.php");
             die();
             break;
         case 14:
-            $_SESSION['employee_type'] = 'resident 3';
+            $_SESSION['employee_type'] = 'Medical Resident 3-yr';
             header("Location: ../doctor2.php");
             die();
             break;
@@ -164,13 +159,15 @@ if(isset($_SESSION['employee_id']))
                             <span class="icon-bar"></span>
                         </a>
                         <ul id="nav-main">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="patient-login-page.php">Patients</a></li>
-                            <li><a href="staff-login-page.php">Staff</a></li>
-                            <li><a href="php/logout.php">logout</a></li>
-                        </ul>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about.php">About Us</a></li>
+                            <li><a href="services.php">Services</a></li>
+                            <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
+                            <?php if (isset($_SESSION['user']))
+                                echo '<li><a href="php/logout.php">Logout</a></li>';
+                            else
+                                echo '<li><a href="contact.php">Contact</a></li>';
+                            ?>                        </ul>
                     </div>
                 </nav>
             </div>
@@ -178,34 +175,38 @@ if(isset($_SESSION['employee_id']))
     </header>
     <div id="content" class="clearfix">
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-            <h1><span>Staff Login</span></h1>
-            <aside>
-                <a href="#content-side-title" class="link-side-title"><span></span><span></span><span></span></a>
-                <div id="content-side-title" class="title-testimonial">
-                    <div class="side-title">
-                        <h3></h3>
-                        <article>
-                            <p>The best way to keep track of work</p>
-                        </article>
-                    </div>
-                </div>
-            </aside>
         </header>
-        <div class="login">
-        <form class="box" style="width:320px" id="login" method="POST" action="php/employee_login.php">
+        <div class="login" style="float: left;">
+            <h1 style="margin-bottom: 20px;font-size: larger;color: cadetblue; font-weight: bolder;">Staff Login</h1>
+            <form class="box" style="width:320px" id="login" method="POST" action="php/employee_login.php">
 
-            <p>Please enter your credentials</p>
-            <br/>
-            <label for="employee_id">Employee ID: </label>
-            <input type="text" name="employee_id" id="employee_id"/><br/><br/>
+                <p>Please enter your credentials</p>
+                <br/>
+                <label for="employee_id">Employee ID: </label>
+                <input type="text" name="employee_id" id="employee_id"/><br/><br/>
 
-            <label for="password">Password: </label>
-            <input type="password" name="password" id="password"/><br/><br/><br/>
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password"/><br/><br/><br/>
 
-            <input type="submit" value="Login"/>
-        </form>
+                <input type="submit" class="submitButton" style="border: 1px; float: right; background-color:cadetblue; color: honeydew; " value="Login"/>
+            </form>
         </div>
-     <footer id="main-footer">
+        <div class="login" style="float: right;">
+            <h1 style="margin-bottom: 20px;font-size: larger;color: cadetblue; font-weight: bolder;">Patients Login</h1>
+            <form class="box" style="width:320px" id="login" method="POST" action="/php/patient_login.php">
+
+                <p>Please enter your credentials</p>
+                <br/>
+                <label for="patient_id">Patient ID: </label>
+                <input type="text" name="patient_id" id="patient_id"/><br/><br/>
+
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password"/><br/><br/><br/>
+
+                <input type="submit" class="submitButton" style="border: 1px; float: right; background-color:cadetblue; color: honeydew; " value="Login"/>
+            </form>
+        </div>
+     <footer id="main-footer" style="float: left; left: 0px;margin-left: 0px;">
         <nav>
             <ul id="nav-footer">
                 <li><a href="#">Home</a></li>        
