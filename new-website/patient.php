@@ -1,8 +1,11 @@
 <?php
 // Start the session
 session_start();
-if(!isset($_SESSION['id']))
-#header("location:../staff.html");
+if(!isset($_SESSION['patient_id'])) {
+    if (!isset($_SESSION['searched']) && $_SESSION['searched_person_type'] !== 'patient') {
+        header("location: ../patient-login-page.php");
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +23,7 @@ if(!isset($_SESSION['id']))
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" media="all" href="style/stylemobile.css" />
     <!--<link rel="stylesheet" type="text/css" media="all" href="style/mobilenavigation.css" />-->
-
+    <script src="script/helper.js" type="text/javascript"></script>
     <script src="script/modernizr.js" type="text/javascript"></script>
     <script src="script/jquery.js" type="text/javascript"></script>
     <script src="script/jquery-ui.js" type="text/javascript"></script>
@@ -69,8 +72,10 @@ if(!isset($_SESSION['id']))
             });
         });
     </script>
+
 </head>
 <body>
+
 <header id="main-header" class="clearfix">
     <div id="header-full">
         <div id="header" class="clearfix">
@@ -91,31 +96,10 @@ if(!isset($_SESSION['id']))
                     <ul id="nav-main">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="#">Blog</a>
-                            <ul>
-                                <li><a href="newslist.html">News List</a></li>
-                                <li><a href="newsdetail.html">News Detail</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Other</a>
-                            <ul>
-                                <li><a href="#">Color Variation</a>
-                                    <ul>
-                                        <li><a href="index.html">Blue</a></li>
-                                        <li><a href="../red/index.html">Red</a></li>
-                                        <li><a href="../orange/index.html">Orange</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="fullpage.html">Full Page no Sidebar</a></li>
-                                <li><a href="typography.html">Typography</a></li>
-                            </ul>
-                        </li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="patients.html">Patients</a></li>
-                        <li><a href="staff.html">Staff</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="patient-login-page.php">Patients</a></li>
+                        <li><a href="staff-login-page.php">Staff</a></li>
+                        <li><a href="php/logout.php">Logout</a></li>
                     </ul>
                 </div>
             </nav>
@@ -124,47 +108,31 @@ if(!isset($_SESSION['id']))
 </header>
 <div id="content" class="clearfix">
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-        <h1><span><?php echo $_SESSION['name'];?></span></h1>
-        <aside>
-            <a href="#content-side-title" class="link-side-title"><span></span><span></span><span></span></a>
-            <div id="content-side-title" class="title-testimonial">
-                <div class="side-title">
-                    <h3></h3>
-                    <article>
-                        <p>The best way to keep track of work</p>
-                    </article>
-                </div>
-            </div>
-        </aside>
+        <h1><span><?php
+                if ($_SESSION['patient_name'])
+                    echo $_SESSION['patient_name'];
+                elseif ($_SESSION['searched'])
+                echo $_SESSION['searched']['patient_name']?></span></h1>
     </header>
     <div class="box user_info">
-        <h2>Medicare Insurance Number: <?php #echo getEmployee().Facility?></h2></br>
-        <h2>Hospital Number: <?php #echo getEmployee().Facility?></h2></br>
-        <!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
-        <!--        <h2>Facility: --><?php //#echo getEmployee().Facility?><!--</h2>-->
+        <h1 style="text-align: center; font-size: larger; font-family: Georgia; text-decoration: underline">Patient's Information</h1></br>
+        <h2>Medicare Insurance Number: <span style="color: #d7fca8; font-family: Georgia;"><?php
+                if ($_SESSION['medicare'])
+                    echo $_SESSION['medicare'];
+                elseif ($_SESSION['searched'])
+                    echo $_SESSION['searched']['medicare']?></span></h2></br>
+
+        <h2>Hospital Card Number: <span style="color: #d7fca8; font-family: Georgia;"><?php
+                if ($_SESSION['hospital_card'])
+                    echo $_SESSION['hospital_card'];
+                elseif ($_SESSION['searched'])
+                    echo $_SESSION['searched']['hospital_card']?></span></h2>
+        </br></br></br>
+        <button class="historyButton" onclick="showPatientHistory()">Show Visits History</button>
     </div>
 
-        <div id="result">
-            <?php #while $row = mysqli_fetch_assoc($result)
-
-            #Populate tables
-            ?>
-            <h1>Visits</h1>
-            <table style="background: lightgray;">
-                <td>
-                <td>---</td><td>---</td><td>---</td><td>---</td>
-                </td>
-                <tr>
-                    <td>---</td><td>---</td><td>---</td><td>---</td>
-                </tr>
-                <tr>
-                    <td>---</td><td>---</td><td>---</td><td>---</td>
-                </tr>
-                <tr>
-                    <td>---</td><td>---</td><td>---</td><td>---</td>
-                </tr>
-            </table>
-        </div>
+    <div id="result">
+            <!-----   Load table  ----->
     </div>
     <footer id="main-footer">
         <aside>

@@ -1,3 +1,10 @@
+<?php
+// Start the session
+session_start();
+if(!isset($_SESSION['employee_id']))
+    header("location: ../staff-login.html");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +82,13 @@
                     <div id="nav-container">
                         <ul id="nav-main">
                             <li><a href="director.php">Personal Info</a></li>
-                            <li><a href="directorServices.php">Services</a></li>
+                            <li><a href="#">Services</a>
+                                <ul>
+                                    <li><a href="directorServices.php?fac=palliative">Palliative</a></li>
+                                    <li><a href="directorServices.php?fac=childrens_unit">Childrens Unit</a></li>
+                                    <li><a href="directorServices.php?fac=surgical_unit">Surgical Unit</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#">Supplies</a>
                                 <ul>
                                     <li><a href="#">Storage Units</a>
@@ -110,20 +123,12 @@
                             <li><a href="directorSurgeries.php">Surgeries</a></li>
                             <li><a href="#">Records</a>
                                 <ul>
-                                    <li><a href="#">tbd</a>
-                                        <ul>
-                                            <li><a href="">tbd</a></li>
-                                            <li><a href="">tbd</a></li>
-                                            <li><a href="">tbd</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="">tbd</a></li>
-                                    <li><a href="">tbd</a></li>
-                                    <li><a href="">tbd</a></li>
-                                    <li><a href="">tbd</a></li>
+                                    <li><a href="directorRecords.php?fac=1">Palliative</a></li>
+                                    <li><a href="directorRecords.php?fac=2">Childrens Unit</a></li>
+                                    <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
                                 </ul>
                             </li>
-                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="php/logout.php">Logout</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -134,26 +139,80 @@
     <!-- ######################################### Main Image ##############################################-->
     <div id="content" class="clearfix">
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-            <h1><span style="color:red; font-weight: bold">Username</span></h1>
+            <h1><span style="color:white; font-weight: bold"><?php echo $_SESSION['employee_name'];?></span></h1>
         </header>
 
     <!-- ######################################### PHP ##############################################-->
     <?php
         require 'database.php';
 
-        //$query = '';
-        //$attributes = array();
-        //$table = get_table($query, $attributes);
+        $facility = $_GET['fac'];
 
-        if (isset($_POST['submit'])) {
-            // insert(array(), table)
+        if ($facility == 'palliative') {
+            $facility_id = 1;
+        } else if ($facility == 'childrens_unit') {
+            $facility_id = 2;
+        } else if ($facility == 'surgical_unit') {
+            $facility_id = 3;
         }
+
+        if (isset($_POST['buy'])) {
+
+            $order_id = 0;
+            $supply_id = $_POST['buy'];
+            $quantity = $_POST[$supply_id];
+
+            $query = "SELECT supply_cost FROM supplies WHERE supply_id=$supply_id";
+            $result = mysqli_query($con, $query);
+            $arr = mysqli_fetch_assoc($result);
+            $cost = $quantity*$arr['supply_cost'];
+
+            // orders(order_id, date, facility_id, supply_id, quantity)
+            // facility_supplies(facility_id, supplies_id, quantity)
+
+            // insert into orders
+            $query = "INSERT INTO orders
+                      VALUES($order_id, now(), $facility_id, 'facility', $supply_id, $quantity, $cost)";
+            $result = mysqli_query($con, $query) or die("Unable to process order ".mysqli_error($con). "<br>$query");
+
+            // check if facility_supplies already contains purchased product
+            $query = "SELECT * FROM facility_supplies WHERE facility_id=$facility_id AND supplies_id=$supply_id";
+            $result = mysqli_query($con, $query) or die("Unable to query facility supplies");
+
+            // if facility_supplies has product, update quantity
+            if (mysqli_num_rows($result) > 0) {
+                $query = "UPDATE facility_supplies
+                          SET quantity=quantity+$quantity
+                          WHERE facility_id=$facility_id
+                          AND supplies_id=$supply_id";
+                $result = mysqli_query($con, $query) or die("Unable to update facility supplies");
+            }
+            else { // if facility_supplies does not have product, insert purchase
+                $query = "INSERT INTO facility_supplies VALUES($facility_id, $supply_id, $quantity)";
+                $result = mysqli_query($con, $query) or die("Unable to insert new purchase");
+            }
+        }
+
+        $query = "SELECT supplies_id, supply_name, quantity
+                  FROM facility_supplies, supplies
+                  WHERE supplies_id=supply_id
+                  AND facility_id=$facility_id";
+        $attributes = array('supplies_id', 'supply_name', 'quantity');
+        $storage = get_table($query, $attributes);
+
+        $query = "SELECT supply_id, supply_name, supply_cost, vendor_name
+                  FROM supplies, vendors
+                  WHERE vendors_vendor_id = vendor_id
+                  AND vendor_name NOT LIKE '%Food%'";
+        $attributes = array('supply_id', 'supply_name', 'supply_cost', 'vendor_name');
+        $vendor = get_table_w_purchase($query, $attributes, $facility);
 
         mysqli_close($con);
     ?>
 
 
     <div style="text-align:center">
+
         <!-- ######################################### Style ##############################################-->
         <style scoped>
             a { float: left; color: white; margin: 5px; font-size: 20pt; text-decoration: none; }
@@ -175,23 +234,24 @@
         </style>
 
          <!-- ######################################### Form ##############################################-->
-        <form class="form" id="" method="POST" action="">
+        <form class="form" method="POST" action="<?php $_SERVER['PHP_SELF'] . "?fac=$facility" ?>">
             <h3>Storage Unit</h3><br/>
 
             <hr/>
 
             <div class="row">
                 <div class="col left">
-                    <h4>Current Supplies</h4><br/>
-                    <?php 
-                        echo '<p style="color:red">I will echo table here</p>';
+                    <h4>Current Storage</h4><br/>
+                    <?php
+                        echo $storage;
                     ?>
                 </div>
 
                 <div class="col right">
-                    <h4>Add To Supply Room</h4><br/>
-                    <p class="todo">will echo available to purchase supplies here</p><br/>
-                    <button type="button">Add Supplies</button>
+                    <h4>Add to Storage Unit</h4><br/>
+                    <?php
+                        echo $vendor;
+                    ?>
                 </div><br/>
             </div>
         </form>

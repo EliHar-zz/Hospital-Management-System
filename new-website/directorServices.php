@@ -1,3 +1,11 @@
+<?php
+// Start the session
+session_start();
+if(!isset($_SESSION['employee_id']))
+    header("location: ../staff-login.html");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +83,13 @@
                     <div id="nav-container">
                         <ul id="nav-main">
                             <li><a href="director.php">Personal Info</a></li>
-                            <li><a href="directorServices.php">Services</a></li>
+                            <li><a href="#">Services</a>
+                                <ul>
+                                    <li><a href="directorServices.php?fac=palliative">Palliative</a></li>
+                                    <li><a href="directorServices.php?fac=childrens_unit">Childrens Unit</a></li>
+                                    <li><a href="directorServices.php?fac=surgical_unit">Surgical Unit</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#">Supplies</a>
                                 <ul>
                                     <li><a href="#">Storage Units</a>
@@ -110,20 +124,12 @@
                             <li><a href="directorSurgeries.php">Surgeries</a></li>
                             <li><a href="#">Records</a>
                                 <ul>
-                                    <li><a href="#">tbd</a>
-                                        <ul>
-                                            <li><a href="">tbd</a></li>
-                                            <li><a href="">tbd</a></li>
-                                            <li><a href="">tbd</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="">tbd</a></li>
-                                    <li><a href="">tbd</a></li>
-                                    <li><a href="">tbd</a></li>
-                                    <li><a href="">tbd</a></li>
+                                    <li><a href="directorRecords.php?fac=1">Palliative</a></li>
+                                    <li><a href="directorRecords.php?fac=2">Childrens Unit</a></li>
+                                    <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
                                 </ul>
                             </li>
-                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="php/logout.php">Logout</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -135,7 +141,7 @@
     <!-- ######################################### Main Image ##############################################-->
     <div id="content" class="clearfix">
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-            <h1><span style="color:red; font-weight: bold">Username</span></h1>
+            <h1><span style="color:white; font-weight: bold"><?php echo $_SESSION['employee_name'];?></span></h1>
         </header>
 
     <!-- ######################################### PHP ##############################################-->
@@ -145,8 +151,18 @@
         if (isset($_GET['del'])) {
             global $con;
             $id = $_GET['del'];
-            $query = "DELETE FROM services WHERE service_id=$id";
+            $query = "DELETE FROM facility_services WHERE service_id=$id";
             $result = mysqli_query($con, $query) or die('Unable to delete from DB <br/>'.$query);
+        }
+
+        $facility = $_GET['fac'];
+
+        if ($facility == 'palliative') {
+            $facility_id = 1;
+        } else if ($facility == 'childrens_unit') {
+            $facility_id = 2;
+        } else if ($facility == 'surgical_unit') {
+            $facility_id = 3;
         }
 
         if (isset($_POST['submit'])) {
@@ -155,15 +171,22 @@
             $complexity = $_POST['complexity'];
             $cost = $_POST['cost'];
 
-            $query = "INSERT INTO services(service_name, service_complexity, service_cost)
-                      VALUES('$name', '$complexity', '$cost')";
+            $query = "INSERT INTO services VALUES(null, '$name', '$complexity', '$cost')";
+            $result = mysqli_query($con, $query);
 
-            $result = mysqli_query($con, $query) or die("Unable to execute insert query<br/>$query");
+            $query = "SELECT service_id FROM services WHERE service_name='$name'";
+            $result = mysqli_query($con, $query)
+                        or die("Unable to retrieve service id<br>mysqli_error($con)<br>$query");
+            $arr = mysqli_fetch_assoc($result);
+
+            $query = "INSERT INTO facility_services VALUES($facility_id, ".$arr['service_id'].")";
+            $result = mysqli_query($con, $query) or die("Unable to insert into facility supplies<br>$query");
         }
 
-        $query = 'SELECT service_id, service_name, service_complexity, service_cost FROM services';
+        $query = "SELECT service_id, service_name, service_complexity, service_cost
+                  FROM services NATURAL JOIN facility_services WHERE facility_id=$facility_id";
         $attributes = array('service_id', 'service_name', 'service_complexity', 'service_cost');
-        $table = get_table_w_del($query, $attributes);
+        $table = get_table_w_del($query, $attributes, $facility);
 
         mysqli_close($con);
     ?>

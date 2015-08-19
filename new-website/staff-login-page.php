@@ -1,10 +1,90 @@
+<?php
+// Start the session
+session_start();
+if(isset($_SESSION['employee_id']))
+    switch ($_SESSION['employee_type_id']) {
+        case 1:
+            $_SESSION['employee_type'] = 'director';
 
+            header("Location: ../director.php");
+
+            die();
+            break;
+        case 2:
+            $_SESSION['employee_type'] = 'basic administration';
+
+            header("Location: ../director.php");
+            die();
+            break;
+        case 3:
+            $_SESSION['employee_type'] = 'regular nurse';
+
+            header("Location: ../nurse.php");
+            die();
+            break;
+        case 4:
+            $_SESSION['employee_type'] = 'junior doctor';
+
+            header("Location: ../doctor2.php");
+            die();
+            break;
+        case 5:
+            $_SESSION['employee_type'] = 'technician';
+            header("Location: ../technician.php");
+            die();
+            break;
+        case 6:
+            $_SESSION['employee_type'] = 'doctor';
+            header("Location: ../doctor.php");
+            die();
+            break;
+        case 7:
+            $_SESSION['employee_type'] = 'childcare nurse';
+            header("Location: ../nurse.php");
+            die();
+            break;
+        case 8:
+            $_SESSION['employee_type'] = 'surgery nurse';
+            header("Location: ../nurse.php");
+            die();
+            break;
+        case 9:
+            $_SESSION['employee_type'] = 'shift supervisor nurse';
+            header("Location: ../chief-nurse.php");
+            die();
+            break;
+        case 10:
+            $_SESSION['employee_type'] = 'senior administrator';
+            header("Location: director.php");
+            die();
+            break;
+        case 11:
+            $_SESSION['employee_type'] = 'intern';
+            header("Location: ../doctor2.php");
+            die();
+            break;
+        case 12:
+            $_SESSION['employee_type'] = 'resident 1';
+            header("Location: ../doctor2.php");
+            die();
+            break;
+        case 13:
+            $_SESSION['employee_type'] = 'resident 2';
+            header("Location: ../doctor2.php");
+            die();
+            break;
+        case 14:
+            $_SESSION['employee_type'] = 'resident 3';
+            header("Location: ../doctor2.php");
+            die();
+            break;
+    }?>
 </html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>Happyhealth - Stay Healthy</title>
+	<title>OAMC-patient-login</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />  
 	<meta name="description" content="Website Description" />
 	<meta name="keywords" content="Website Keywords" />
@@ -86,31 +166,10 @@
                         <ul id="nav-main">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="about.html">About Us</a></li>
-                            <li><a href="#">Blog</a>
-                                <ul>
-                                    <li><a href="newslist.html">News List</a></li>
-                                    <li><a href="newsdetail.html">News Detail</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Other</a>
-                                <ul>
-                                    <li><a href="#">Color Variation</a>
-                                        <ul>
-                                            <li><a href="index.html">Blue</a></li>
-                                            <li><a href="../red/index.html">Red</a></li>
-                                            <li><a href="../orange/index.html">Orange</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="fullpage.html">Full Page no Sidebar</a></li>
-                                    <li><a href="typography.html">Typography</a></li>
-                                </ul>
-                            </li>
                             <li><a href="services.html">Services</a></li>
-                            <li><a href="patients.html">Patients</a></li>
-                            <li><a href="staff.html">Staff</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="patient-login-page.php">Patients</a></li>
+                            <li><a href="staff-login-page.php">Staff</a></li>
+                            <li><a href="php/logout.php">logout</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -133,7 +192,7 @@
             </aside>
         </header>
         <div class="login">
-        <form class="box" style="width:320px" id="login" method="POST" action="">
+        <form class="box" style="width:320px" id="login" method="POST" action="php/employee_login.php">
 
             <p>Please enter your credentials</p>
             <br/>
@@ -146,14 +205,18 @@
             <input type="submit" value="Login"/>
         </form>
         </div>
-    <footer id="main-footer">
-        <aside>
-            <h5 id="text-footer">P Sherman, 42 Wallaby Way, Sydney, Australia | Phone: +62834856, Fax: +62849684 | Email: hello@cubicthemes.com</h5>
-            <div id="footer-copyright" class="clearfix">
-                <p>Copyright &copy; 2013 Cubicthemes.com, All Rights Reserved</p>
-                <a href="#" id="logo-footer"><img src="images/logo-footer.png" data-retina="images/logo-footer-retina.png" alt="Happy Health" /></a>
-            </div>
-        </aside>
+     <footer id="main-footer">
+        <nav>
+            <ul id="nav-footer">
+                <li><a href="#">Home</a></li>        
+                <li><a href="#">About</a></li> 
+                <li><a href="#">Doctor</a></li> 
+                <li><a href="#">Services</a></li> 
+                <li><a href="#">Photo</a></li> 
+                <li><a href="#">Article</a></li> 
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </footer>
 </body>
 </html>

@@ -1,3 +1,10 @@
+<?php
+// Start the session
+session_start();
+if(!isset($_SESSION['employee_id']))
+    header("location: ../staff-login.html");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +83,13 @@
                     <div id="nav-container">
                         <ul id="nav-main">
                             <li><a href="director.php">Personal Info</a></li>
-                            <li><a href="directorServices.php">Services</a></li>
+                            <li><a href="#">Services</a>
+                                <ul>
+                                    <li><a href="directorServices.php?fac=palliative">Palliative</a></li>
+                                    <li><a href="directorServices.php?fac=childrens_unit">Childrens Unit</a></li>
+                                    <li><a href="directorServices.php?fac=surgical_unit">Surgical Unit</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#">Supplies</a>
                                 <ul>
                                     <li><a href="#">Storage Units</a>
@@ -111,20 +124,12 @@
                             <li><a href="directorSurgeries.php">Surgeries</a></li>
                             <li><a href="#">Records</a>
                                 <ul>
-                                    <li><a href="#">tbd</a>
-                                        <ul>
-                                            <li><a href="">tbd</a></li>
-                                            <li><a href="">tbd</a></li>
-                                            <li><a href="">tbd</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="">tbd</a></li>
-                                    <li><a href="">tbd</a></li>
-                                    <li><a href="">tbd</a></li>
-                                    <li><a href="">tbd</a></li>
+                                    <li><a href="directorRecords.php?fac=1">Palliative</a></li>
+                                    <li><a href="directorRecords.php?fac=2">Childrens Unit</a></li>
+                                    <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
                                 </ul>
                             </li>
-                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="php/logout.php">Logout</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -135,7 +140,7 @@
     <!-- ######################################### Main Image ##############################################-->
     <div id="content" class="clearfix">
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-            <h1><span style="color:red; font-weight: bold">Username</span></h1>
+            <h1><span style="color:white; font-weight: bold"><?php echo $_SESSION['employee_name'];?></span></h1>
         </header>
 
     <!-- ######################################### PHP ##############################################-->
