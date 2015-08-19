@@ -96,7 +96,7 @@ if(!isset($_SESSION['patient_id'])) {
                     <ul id="nav-main">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="about.php">About Us</a></li>
-                        <li><a href="services.php">Services</a></li>
+                        <li><a href="services.php">Facilities</a></li>
 
                         <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
                         <?php if (isset($_SESSION['employee_id']))
@@ -108,6 +108,43 @@ if(!isset($_SESSION['patient_id'])) {
             </nav>
         </div>
     </div>
+    <?php
+
+    if ($_SESSION['user']!=='patient'){
+        echo'
+    <div id="header-full" style="height: 50px; width: 100%;">
+
+        <div style="float: left; margin-top: 10px; margin-left: 40px; color:white;">
+                <input onkeyup="searchPeople()" class="inputField" style="float: left;font-size: small;" type="text" id="searchBox" placeholder="     Search for " name="patient_search">
+
+            <label style=" float: left; margin-left: 10px; margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="patient">&nbsp;Patient</label>';
+
+    if ($_SESSION['user']==='admin' || $_SESSION['user']==='doctor')
+        echo'
+            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="junior_doctor">&nbsp;Junior Doctor</label>';
+
+    if ($_SESSION['user']!=='patient' && $_SESSION['user']!=='nurse')
+        echo'
+            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type"  value="nurse">&nbsp;Nurse</label>';
+
+       echo'</div>
+
+        <div id="result" style="color: #333333; text-align: left; float: left; width: 20%; margin-top: 45px;margin-left: 41px;top:0px; position: absolute; z-index: 10;">
+        </div>
+
+        <div id="header" class="clearfix" >
+            <nav id="nav" class="clearfix" style="margin-top: 5px; margin-left: 0px; text-align: left;">
+                <div id="nav-container" >
+                    <ul id="nav-main" >
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>';
+}?>
 </header>
 <div id="content" class="clearfix">
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
@@ -134,17 +171,8 @@ if(!isset($_SESSION['patient_id'])) {
         <button class="historyButton" onclick="showPatientHistory()">Show Visits History</button>
     </div>
 
-    <div id="result">
+    <div id="patient_history_records">
             <!-----   Load table  ----->
     </div>
-    <footer id="main-footer">
-        <aside>
-            <h5 id="text-footer">P Sherman, 42 Wallaby Way, Sydney, Australia | Phone: +62834856, Fax: +62849684 | Email: hello@cubicthemes.com</h5>
-            <div id="footer-copyright" class="clearfix">
-                <p>Copyright &copy; 2013 Cubicthemes.com, All Rights Reserved</p>
-                <a href="#" id="logo-footer"><img src="images/logo-footer.png" data-retina="images/logo-footer-retina.png" alt="Happy Health" /></a>
-            </div>
-        </aside>
-    </footer>
 </body>
 </html>

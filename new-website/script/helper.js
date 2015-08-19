@@ -23,7 +23,7 @@ function otherClicked(){
 function showPatientHistory(){
 
     $.post("../php/fetch-patient-history.php", function(data, status){
-        document.getElementById("result").innerHTML='<h1 style="text-align: left; font-size: larger; font-family: Georgia; text-decoration: underline">Visits History</h1></br></br>'+data;
+        document.getElementById("patient_history_records").innerHTML='<h1 style="text-align: left; font-size: larger; font-family: Georgia; text-decoration: underline">Visits History</h1></br></br>'+data;
     });
 }
 
@@ -43,15 +43,30 @@ function getDoctorSalary(){
 
 }
 
+function getNurseSalary(){
+    var start = document.getElementById("datepicker1").value;
+
+    start = start.substring(6,10)+'-'+start.substring(0,2)+'-'+start.substring(3,5);
+
+    var end = document.getElementById("datepicker2").value;
+
+    end = end.substring(6,10)+'-'+end.substring(0,2)+'-'+end.substring(3,5);
+
+
+    $.post("../php/fetch-nurse-salary.php",{start:start, end:end} ,function(data, status){
+        document.getElementById("nurseSalary").innerHTML="$"+data;
+    });
+
+}
+
 function searchPeople(){
 
+    document.getElementById("result").style.visibility = "visible";
 
     nameQuery = document.getElementById('searchBox').value;
     typeOption = $('input[name="person_type"]:checked').val();
 
     if(nameQuery.length>=3 && typeOption!==undefined) {
-
-        document.getElementById("result").style.visibility = "visible";
 
         $.post("../php/searchPeople.php", {name: nameQuery, typeOption: typeOption}, function (data, status) {
 

@@ -83,7 +83,7 @@
                         <ul id="nav-main">
                             <li><a href="index.php">Home</a></li>
                             <li><a href="about.php">About Us</a></li>
-                            <li><a href="services.php">Services</a></li>
+                            <li><a href="services.php">Facilities</a></li>
 
                             <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
                             <?php if (isset($_SESSION))

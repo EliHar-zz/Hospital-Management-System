@@ -107,7 +107,7 @@ session_start();
                                     <li><a href="typography.php">Typography</a></li>
                                 </ul>
                             </li>
-                            <li><a href="services.php">Services</a></li>
+                            <li><a href="services.php">Facilities</a></li>
                             <li><a href="login.php">Testimonial</a></li>
                             <li><a href="login.php">Doctor</a></li>
                             <?php if (isset($_SESSION['employee_id']))
