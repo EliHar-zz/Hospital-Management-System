@@ -1,0 +1,12 @@
+play clean
+clean
+run
+run\
+run
+clean compile
+clean
+exit
+eclipse
+clean
+run
+exit

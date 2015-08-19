@@ -24,8 +24,6 @@ if(!isset($_SESSION['employee_id'])) {
     <link rel="stylesheet" type="text/css" media="all" href="style/stylemobile.css" />
     <!--<link rel="stylesheet" type="text/css" media="all" href="style/mobilenavigation.css" />-->
     
-   
-
     <script src="script/modernizr.js" type="text/javascript"></script>
     <script src="script/jquery.js" type="text/javascript"></script>
     <script src="script/helper.js" type="text/javascript"></script>
@@ -36,6 +34,11 @@ if(!isset($_SESSION['employee_id'])) {
     <script src="script/jquery.flexslider.js" type="text/javascript"></script>
     <script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
     <script src="script/jquery.retina.js" type="text/javascript"></script>
+    
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="script/helper.js" type="text/javascript"></script>
+    
     
     <script>
         $(function() {

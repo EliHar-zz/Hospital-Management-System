@@ -1,0 +1,10 @@
+New log file opened at Tue Aug 11 14:28:51 EDT 2015 by 6924@RichSurface
+Taking next connection to: 3108
+New client attempting to connect on port: 3109-3108
+  Address = /172.31.92.133:3108
+This client on port 3109 has uuid 89aa9082-534e-4e93-99d9-4b5a06b56340 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-89aa9082-534e-4e93-99d9-4b5a06b56340
+Taking next connection to: 3108
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 3108
