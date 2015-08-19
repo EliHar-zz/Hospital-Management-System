@@ -43,6 +43,22 @@ function getDoctorSalary(){
 
 }
 
+function getNurseSalary(){
+    var start = document.getElementById("datepicker1").value;
+
+    start = start.substring(6,10)+'-'+start.substring(0,2)+'-'+start.substring(3,5);
+
+    var end = document.getElementById("datepicker2").value;
+
+    end = end.substring(6,10)+'-'+end.substring(0,2)+'-'+end.substring(3,5);
+
+
+    $.post("../php/fetch-nurse-salary.php",{start:start, end:end} ,function(data, status){
+        document.getElementById("nurseSalary").innerHTML="$"+data;
+    });
+
+}
+
 function searchPeople(){
 
     document.getElementById("result").style.visibility = "visible";

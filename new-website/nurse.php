@@ -23,6 +23,15 @@ if(!isset($_SESSION['employee_id'])) {
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" media="all" href="style/stylemobile.css" />
     <!--<link rel="stylesheet" type="text/css" media="all" href="style/mobilenavigation.css" />-->
+    
+    <script>
+        $(function() {
+            $( "#datepicker11" ).datepicker();
+        });
+        $(function() {
+            $( "#datepicker22" ).datepicker();
+        });
+    </script>
 
     <script src="script/modernizr.js" type="text/javascript"></script>
     <script src="script/jquery.js" type="text/javascript"></script>
@@ -73,6 +82,7 @@ if(!isset($_SESSION['employee_id'])) {
             });
         });
     </script>
+    
 </head>
 <body>
 <header id="main-header" class="clearfix" >
@@ -207,8 +217,17 @@ if(!isset($_SESSION['employee_id'])) {
             echo '<h2>Years to raise: <span style="color: #d7fca8; font-family: Georgia;">';
             echo $_SESSION['years_to_raise'];
             echo '</span></h2></br>
+        
+                    <!------************************ PAY INFO  ------->
 
-            <!------************************ PAY INFO  ------->
+        <h2>Salary over selected Period: <span id="nurseSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
+        </h2>
+        </br>
+        <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker11"></label>
+        <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker22"></label>
+        <button style="margin-left: 20px;" class="submitButton" onclick="getNurseSalary()">Apply</button>
+              
+              
 
 ';
         }
