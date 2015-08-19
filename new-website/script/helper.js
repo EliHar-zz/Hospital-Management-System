@@ -44,11 +44,11 @@ function getDoctorSalary(){
 }
 
 function getNurseSalary(){
-    var start = document.getElementById("datepicker1").value;
+    var start = document.getElementById("datepicker11").value;
 
     start = start.substring(6,10)+'-'+start.substring(0,2)+'-'+start.substring(3,5);
 
-    var end = document.getElementById("datepicker2").value;
+    var end = document.getElementById("datepicker22").value;
 
     end = end.substring(6,10)+'-'+end.substring(0,2)+'-'+end.substring(3,5);
 
@@ -56,7 +56,15 @@ function getNurseSalary(){
     $.post("../php/fetch-nurse-salary.php",{start:start, end:end} ,function(data, status){
         document.getElementById("nurseSalary").innerHTML="$"+data;
     });
+}
 
+ function getNurseNextPay(){
+	 start = "2015-05-16";
+	 end = "2015-06-02";
+	 
+	 $.post("../php/fetch-nurse-salary.php",{start:start, end:end} ,function(data, status){
+	        document.getElementById("nurseNextPay").innerHTML="$"+data;
+	    }); 
 }
 
 function searchPeople(){
