@@ -22,6 +22,8 @@ if(!isset($_SESSION['employee_id'])) {
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" media="all" href="style/stylemobile.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    
     <!--<link rel="stylesheet" type="text/css" media="all" href="style/mobilenavigation.css" />-->
     
     <script src="script/modernizr.js" type="text/javascript"></script>
@@ -39,8 +41,7 @@ if(!isset($_SESSION['employee_id'])) {
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="script/helper.js" type="text/javascript"></script>
     
-    
-    <script>
+     <script>
         $(function() {
             $( "#datepicker11" ).datepicker();
         });
@@ -218,6 +219,7 @@ if(!isset($_SESSION['employee_id'])) {
                     echo $_SESSION['searched']['shifts_per_week'];
                 elseif ($_SESSION['employee_id'])
                     echo $_SESSION['shifts_per_week']?></span></h2></br>
+              
         <?php
         include 'php/fetch-nurse-salary.php';
         

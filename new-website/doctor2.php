@@ -222,16 +222,23 @@ if(!isset($_SESSION['employee_id'])) {
                     echo $_SESSION['maximum_hours']?></span></h2></br>
 
         <?php
+        include 'php/fetch-nurse-salary.php';
         if ($_SESSION['user']=== 'doctor2') {
             echo '<h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;">';
             echo $_SESSION['pay_frequency'];
             echo '</span></h2></br>
-        <h2>Salary over selected Period: <span id="doctorSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
+        		
+        <h2>Your next pay: <span id="juniorNextPay" style="color: #d7fca8; font-family: Georgia;">
+			<script>getJuniorNextPay();</script>;
+        		
+               </span></h2></br>
+        		
+        <h2>Salary over selected Period: <span id="juniorSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
         </h2>
         </br>
         <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker1"></label>
         <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker2"></label>
-        <button style="margin-left: 20px;" class="submitButton" onclick="getDoctorSalary()">Apply</button>';
+        <button style="margin-left: 20px;" class="submitButton" onclick="getJuniorSalary()">Apply</button>';
         }
         ?>
     </div>

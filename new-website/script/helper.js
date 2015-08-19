@@ -66,6 +66,32 @@ function getNurseSalary(){
 	        document.getElementById("nurseNextPay").innerHTML="$"+data;
 	    }); 
 }
+ 
+ function getJuniorSalary(){
+	    var start = document.getElementById("datepicker1").value;
+
+	    start = start.substring(6,10)+'-'+start.substring(0,2)+'-'+start.substring(3,5);
+
+	    var end = document.getElementById("datepicker2").value;
+
+	    end = end.substring(6,10)+'-'+end.substring(0,2)+'-'+end.substring(3,5);
+
+
+	    $.post("../php/fetch-junior-salary.php",{start:start, end:end} ,function(data, status){
+	        document.getElementById("juniorSalary").innerHTML="$"+data;
+	    });
+	}
+ 
+ 
+ 
+ function getJuniorNextPay(){
+	 start = "2015-05-25";
+	 end = "2015-06-01";
+	 
+	 $.post("../php/fetch-junior-salary.php",{start:start, end:end} ,function(data, status){
+	        document.getElementById("juniorNextPay").innerHTML="$"+data;
+	    }); 
+}
 
 function searchPeople(){
 
