@@ -110,27 +110,6 @@ if(!isset($_SESSION['employee_id'])) {
                     <ul id="nav-main">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="about.php">About Us</a></li>
-                        <li><a href="#">Blog</a>
-                            <ul>
-                                <li><a href="newslist.php">News List</a></li>
-                                <li><a href="newsdetail.php">News Detail</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Other</a>
-                            <ul>
-                                <li><a href="#">Color Variation</a>
-                                    <ul>
-                                        <li><a href="index.php">Blue</a></li>
-                                        <li><a href="../red/index.html">Red</a></li>
-                                        <li><a href="../orange/index.html">Orange</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="gallery.php">Gallery</a></li>
-                                <li><a href="faq.php">FAQ</a></li>
-                                <li><a href="fullpage.php">Full Page no Sidebar</a></li>
-                                <li><a href="typography.php">Typography</a></li>
-                            </ul>
-                        </li>
                         <li><a href="services.php">Facilities</a></li>
 
                         <?php if (isset($_SESSION['user']))                                 echo '<li><a href="login.php">My Account</a></li>';                             else                                 echo '<li><a href="login.php">Login</a></li>';                             ?></li>
@@ -143,6 +122,37 @@ if(!isset($_SESSION['employee_id'])) {
             </nav>
         </div>
     </div>
+    <?php
+
+    if ($_SESSION['user']==='doctor2')
+        echo'
+    <div id="header-full" style="height: 50px; width: 100%;">
+
+        <div style="float: left; margin-top: 10px; margin-left: 40px; color:white;">
+                <input onkeyup="searchPeople()" class="inputField" style="float: left;font-size: small;" type="text" id="searchBox" placeholder="     Search for " name="patient_search">
+
+            <label style=" float: left; margin-left: 10px; margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="patient">&nbsp;Patient</label>
+
+            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type"  value="nurse">&nbsp;Nurse</label>
+
+        </div>
+
+        <div id="result" style="color: #333333; text-align: left; float: left; width: 20%; margin-top: 45px;margin-left: 41px;top:0px; position: absolute; z-index: 10;">
+        </div>
+
+        <div id="header" class="clearfix" >
+            <nav id="nav" class="clearfix" style="margin-top: 5px; margin-left: 0px; text-align: left;">
+                <div id="nav-container" >
+                    <ul id="nav-main" >
+                        <li><a style="font-weight: bold; color: #494949;">Personal Info</a></li>
+                        <li><a href="#" style="font-weight: bold;">Schedule</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>';?>
 </header>
 <div id="content" class="clearfix">
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
@@ -174,50 +184,20 @@ if(!isset($_SESSION['employee_id'])) {
                     echo $_SESSION['searched']['maximum_hours'];
                 elseif ($_SESSION['employee_id'])
                     echo $_SESSION['maximum_hours']?></span></h2></br>
-        <h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;"> <?php
-                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
-                    echo $_SESSION['searched']['pay_frequency'];
-                elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['pay_frequency']?></span></h2></br>
 
+        <?php
+        if ($_SESSION['user']=== 'doctor2') {
+            echo '<h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;">';
+            echo $_SESSION['pay_frequency'];
+            echo '</span></h2></br>
         <h2>Salary over selected Period: <span id="doctorSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
         </h2>
         </br>
         <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker1"></label>
         <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker2"></label>
-        <button style="margin-left: 20px;" class="submitButton" onclick="getDoctorSalary()">Apply</button>
-
-
-        </br></br></br>
+        <button style="margin-left: 20px;" class="submitButton" onclick="getDoctorSalary()">Apply</button>';
+        }
+        ?>
     </div>
-
-    <div class="box user_info" id="dashboard">
-        <div style="float: left;">
-            <label style="float: left; margin-right: 5px;" for="searchBox">Search for people&nbsp;&nbsp;
-                <input onkeyup="searchPeople()" class="inputField" style="float: right;" type="text" id="searchBox" placeholder="  eg. Jon Doe" name="patient_search"> </label>
-
-            <label style=" float: left; margin-left: 10px;">Patient
-                <input onclick="searchPeople()" type="radio" name="person_type"  value="patient"> </label>
-
-            <label style="float: left; margin-right: 5px;margin-left: 20px;">Nurse
-                <input onclick="searchPeople()"  type="radio" name="person_type"  value="nurse"> </label>
-
-            <input style="float: right; margin-left: 20px;" type="submit" class="submitButton" onclick="searchPeople()" value="Search">
-        </div>
-
-        <div id="result" style="color: #333333; text-align: left; float: left; width: 40%; margin-left: 130px;top:0px;">
-
-        </div>
-    </div>
-
-    <footer id="main-footer">
-        <aside>
-            <h5 id="text-footer">P Sherman, 42 Wallaby Way, Sydney, Australia | Phone: +62834856, Fax: +62849684 | Email: hello@cubicthemes.com</h5>
-            <div id="footer-copyright" class="clearfix">
-                <p>Copyright &copy; 2013 Cubicthemes.com, All Rights Reserved</p>
-                <a href="#" id="logo-footer"><img src="images/logo-footer.png" data-retina="images/logo-footer-retina.png" alt="Happy Health" /></a>
-            </div>
-        </aside>
-    </footer>
 </body>
 </html>
