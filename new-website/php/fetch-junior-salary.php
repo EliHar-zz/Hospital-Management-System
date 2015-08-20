@@ -8,7 +8,6 @@ $end = $_REQUEST['end'];
 
 $sql = "SELECT yearly_salary FROM junior_doctors WHERE employee_types_id = '".$_SESSION['employee_type_id']."'";
 $result = $conn->query($sql);
-print_r($row);
 
 
 $start_String = strtotime($start);

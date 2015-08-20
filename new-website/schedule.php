@@ -1,11 +1,8 @@
 <?php
 // Start the session
 session_start();
-if(!isset($_SESSION['employee_id'])) {
-    if (isset($_SESSION['searched']) && $_SESSION['searched_person_type'] !== 'junior_doctor') {
-        header("location: ../login.php");
-    }
-}
+if(!isset($_SESSION['employee_id']))
+    header("location: ../login.php");
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +45,6 @@ if(!isset($_SESSION['employee_id'])) {
         });
     </script>
 
-
     <script type="text/javascript">
         $(document).ready(function (){
             $("a[data-rel^='prettyPhoto']").prettyPhoto({
@@ -90,7 +86,7 @@ if(!isset($_SESSION['employee_id'])) {
     </script>
 </head>
 <body>
-<header id="main-header" class="clearfix">
+<header id="main-header" class="clearfix" >
     <div id="header-full">
         <div id="header" class="clearfix">
             <a href="#nav" class="open-menu">
@@ -123,47 +119,21 @@ if(!isset($_SESSION['employee_id'])) {
         </div>
     </div>
     <?php
-
-    if ($_SESSION['user']==='doctor2') {
-        echo '
-    <div id="header-full" style="height: 50px; width: 100%;">
-
-        <div style="float: left; margin-top: 10px; margin-left: 40px; color:white;">
-                <input onkeyup="searchPeople()" class="inputField" style="float: left;font-size: small;" type="text" id="searchBox" placeholder="     Search for " name="patient_search">
-
-            <label style=" float: left; margin-left: 10px; margin-top: 15px;" for="patient_search">
-                <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="patient">&nbsp;Patient</label>
-
-            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
-                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type"  value="nurse">&nbsp;Nurse</label>
-
-        </div>
-
-        <div id="result" style="color: #333333; text-align: left; float: left; width: 20%; margin-top: 45px;margin-left: 41px;top:0px; position: absolute; z-index: 10;">
-        </div>
-
-        <div id="header" class="clearfix" >
-            <nav id="nav" class="clearfix" style="margin-top: 5px; margin-left: 0px; text-align: left;">
-                <div id="nav-container" >
-                    <ul id="nav-main" >
-                        <li><a style="font-weight: bold; color: #494949;">Personal Info</a></li>
-                        <li><a href="schedule.php" style="font-weight: bold;">Schedule</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div>';
-    } else {
         echo'
     <div id="header-full" style="height: 50px; width: 100%;">
 
         <div style="float: left; margin-top: 10px; margin-left: 40px; color:white;">
-                <input onkeyup="searchPeople()" class="inputField" style="float: left;font-size: small;" type="text" id="searchBox" placeholder="     Search for " name="patient_search">
+                <input onkeyup="searchPeople()" class="inputField" style="float: left;font-size: small;" type="text" id="searchBox" placeholder="     Search for " name="patient_search">';
 
+        if ($_SESSION['user']==='nurse')
+            echo'
+                <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type" checked hidden value="patient">';
+        else
+            echo'
             <label style=" float: left; margin-left: 10px; margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="patient">&nbsp;Patient</label>';
 
-        if ($_SESSION['user']==='doctor')
+    if ($_SESSION['user']==='doctor')
             echo'
             <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="junior_doctor">&nbsp;Junior Doctor</label>';
@@ -192,64 +162,32 @@ if(!isset($_SESSION['employee_id'])) {
             <nav id="nav" class="clearfix" style="margin-top: 5px; margin-left: 0px; text-align: left;">
                 <div id="nav-container" >
                     <ul id="nav-main" >
+                        <li><a href="login.php" style="font-weight: bold;">Personal info</a></li>
+                         <li><a href="#" style="font-weight: bold; color: #494949;">Schedule</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
     </div>';
-    }
     ?>
 </header>
-<div id="content" class="clearfix">
+
+<div id="content" class="clearfix" style="overflow: hidden;">
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-        <h1><span>Dr. <?php
-                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
-                    echo $_SESSION['searched']['employee_name'];
-                elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['employee_name']?></span></h1>
     </header>
     <div class="box user_info">
-        <h1 style="text-align: center; font-size: larger; font-family: Georgia; text-decoration: underline">Doctor's Information</h1></br>
-        <h2>Facility Name: <span style="color: #d7fca8; font-family: Georgia;"><?php
-                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
-                    echo $_SESSION['searched']['facility_name'];
-                elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['facility_name'];?></span></h2></br>
-        <h2>Position: <span style="color: #d7fca8; font-family: Georgia;"><?php
-                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
-                    echo $_SESSION['searched']['employee_type'];
-                elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['employee_type'];?></span></h2></br>
-        <h2>Supervisor's Name: <span style="color: #d7fca8; font-family: Georgia;">Dr. <?php
-                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
-                    echo $_SESSION['searched']['supervisor'];
-                elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['supervisor'];?></span></h2></br>
-        <h2>Maximum Weekly Hours: <span style="color: #d7fca8; font-family: Georgia;"> <?php
-                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
-                    echo $_SESSION['searched']['maximum_hours'];
-                elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['maximum_hours'];?></span></h2></br>
-
-        <?php
-        if ($_SESSION['user']=== 'doctor2') {
-            echo '<h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;">';
-            echo $_SESSION['pay_frequency'];
-            echo '</span></h2></br>
-        		
-        <h2>Your next pay: <span id="juniorNextPay" style="color: #d7fca8; font-family: Georgia;">
-			<script>getJuniorNextPay();</script>;
-        		
-               </span></h2></br>
-        		
-        <h2>Salary over selected Period: <span id="juniorSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
-        </h2>
+        <h1>Select the work period you want to display:</h1>
+        </br>
         </br>
         <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker1"></label>
         <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker2"></label>
-        <button style="margin-left: 20px;" class="submitButton" onclick="getJuniorSalary()">Apply</button>';
-        }
-        ?>
+        <button style="margin-left: 20px;" class="submitButton" onclick="getSchedule('<?php echo $_SESSION['employee_id'];?>')">Apply</button>
+
+        </br>
+        </br></br>
+        </br>
+        <div id="scheduleTable" style="align-content: center;">
+        </div>
     </div>
 </body>
 </html>

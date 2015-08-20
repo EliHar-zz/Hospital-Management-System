@@ -146,8 +146,8 @@ if(!isset($_SESSION['employee_id']))
                 <div id="nav-container" >
                     <ul id="nav-main" >
                         <li><a style="font-weight: bold; color: #494949;">Personal Info</a></li>
-                        <li><a href="#" style="font-weight: bold;">Schedule</a></li>
-                                                <li><a href="directorSurgeries.php" style="font-weight: bold;">Surgeries</a></li>
+                        <li><a href="directorSurgeries.php" style="font-weight: bold;">Surgeries</a></li>
+                        <li><a href="schedule.php" style="font-weight: bold;">Schedule</a></li>
                     </ul>
                 </div>
             </nav>

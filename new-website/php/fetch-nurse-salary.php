@@ -8,7 +8,6 @@ $end = $_REQUEST['end'];
 
 $sql = "SELECT start_time, end_time FROM nurse_schedules WHERE nurse_id = '".$_SESSION['employee_id']."' and start_time between '".$start."' and '".$end."'";
 $result = $conn->query($sql);
-print_r($row);
 
 $start_date_string = $_SESSION['start_date'];
 $start_date_date = date('Y/m/d', strtotime($start_date_string));

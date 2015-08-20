@@ -236,3 +236,19 @@ function goToSearchResultPage(type_id, name, searched_id, typeOption){
     });
 
 }
+
+function getSchedule(employee_id){
+
+    var start_date = document.getElementById("datepicker1").value;
+
+    start_date = start_date.substring(6,10)+'-'+start_date.substring(0,2)+'-'+start_date.substring(3,5);
+
+    var end_date = document.getElementById("datepicker2").value;
+
+    end_date = end_date.substring(6,10)+'-'+end_date.substring(0,2)+'-'+end_date.substring(3,5);
+
+
+    $.post("../php/getSchedule.php", {start:start_date ,end:end_date ,id:employee_id} ,function(data, status){
+        document.getElementById("scheduleTable").innerHTML=data;
+    });
+}
