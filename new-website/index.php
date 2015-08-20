@@ -6,7 +6,7 @@ session_start();
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>OAMC - Stay Healthy</title>
+    <title>HOME - Open Access Medical Center of Montreal</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />  
 	<meta name="description" content="Website Description" />
 	<meta name="keywords" content="Website Keywords" />
