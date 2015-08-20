@@ -182,7 +182,6 @@ if(!isset($_SESSION['employee_id']))
             require 'database.php';
 
             if (isset($_GET['del'])) {
-                global $con;
                 $id = $_GET['del'];
                 $query = "";
                 $result = mysqli_query($con, $query) or die('Unable to delete from DB <br/>'.$query);
@@ -191,16 +190,88 @@ if(!isset($_SESSION['employee_id']))
             if (isset($_POST['submit'])) {
                 global $con;
 
-                // grab variables
+                $query = "SELECT service_id FROM services WHERE service_name='".$_POST['surgeries']."'";
+                $result = mysqli_query($con, $query) or die($query);
+                $row = mysqli_fetch_assoc($result);
+                $service_id = $row['service_id'];
 
-                // insert into services_per_visit
-                $query = "";
+                $query = "SELECT MAX(services_per_visit_id) AS max FROM services_per_visit";
+                $result = mysqli_query($con, $query) or die("Unable to get max id");
+                $arr = mysqli_fetch_assoc($result);
+                $id = $arr['max'] + 1;
+
+                $visits_id = $_POST['visits_id'];
+                $start_date = $_POST['start_date'];
+                $start_time = $_POST['start_time'];
+                $end_date = $_POST['end_date'];
+                $end_time = $_POST['end_time'];
+                $floor = $_POST['floor'];
+                $room_number = $_POST['room_number'];
+
+
+                $start = strtotime(date("Y-m-d", strtotime($start_date)));
+
+                $start = $start_date . ' ' . $start_time .':00';
+                $end = $end_date . ' ' . $end_time .':00';
+
+                $query = "INSERT INTO services_per_visit VALUES(
+                            $id,
+                            $visits_id,
+                            $service_id,
+                            '$start',
+                            '$end',
+                            3,
+                            $floor,
+                            $room_number
+                          )";
                 $result = mysqli_query($con, $query) or die("Unable to execute insert query<br/>$query");
             }
 
-            $query = '';
-            $attributes = array();
-            //$table = get_table_w_del($query, $attributes);
+            $query = "SELECT service_name FROM services WHERE service_complexity='surgery'";
+            $result = mysqli_query($con, $query)
+                        or die("Unable to retrieve surgeries<br/>mysqli_error($con)<br/>$query");
+
+            $surgeries .= '<label for="surgeries">Surgery:</label>';
+            $surgeries .= '<select id="surgeries" name="surgeries">';
+            while ($services = mysqli_fetch_assoc($result)) {
+                $surgeries .= '<option>'.$services['service_name'].'</option>';
+            }
+            $surgeries .= '</select>';
+
+            $query = "SELECT service_name,
+                            patient_name,
+                            services_per_visit.start_date,
+                            services_per_visit.end_date,
+                            floor_number
+                          FROM services_per_visit, services, visits, patients
+                          WHERE service_complexity='surgery'
+                          AND services_per_visit.start_date > now()
+                          AND services_per_visit.service_id=services.service_id
+                          AND services_per_visit.visits_id=visits.visits_id
+                          AND visits.patient_id = patients.patient_id
+                          ORDER BY services_per_visit.start_date
+                          LIMIT 50";
+            $result = mysqli_query($con, $query) or die("Unable to retrieve upcoming surgeries<br/>$query");
+
+            $upcoming_surgeries = '<table>';
+            $upcoming_surgeries .= '<tr>';
+            $upcoming_surgeries .= "<th class='output h'>Surgery</th>";
+            $upcoming_surgeries .= "<th class='output h'>Patient</th>";
+            $upcoming_surgeries .= "<th class='output h'>Begins</th>";
+            $upcoming_surgeries .= "<th class='output h'>Ends</th>";
+            $upcoming_surgeries .= "<th class='output h'>Floor</th>";
+            $upcoming_surgeries .= '</tr>';
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                $upcoming_surgeries .= '<tr>';
+                $upcoming_surgeries .= '<td class="output">'.$row['service_name'].'</td>';
+                $upcoming_surgeries .= '<td class="output">'.$row['patient_name'].'</td>';
+                $upcoming_surgeries .= '<td class="output">'.$row['start_date'].'</td>';
+                $upcoming_surgeries .= '<td class="output">'.$row['end_date'].'</td>';
+                $upcoming_surgeries .= '<td class="output">'.$row['floor_number'].'</td>';
+                $upcoming_surgeries .= '</tr>';
+            }
+            $upcoming_surgeries .= '</table>';
 
             mysqli_close($con);
         ?>
@@ -236,22 +307,44 @@ if(!isset($_SESSION['employee_id']))
                 <div class="col left">
                     <h4>Current Surgeries</h4><br/>
                     <?php
-                        if (isset($table)) {
-                            echo $table;
-                        } else
-                        echo '<p>To be implemented</p>';
+                        echo $upcoming_surgeries;
                     ?>
                 </div>
 
                 <div class="col right">
                     <h4>Add Surgery</h4><br/>
-                    <label for="patient_id">Patient ID: </label>
-                    <input type="text" name="patient_id" id="patient_id"/><br/><br/>
-                    <label for="surgery">Type of Surgery: </label>
-                    <input type="text" name="surgery" id="surgery"/><br/><br/>
-                    <label for="cost">Date: </label>
-                    <input type="date" name="cost" id="cost"/><br/><br/><br/>
-                    <input type="submit" name="submit" value="Add Service"/><br/><br/>
+
+                    <?php
+                        echo $surgeries;
+                    ?><br/><br/>
+
+                    <label for="visit">Visits_id: </label>
+                    <input style="width:100px" type="text" id="visit" name="visits_id"/><br/><br/>
+
+                    <label for="start_date">Start date: </label>
+                    <input type="date" id="start_date" name="start_date"/><br/><br/>
+
+                    <label for="start_time">Start time: </label>
+                    <input type="time" id="start_time" name="start_time"/><br/><br/>
+
+                    <label for="end_date">End date: </label>
+                    <input type="date" id="end_date" name="end_date"/><br/><br/>
+
+                    <label for="end_time">End time: </label>
+                    <input type="time" id="end_time" name="end_time"/><br/><br/>
+
+                    <label for="floor">Floor: </label>
+                    <select id="floor" name="floor">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select><br/><br/>
+
+                    <label for="room_number">Room: </label>
+                    <input style="width:100px" type="text" name="room_number"/><br/><br/><br/>
+
+                    <input type="submit" name="submit" value="Add Surgery"/>
+
                 </div>
             </div>
         </form><br/><br/>
