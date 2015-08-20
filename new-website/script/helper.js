@@ -118,8 +118,8 @@ function getNurseSalary(){
 }
  
 function getTechNextPay(){
-	 start = "2015-05-16";
-	 end = "2015-06-02";
+	 var start = "2015-05-16";
+	 var end = "2015-06-02";
 	 
 	 $.post("../php/fetch-tech-salary.php",{start:start, end:end} ,function(data, status){
 	        document.getElementById("techNextPay").innerHTML="$"+data;
@@ -216,6 +216,18 @@ function goToSearchResultPage(type_id, name, searched_id, typeOption){
                 break;
             case 14:
                 location.href = "../doctor2.php";
+                break;
+            case 15:
+                location.href = "../technician.php";
+                break;
+            case 16:
+                location.href = "../technician.php";
+                break;
+            case 17:
+                location.href = "../technician.php";
+                break;
+            case 18:
+                location.href = "../technician.php";
                 break;
             default :
                 location.href = "../patient.php";
