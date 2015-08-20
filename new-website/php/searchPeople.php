@@ -17,6 +17,12 @@ $sql = '';
         case 'nurse':
             $sql = "select employee_id as id, employee_type_id as type_id, employee_name as person_name from employees where (employee_type_id = 3 or employee_type_id = 7 or employee_type_id = 8 or employee_type_id = 9) AND employee_name LIKE '%".$_REQUEST['name']."%'";
             break;
+        case 'doctor':
+            $sql = "select employee_id as id, employee_type_id as type_id, employee_name as person_name from employees where (employee_type_id = 11 or employee_type_id = 12 or employee_type_id = 13 or employee_type_id = 14 or employee_type_id = 6) AND employee_name LIKE '%".$_REQUEST['name']."%'";
+            break;
+        case 'technician':
+            $sql = "select * from technicians";
+            break;
     }
 
 $result = $conn->query($sql);

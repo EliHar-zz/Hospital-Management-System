@@ -120,10 +120,19 @@ if(!isset($_SESSION['patient_id'])) {
             <label style=" float: left; margin-left: 10px; margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="patient">&nbsp;Patient</label>';
 
-    if ($_SESSION['user']==='admin' || $_SESSION['user']==='doctor')
+    if ($_SESSION['user']==='doctor')
         echo'
             <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="junior_doctor">&nbsp;Junior Doctor</label>';
+        if ($_SESSION['user']==='admin')
+            echo'
+            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="doctor">&nbsp;Doctor</label>
+
+            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="technician">&nbsp;Technician</label>
+
+                ';
 
     if ($_SESSION['user']!=='patient' && $_SESSION['user']!=='nurse')
         echo'
