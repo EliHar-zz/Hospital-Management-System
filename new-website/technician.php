@@ -176,34 +176,7 @@ session_start();
 
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
 
-        <h1><span><?php
-                if ($_SESSION['searched'] && $_SESSION['user']!== 'nurse')
-                    echo $_SESSION['searched']['employee_name'];
-                elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['employee_name']?></span></h1>
-                    
-    <?php
-        include 'php/fetch-tech-salary.php';
-        
-        if ($_SESSION['user']=== 'tech') {
-          
-            echo '
-        
-                    <!------************************ PAY INFO  ------->
-        		
-        <h2>Your next pay: <span id="techNextPay" style="color: #d7fca8; font-family: Georgia;">
-			<script>getTechNextPay();</script>;
-        		
-               </span></h2></br>
-
-        <h2>Salary over selected Period: <span id="techSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
-        </h2>
-        </br>
-        <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker11"></label>
-        <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker22"></label>
-        <button style="margin-left: 20px;" class="submitButton" onclick="getTechSalary()">Apply</button>';
-        }
-        ?>
+        <h1><span><?php echo $_SESSION['searched']['employee_name'];?></span></h1>
         
     </header>
     <div class="box user_info">
@@ -213,19 +186,19 @@ session_start();
         <h2>Hours per week: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['hours_per_week'];?></span></h2></br>
         <h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['pay_frequency'];?></span></h2></br>
         <h2>Years to raise: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['years_to_raise'];?></span></h2>
-
+</br>
+<h2>Your next pay: <span id="techNextPay" style="color: #d7fca8; font-family: Georgia;">
+			<script>getTechNextPay();</script>;
+        		
+               </span></h2></br>
+<h2>Salary over selected Period: <span id="techSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
+        </h2>
+        </br>
+        <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker11"></label>
+        <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker22"></label>
+        <button style="margin-left: 20px;" class="submitButton" onclick="getTechSalary()">Apply</button>
+        
     </div>
 
-    </div>
-
-    <footer id="main-footer">
-        <aside>
-            <h5 id="text-footer">P Sherman, 42 Wallaby Way, Sydney, Australia | Phone: +62834856, Fax: +62849684 | Email: hello@cubicthemes.com</h5>
-            <div id="footer-copyright" class="clearfix">
-                <p>Copyright &copy; 2013 Cubicthemes.com, All Rights Reserved</p>
-                <a href="#" id="logo-footer"><img src="images/logo-footer.png" data-retina="images/logo-footer-retina.png" alt="Happy Health" /></a>
-            </div>
-        </aside>
-    </footer>
 </body>
 </html>
