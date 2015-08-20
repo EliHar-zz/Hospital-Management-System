@@ -182,11 +182,14 @@ session_start();
     <div class="box user_info">
         <h1 style="text-align: center; font-size: larger; font-family: Georgia; text-decoration: underline">Technician's Information</h1></br>
         <h2>Facility Name: <span style="color: #d7fca8; font-family: Georgia;"><?php echo $_SESSION['searched']['facility_name'];?></span></h2></br>
-        <h2>Position: <span style="color: #d7fca8; font-family: Georgia;"><?php echo $_SESSION['searched']['employee_type'];?></span></h2></br>
+        <h2>Specialty: <span style="color: #d7fca8; font-family: Georgia;"><?php echo $_SESSION['searched']['employee_type'];?></span></h2></br>
         <h2>Hours per week: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['hours_per_week'];?></span></h2></br>
         <h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['pay_frequency'];?></span></h2></br>
-        <h2>Years to raise: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['years_to_raise'];?></span></h2>
-</br>
+        <h2>Years to raise: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['years_to_raise'];?></span></h2></br>
+        <h2>Base hourly rate: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['base_hourly_rate'];?></span></h2></br>
+        <h2>Overtime rate: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo '% '.$_SESSION['searched']['overtime_rate']*100;?></span></h2></br>
+        <h2>Raise amount: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo '% '.$_SESSION['searched']['raise_amount'];?></span></h2>
+        </br>
 <h2>Your next pay: <span id="techNextPay" style="color: #d7fca8; font-family: Georgia;">
 			<script>getTechNextPay();</script>;
         		
