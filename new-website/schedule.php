@@ -162,8 +162,12 @@ if(!isset($_SESSION['employee_id']))
             <nav id="nav" class="clearfix" style="margin-top: 5px; margin-left: 0px; text-align: left;">
                 <div id="nav-container" >
                     <ul id="nav-main" >
-                        <li><a href="login.php" style="font-weight: bold;">Personal info</a></li>
-                         <li><a href="#" style="font-weight: bold; color: #494949;">Schedule</a></li>
+                        <li><a href="login.php" style="font-weight: bold;">Personal info</a></li>';
+
+    if ($_SESSION['user']==='doctor')
+        echo '<li><a href="directorSurgeries.php" style="font-weight: bold;">Surgeries</a></li>';
+
+        echo'<li><a href="#" style="font-weight: bold; color: #494949;">Schedule</a></li>
                     </ul>
                 </div>
             </nav>
@@ -174,6 +178,7 @@ if(!isset($_SESSION['employee_id']))
 
 <div id="content" class="clearfix" style="overflow: hidden;">
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
+        <h1><span><?php echo $_SESSION['employee_name'];?></span></h1>
     </header>
     <div class="box user_info">
         <h1>Select the work period you want to display:</h1>

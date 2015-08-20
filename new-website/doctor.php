@@ -203,7 +203,7 @@ if(!isset($_SESSION['employee_id']))
 
 <div id="content" class="clearfix" style="overflow: hidden;">
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-        <h1><span>Dr. <?php
+        <h1><span><?php
                 if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor')
                     echo $_SESSION['searched']['employee_name'];
                 elseif ($_SESSION['employee_id'])

@@ -117,12 +117,18 @@ if(!isset($_SESSION['employee_id']))
             <label style=" float: left; margin-left: 10px; margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="patient">&nbsp;Patient</label>
 
+            <?php if ($_SESSION['user']==='admin')
+                echo '
             <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type" value="doctor">&nbsp;Doctor</label>
 
             <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="technician">&nbsp;Technician</label>
-
+                ';
+            else
+                echo '<label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="junior_doctor">&nbsp;Junior Doctor</label>
+                '; ?>
             <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="nurse">&nbsp;Nurse</label>
 
@@ -135,7 +141,11 @@ if(!isset($_SESSION['employee_id']))
             <nav id="nav" class="clearfix" style="margin-top: 5px; margin-left: 0px; text-align: left;">
                 <div id="nav-container" >
                     <ul id="nav-main" >
-                        <li><a href="director.php">Personal Info</a></li>
+                        <li><a href="login.php">Personal Info</a></li>
+                        <?php
+
+                        if ($_SESSION['user']==='admin')
+                            echo'
                         <li><a href="#">Services</a>
                             <ul>
                                 <li><a href="directorServices.php?fac=palliative">Palliative</a></li>
@@ -173,8 +183,12 @@ if(!isset($_SESSION['employee_id']))
                                     </ul>
                                 </li>
                             </ul>
-                        </li>
+                        </li>'; ?>
                         <li><a style="font-weight: bold; color: #494949;">Surgeries</a></li>
+                        <?php
+
+                        if ($_SESSION['user']==='admin')
+                            echo'
                         <li><a href="#">Records</a>
                             <ul>
                                 <li><a href="directorRecords.php?fac=1">Palliative</a></li>
@@ -182,7 +196,11 @@ if(!isset($_SESSION['employee_id']))
                                 <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
                                 <li><a href="directorRecords.php?surg=1">Surgeries</a></li>
                             </ul>
-                        </li>
+                        </li>';
+
+
+                        if($_SESSION['user']!== 'admin')
+                        echo '<li><a href="schedule.php" style="font-weight: bold;">Schedule</a></li>';?>
                     </ul>
                 </div>
             </nav>
@@ -194,7 +212,7 @@ if(!isset($_SESSION['employee_id']))
     <!-- ######################################### Main Image ##############################################-->
     <div id="content" class="clearfix">
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-            <h1><span style="color:white; font-weight: bold"><?php echo $_SESSION['employee_name'];?></span></h1>
+            <h1><span><?php echo $_SESSION['employee_name'];?></span></h1>
         </header>
 
     <!-- ######################################### PHP ##############################################-->
@@ -325,18 +343,26 @@ if(!isset($_SESSION['employee_id']))
             
             <div class="row">
                 <div class="col left">
-                    <h4>Current Surgeries</h4><br/>
                     <?php
-                        echo $upcoming_surgeries;
+
+                    if ($_SESSION['user']==='admin')
+                        echo'<h4>Current Surgeries</h4><br/>';
+
+                    echo $upcoming_surgeries;
                     ?>
                 </div>
 
+                <?php
+
+                if ($_SESSION['user']==='admin'){
+                echo '
                 <div class="col right">
                     <h4>Add Surgery</h4><br/>
 
-                    <?php
-                        echo $surgeries;
-                    ?><br/><br/>
+
+                        ';
+                    echo $surgeries;
+                    echo'<br/><br/>
 
                     <label for="visit">Visits_id: </label>
                     <input style="width:100px" type="text" id="visit" name="visits_id"/><br/><br/>
@@ -365,7 +391,9 @@ if(!isset($_SESSION['employee_id']))
 
                     <input type="submit" name="submit" value="Add Surgery"/>
 
-                </div>
+                </div>';
+
+                }?>
             </div>
         </form><br/><br/>
     </div>

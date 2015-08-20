@@ -52,7 +52,7 @@
             </div>
         </div>
     </header>
-    <div id="content" class="clearfix">
+    <div id="content" class="clearfix" style="overflow:hidden;">
         <header id="title-content" class="clearfix" style="background:url(images/img-31.jpg) no-repeat 50% 0 fixed">
             <h1><span>CONTACT US</span></h1>
            
@@ -86,20 +86,7 @@
             </a>
         </article>
     </div>
-    <footer id="main-footer">
-        <nav>
-            <ul id="nav-footer">
-                <li><a href="#">Home</a></li>        
-                <li><a href="#">About</a></li> 
-                <li><a href="#">Doctor</a></li> 
-                <li><a href="#">Services</a></li> 
-                <li><a href="#">Photo</a></li> 
-                <li><a href="#">Article</a></li> 
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        
-    </footer>
+
 
     <script src="script/jquery-ui.js" type="text/javascript"></script>
     <script src="script/jquery.parallax-1.1.3.js" type="text/javascript"></script>

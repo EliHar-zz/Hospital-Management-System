@@ -74,6 +74,7 @@ if ($row['employee_id']) {
             $_SESSION['maximum_hours'] = $row2['maximum_hours'];
             $_SESSION['supervisor'] = $row2['supervisor'];
             $_SESSION['pay_frequency'] = $row2['pay_frequency'];
+            $_SESSION['employee_name'] = 'Dr. '.$_SESSION['employee_name'];
 
             header("Location: ../doctor2.php");
             die();
@@ -90,6 +91,7 @@ if ($row['employee_id']) {
 
             $_SESSION['maximum_hours'] = $row2['maximum_hours'];
             $_SESSION['pay_frequency'] = $row2['pay_frequency'];
+            $_SESSION['employee_name'] = 'Dr. '.$_SESSION['employee_name'];
 
 
             header("Location: ../doctor.php");
@@ -163,6 +165,7 @@ if ($row['employee_id']) {
             $_SESSION['maximum_hours'] = $row2['maximum_hours'];
             $_SESSION['supervisor'] = $row2['supervisor'];
             $_SESSION['pay_frequency'] = $row2['pay_frequency'];
+            $_SESSION['employee_name'] = 'Dr. '.$_SESSION['employee_name'];
 
 
             header("Location: ../doctor2.php");
@@ -180,6 +183,7 @@ if ($row['employee_id']) {
             $_SESSION['maximum_hours'] = $row2['maximum_hours'];
             $_SESSION['supervisor'] = $row2['supervisor'];
             $_SESSION['pay_frequency'] = $row2['pay_frequency'];
+            $_SESSION['employee_name'] = 'Dr. '.$_SESSION['employee_name'];
 
             header("Location: ../doctor2.php");
             die();
@@ -196,6 +200,7 @@ if ($row['employee_id']) {
             $_SESSION['maximum_hours'] = $row2['maximum_hours'];
             $_SESSION['supervisor'] = $row2['supervisor'];
             $_SESSION['pay_frequency'] = $row2['pay_frequency'];
+            $_SESSION['employee_name'] = 'Dr. '.$_SESSION['employee_name'];
 
             header("Location: ../doctor2.php");
             die();
@@ -212,6 +217,7 @@ if ($row['employee_id']) {
             $_SESSION['maximum_hours'] = $row2['maximum_hours'];
             $_SESSION['supervisor'] = $row2['supervisor'];
             $_SESSION['pay_frequency'] = $row2['pay_frequency'];
+            $_SESSION['employee_name'] = 'Dr. '.$_SESSION['employee_name'];
 
             header("Location: ../doctor2.php");
             die();

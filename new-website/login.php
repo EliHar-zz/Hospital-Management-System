@@ -173,7 +173,7 @@ if(isset($_SESSION['employee_id']))
             </div>
         </div>
     </header>
-    <div id="content" class="clearfix">
+    <div id="content" class="clearfix" style="overflow: hidden;">
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
         </header>
         <div class="login" style="float: left;">
@@ -206,18 +206,5 @@ if(isset($_SESSION['employee_id']))
                 <input type="submit" class="submitButton" style="border: 1px; float: right; background-color:cadetblue; color: honeydew; " value="Login"/>
             </form>
         </div>
-     <footer id="main-footer" style="float: left; left: 0px;margin-left: 0px;">
-        <nav>
-            <ul id="nav-footer">
-                <li><a href="#">Home</a></li>        
-                <li><a href="#">About</a></li> 
-                <li><a href="#">Doctor</a></li> 
-                <li><a href="#">Services</a></li> 
-                <li><a href="#">Photo</a></li> 
-                <li><a href="#">Article</a></li> 
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </footer>
 </body>
 </html>

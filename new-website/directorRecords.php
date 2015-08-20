@@ -183,9 +183,8 @@
                             </ul>
                         </li>
                         <li><a href="directorSurgeries.php">Surgeries</a></li>
-                        <li><a style="font-weight: bold; color: #494949;">Records</a></li>
-
-                        <ul>
+                        <li><a href="#" style="font-weight: bold; color: #494949;">Records</a>
+                            <ul>
                                 <li><a href="directorRecords.php?fac=1">Palliative</a></li>
                                 <li><a href="directorRecords.php?fac=2">Childrens Unit</a></li>
                                 <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
@@ -202,7 +201,7 @@
     <!-- ######################################### Main Image ##############################################-->
     <div id="content" class="clearfix">
         <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-            <h1><span style="color:white; font-weight: bold"><?php echo $_SESSION['employee_name'];?></span></h1>
+            <h1><span><?php echo $_SESSION['employee_name'];?></span></h1>
         </header>
 
         <!-- ######################################### PHP ##############################################-->

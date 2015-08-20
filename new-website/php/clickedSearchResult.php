@@ -26,6 +26,7 @@ switch ($_REQUEST['typeOption']){
         $result = $conn->query($sql);
         $_SESSION['searched'] = mysqli_fetch_assoc($result);
         $_SESSION['searched']['employee_name'] = $_REQUEST['name'];
+        $_SESSION['searched']['employee_name'] = 'Dr. '.$_REQUEST['name'];
 
         break;
     case'nurse':
@@ -59,7 +60,7 @@ switch ($_REQUEST['typeOption']){
 
         $result = $conn->query($sql);
         $_SESSION['searched'] = mysqli_fetch_assoc($result);
-        $_SESSION['searched']['employee_name'] = $_REQUEST['name'];
+        $_SESSION['searched']['employee_name'] = 'Dr. '.$_REQUEST['name'];
 
         break;
 }
