@@ -169,6 +169,7 @@
                                 <li><a href="directorRecords.php?fac=1">Palliative</a></li>
                                 <li><a href="directorRecords.php?fac=2">Childrens Unit</a></li>
                                 <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
+                                <li><a href="directorRecords.php?surg=1">Surgeries</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -194,12 +195,13 @@
                 echo '<script>selectDefault("'.$name.'", "'.$write_value.'")</script>';
             }
 
-            if (isset($_POST['submit'])) {
+            $date = $_POST['year-month'];
+            $year = date("Y", strtotime($date));
+            $month = date("m",strtotime($date));
+
+            if (isset($_POST['submit']) && isset($_GET['fac'])) { // dealing with purchases
                 $facility = $_GET['fac'];
                 $storage_id = $_POST['storage_type'];
-                $date = $_POST['year-month'];
-                $year = date("Y", strtotime($date));
-                $month = date("m",strtotime($date));
 
                 $query = "SELECT date, supply_name, quantity, cost
                           FROM orders NATURAL JOIN supplies
@@ -208,14 +210,46 @@
                           AND YEAR(date)=$year
                           AND MONTH(date)=$month
                           ORDER BY date";
-
                 $attributes = array('date', 'supply_name', 'quantity', 'cost');
                 $orders = get_table_w_sum($query, $attributes);
+
+            } else if (isset($_POST['submit']) && isset($_GET['surg'])) { // dealing with surgeries
+                $query = "SELECT service_name,
+                            patient_name,
+                            services_per_visit.start_date,
+                            services_per_visit.end_date,
+                            floor_number
+                          FROM services_per_visit, services, visits, patients
+                          WHERE service_complexity='surgery'
+                          AND YEAR(services_per_visit.start_date)=$year
+                          AND MONTH(services_per_visit.start_date)=$month
+                          AND services_per_visit.service_id=services.service_id
+                          AND services_per_visit.visits_id=visits.visits_id
+                          AND visits.patient_id = patients.patient_id
+                          ORDER BY services_per_visit.start_date";
+                $result = mysqli_query($con, $query) or die('Unable to execute get table query <br/>' . $query);
+
+                $surgeries = '<table>';
+                $surgeries .= '<tr>';
+                $surgeries .= "<th class='output h'>Surgery</th>";
+                $surgeries .= "<th class='output h'>Patient</th>";
+                $surgeries .= "<th class='output h'>Begins</th>";
+                $surgeries .= "<th class='output h'>Ends</th>";
+                $surgeries .= "<th class='output h'>Floor</th>";
+                $surgeries .= '</tr>';
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $surgeries .= '<tr>';
+                    $surgeries .= '<td class="output">'.$row['service_name'].'</td>';
+                    $surgeries .= '<td class="output">'.$row['patient_name'].'</td>';
+                    $surgeries .= '<td class="output">'.$row['start_date'].'</td>';
+                    $surgeries .= '<td class="output">'.$row['end_date'].'</td>';
+                    $surgeries .= '<td class="output">'.$row['floor_number'].'</td>';
+                    $surgeries .= '</tr>';
+                }
+                $surgeries .= '</table>';
             }
-
-
         ?>
-
 
         <div style="text-align:center">
 
@@ -249,22 +283,12 @@
                     <div class="col left">
                         <h4>Record</h4><br/>
                         <?php
-                            echo $orders;
+                            echo $surgeries;
                         ?>
                     </div>
 
                     <div class="col right">
                         <h4>Select Criteria</h4><br/><br/>
-
-                        <label for="storage_type">Storage Type: </label>
-                        <select name="storage_type" id="storage_type">
-                            <option value="facility">Storage Unit</option>
-                            <option value="1">Supply Room - 1st Floor</option>
-                            <option value="2">Supply Room - 2nd Floor</option>
-                            <option value="3">Supply Room - 3rd Floor</option>
-                            <option value="kitchen">Kitchen</option>
-                        </select><br/><br/>
-                        <?php set_default_select('storage_type', $storage_id, 'facility'); ?>
 
                         <label for="year-month">Year-Month: </label>
                         <input id="year-month" name="year-month" type="month" value="<?php echo $date ?>"/><br/><br/><br/>

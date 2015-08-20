@@ -172,6 +172,7 @@ if(!isset($_SESSION['employee_id']))
                                     <li><a href="directorRecords.php?fac=1">Palliative</a></li>
                                     <li><a href="directorRecords.php?fac=2">Childrens Unit</a></li>
                                     <li><a href="directorRecords.php?fac=3">Surgical Unit</a></li>
+                                    <li><a href="directorRecords.php?surg=1">Surgeries</a></li>
                                 </ul>
                             </li>
                                                   </ul>
