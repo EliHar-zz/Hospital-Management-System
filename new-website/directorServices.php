@@ -31,7 +31,7 @@ if(!isset($_SESSION['employee_id']))
 	<script src="script/jquery.flexslider.js" type="text/javascript"></script>
 	<script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
 	<script src="script/jquery.retina.js" type="text/javascript"></script>
-    <script src="script/matt.js" type="text/javascript"></script>
+    <script src="script/helper.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	$(document).ready(function (){
         $("a[data-rel^='prettyPhoto']").prettyPhoto({
@@ -112,7 +112,7 @@ if(!isset($_SESSION['employee_id']))
 
     <div id="header-full" style="height: 50px; width: 100%;">
         <div style="float: left; margin-top: 10px; margin-left: 40px; color:white;">
-            <input onkeyup="searchPeople()" class="inputField" style="float: left;width: 170px; font-size: small;" type="text" id="searchBox" placeholder="     Search for " name="patient_search">
+            <input onkeyup="searchPeople()" class="inputField" style="float: left;width: 140px; font-size: small;" type="text" id="searchBox" placeholder="     Search for " name="patient_search">
 
             <label style=" float: left; margin-left: 10px; margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="patient">&nbsp;Patient</label>
@@ -223,7 +223,7 @@ if(!isset($_SESSION['employee_id']))
             $complexity = $_POST['complexity'];
             $cost = $_POST['cost'];
 
-            $query = "INSERT INTO services VALUES(null, '$name', '$complexity', '$cost')";
+            $query = "INSERT INTO services (service_name, service_complexity, service_cost, time) VALUES('".$name."', '".$complexity."', '".$cost."', 1)";
             $result = mysqli_query($con, $query);
 
             $query = "SELECT service_id FROM services WHERE service_name='$name'";

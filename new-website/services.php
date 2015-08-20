@@ -24,7 +24,9 @@
 	<script src="script/jquery.flexslider.js" type="text/javascript"></script>
 	<script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
 	<script src="script/jquery.retina.js" type="text/javascript"></script>
-	<script type="text/javascript">
+    <script src="script/helper.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
 	$(document).ready(function (){
         $("a[data-rel^='prettyPhoto']").prettyPhoto({
 			default_width: 600,
