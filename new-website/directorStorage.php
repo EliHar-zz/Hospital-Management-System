@@ -141,7 +141,7 @@ if(!isset($_SESSION['employee_id']))
                                 <li><a href="directorServices.php?fac=surgical_unit">Surgical Unit</a></li>
                             </ul>
                         </li>
-                        <li><a style="font-weight: bold; color: #494949;">Supplies</a></li>
+                        <li><a style="font-weight: bold; color: #494949;">Supplies</a>
                             <ul>
                                 <li><a href="#">Storage Units</a>
                                     <ul>

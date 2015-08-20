@@ -106,13 +106,13 @@
                 <p>OMAC offering service involving public health including: long-term care, primary care in 3 diffrent <b>Facilities</b></p>
             </article>
             <ul id="list-service" class="clearfix">
-                <li class="clearfix"><a href="servicesdetail.php"><strong><img src="images/icon-services-1-retina.png" alt="General Checkup" class="icon-service" /><span>Pallliative Care Unit</span></strong>
+                <li class="clearfix"><a href="#"><strong><img src="images/icon-services-1-retina.png" alt="General Checkup" class="icon-service" /><span>Pallliative Care Unit</span></strong>
                 <img src="images/img-32.jpg" data-retina="images/img-32-retina.jpg" alt="General Checkup" class="image-service" />    
                 </a></li>
-                <li class="clearfix"><a href="servicesdetail.php"><strong><img src="images/icon-services-1-retina.png" alt="General Checkup" class="icon-service" /><span>the children's unit</span></strong>
+                <li class="clearfix"><a href="#"><strong><img src="images/icon-services-1-retina.png" alt="General Checkup" class="icon-service" /><span>the children's unit</span></strong>
                 <img src="images/img-32.jpg" data-retina="images/img-32-retina.jpg" alt="General Checkup" class="image-service" />    
                 </a></li>
-                <li class="clearfix"><a href="servicesdetail.php"><strong><img src="images/icon-services-1-retina.png" alt="General Checkup" class="icon-service" /><span>the surgical unit</span></strong>
+                <li class="clearfix"><a href="#"><strong><img src="images/icon-services-1-retina.png" alt="General Checkup" class="icon-service" /><span>the surgical unit</span></strong>
                 <img src="images/img-32.jpg" data-retina="images/img-32-retina.jpg" alt="General Checkup" class="image-service" />    
                 </a></li>
             </ul>

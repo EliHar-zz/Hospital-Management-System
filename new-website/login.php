@@ -73,7 +73,12 @@ if(isset($_SESSION['employee_id']))
             header("Location: ../doctor2.php");
             die();
             break;
-    }?>
+    }
+if ($_SESSION['user']==='patient')
+    header("Location: ../patient.php");
+
+
+?>
 </html>
 <!DOCTYPE html>
 <html lang="en">

@@ -30,7 +30,6 @@
     <script src="script/jquery.flexslider.js" type="text/javascript"></script>
     <script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
     <script src="script/jquery.retina.js" type="text/javascript"></script>
-    <script src="script/matt.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function (){
             $("a[data-rel^='prettyPhoto']").prettyPhoto({
@@ -220,8 +219,9 @@
 
             if (isset($_POST['submit']) && isset($_GET['fac'])) { // dealing with purchases
                 $facility = $_GET['fac'];
-                $storage_id = $_POST['storage_type'];
+                $storage_id = $_POST['storage_id'];
 
+                print_r($_POST);
                 $query = "SELECT date, supply_name, quantity, cost
                           FROM orders NATURAL JOIN supplies
                           WHERE facility_id=$facility
@@ -229,6 +229,9 @@
                           AND YEAR(date)=$year
                           AND MONTH(date)=$month
                           ORDER BY date";
+
+//                echo $query;
+
                 $attributes = array('date', 'supply_name', 'quantity', 'cost');
                 $orders = get_table_w_sum($query, $attributes);
 
@@ -311,7 +314,6 @@
 
                         <label for="year-month">Year-Month: </label>
                         <input id="year-month" name="year-month" type="month" value="<?php echo $date ?>"/><br/><br/><br/>
-
 
                         <input type="submit" name="submit" value="View Record"/>
                     </div><br/>

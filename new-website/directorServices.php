@@ -135,13 +135,12 @@ if(!isset($_SESSION['employee_id']))
                 <div id="nav-container" >
                     <ul id="nav-main" >
                         <li><a href="director.php">Personal Info</a></li>
-                        <li><a style="font-weight: bold; color: #494949;">Services</a></li>
-
+                        <li><a style="font-weight: bold; color: #494949;">Services</a>
                         <ul>
-                                <li><a href="directorServices.php?fac=palliative">Palliative</a></li>
-                                <li><a href="directorServices.php?fac=childrens_unit">Childrens Unit</a></li>
-                                <li><a href="directorServices.php?fac=surgical_unit">Surgical Unit</a></li>
-                            </ul>
+                            <li><a href="directorServices.php?fac=palliative">Palliative</a></li>
+                            <li><a href="directorServices.php?fac=childrens_unit">Childrens Unit</a></li>
+                            <li><a href="directorServices.php?fac=surgical_unit">Surgical Unit</a></li>
+                        </ul>
                         </li>
                         <li><a href="#">Supplies</a>
                             <ul>

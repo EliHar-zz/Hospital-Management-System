@@ -387,7 +387,15 @@ if(!isset($_SESSION['employee_id']))
                     </select><br/><br/>
 
                     <label for="room_number">Room: </label>
-                    <input style="width:100px" type="text" name="room_number"/><br/><br/><br/>
+                    <select name="room_number">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+                    <!--<input style="width:100px" type="text" name="room_number"/><br/><br/><br/>-->
 
                     <input type="submit" name="submit" value="Add Surgery"/>
 
