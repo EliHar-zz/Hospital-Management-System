@@ -240,7 +240,9 @@ if(!isset($_SESSION['employee_id'])) {
                     <!------************************ PAY INFO  ------->
         		
         <h2>Your next pay: <span id="nurseNextPay" style="color: #d7fca8; font-family: Georgia;">
-			<script>getNurseNextPay();</script>;
+			<script>getNurseNextPay();
+
+			</script>
         		
                </span></h2></br>
 

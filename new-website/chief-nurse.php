@@ -23,6 +23,7 @@ if(!isset($_SESSION['employee_id'])) {
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" media="all" href="style/stylemobile.css" />
     <!--<link rel="stylesheet" type="text/css" media="all" href="style/mobilenavigation.css" />-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
     <script src="script/modernizr.js" type="text/javascript"></script>
     <script src="script/jquery.js" type="text/javascript"></script>
@@ -34,6 +35,19 @@ if(!isset($_SESSION['employee_id'])) {
     <script src="script/jquery.flexslider.js" type="text/javascript"></script>
     <script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
     <script src="script/jquery.retina.js" type="text/javascript"></script>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="script/helper.js" type="text/javascript"></script>
+
+    <script>
+        $(function() {
+            $( "#datepicker11" ).datepicker();
+        });
+        $(function() {
+            $( "#datepicker22" ).datepicker();
+        });
+    </script>
     <script type="text/javascript">
         $(document).ready(function (){
             $("a[data-rel^='prettyPhoto']").prettyPhoto({
@@ -223,9 +237,21 @@ if(!isset($_SESSION['employee_id'])) {
             echo $_SESSION['years_to_raise'];
             echo '</span></h2></br>
 
-            <!------************************ PAY INFO  ------->
+                    <!------************************ PAY INFO  ------->
 
-';
+        <h2>Your next pay: <span id="nurseNextPay" style="color: #d7fca8; font-family: Georgia;">
+			<script>getNurseNextPay();
+
+			</script>
+
+               </span></h2></br>
+
+        <h2>Salary over selected Period: <span id="nurseSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
+        </h2>
+        </br>
+        <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker11"></label>
+        <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker22"></label>
+        <button style="margin-left: 20px;" class="submitButton" onclick="getNurseSalary()">Apply</button>';
         }
         ?>
 

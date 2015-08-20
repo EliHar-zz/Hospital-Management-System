@@ -101,7 +101,7 @@ if ($row['employee_id']) {
             $_SESSION['employee_type'] = 'Childcare Nurse';
             $_SESSION ['user']='nurse';
 
-            $sql2 = "select hours_per_shift, shifts_per_week, years_to_raise from nurses where employee_types_id = 7";
+            $sql2 = "select hours_per_shift, base_hourly_rate, shifts_per_week, years_to_raise from nurses where employee_types_id = 7";
 
             $result2 = $conn->query($sql2);
             $row2 = mysqli_fetch_assoc($result2);
@@ -109,6 +109,8 @@ if ($row['employee_id']) {
             $_SESSION['hours_per_shift'] = $row2['hours_per_shift'];
             $_SESSION['shifts_per_week'] = $row2['shifts_per_week'];
             $_SESSION['years_to_raise'] = $row2['years_to_raise'];
+            $_SESSION['base_hourly_rate'] = $row2['base_hourly_rate'];
+
 
             header("Location: ../nurse.php");
             die();
@@ -117,7 +119,7 @@ if ($row['employee_id']) {
             $_SESSION['employee_type'] = 'Surgery Nurse';
             $_SESSION ['user']='nurse';
 
-            $sql2 = "select hours_per_shift, shifts_per_week, years_to_raise from nurses where employee_types_id = 8";
+            $sql2 = "select hours_per_shift,base_hourly_rate, shifts_per_week, years_to_raise from nurses where employee_types_id = 8";
 
             $result2 = $conn->query($sql2);
             $row2 = mysqli_fetch_assoc($result2);
@@ -125,6 +127,7 @@ if ($row['employee_id']) {
             $_SESSION['hours_per_shift'] = $row2['hours_per_shift'];
             $_SESSION['shifts_per_week'] = $row2['shifts_per_week'];
             $_SESSION['years_to_raise'] = $row2['years_to_raise'];
+            $_SESSION['base_hourly_rate'] = $row2['base_hourly_rate'];
 
             header("Location: ../nurse.php");
             die();
@@ -133,7 +136,7 @@ if ($row['employee_id']) {
             $_SESSION['employee_type'] = 'Shift Supervisor Nurse';
             $_SESSION ['user']='chief-nurse';
 
-            $sql2 = "select hours_per_shift, shifts_per_week, years_to_raise from nurses where employee_types_id = 9";
+            $sql2 = "select hours_per_shift, shifts_per_week, base_hourly_rate, years_to_raise from nurses where employee_types_id = 9";
 
             $result2 = $conn->query($sql2);
             $row2 = mysqli_fetch_assoc($result2);
@@ -141,6 +144,7 @@ if ($row['employee_id']) {
             $_SESSION['hours_per_shift'] = $row2['hours_per_shift'];
             $_SESSION['shifts_per_week'] = $row2['shifts_per_week'];
             $_SESSION['years_to_raise'] = $row2['years_to_raise'];
+            $_SESSION['base_hourly_rate'] = $row2['base_hourly_rate'];
 
             header("Location: ../chief-nurse.php");
             die();

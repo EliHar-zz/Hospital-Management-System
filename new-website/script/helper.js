@@ -54,7 +54,7 @@ function getNurseSalary(){
 
 
     $.post("../php/fetch-nurse-salary.php",{start:start, end:end} ,function(data, status){
-        document.getElementById("nurseSalary").innerHTML="$"+data;
+        document.getElementById("nurseSalary").innerHTML="$ "+data;
     });
 }
 
@@ -63,7 +63,7 @@ function getNurseSalary(){
 	 end = "2015-06-02";
 	 
 	 $.post("../php/fetch-nurse-salary.php",{start:start, end:end} ,function(data, status){
-	        document.getElementById("nurseNextPay").innerHTML="$"+data;
+	        document.getElementById("nurseNextPay").innerHTML="$ "+data;
 	    }); 
 }
  
