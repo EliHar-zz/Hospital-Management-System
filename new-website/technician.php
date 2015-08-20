@@ -17,6 +17,7 @@ session_start();
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" media="all" href="style/stylemobile.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <!--<link rel="stylesheet" type="text/css" media="all" href="style/mobilenavigation.css" />-->
 
     <script src="script/modernizr.js" type="text/javascript"></script>
@@ -29,7 +30,21 @@ session_start();
     <script src="script/jquery.flexslider.js" type="text/javascript"></script>
     <script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
     <script src="script/jquery.retina.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="script/helper.js" type="text/javascript"></script>
+    
+     <script>
+        $(function() {
+            $( "#datepicker11" ).datepicker();
+        });
+        $(function() {
+            $( "#datepicker22" ).datepicker();
+        });
+    </script>
     <script type="text/javascript">
+
+    
         $(document).ready(function (){
             $("a[data-rel^='prettyPhoto']").prettyPhoto({
                 default_width: 600,
@@ -161,6 +176,7 @@ session_start();
 
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
         <h1><span><?php echo $_SESSION['searched']['employee_name'];?></span></h1>
+        
     </header>
     <div class="box user_info">
         <h1 style="text-align: center; font-size: larger; font-family: Georgia; text-decoration: underline">Technician's Information</h1></br>
@@ -169,19 +185,19 @@ session_start();
         <h2>Hours per week: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['hours_per_week'];?></span></h2></br>
         <h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['pay_frequency'];?></span></h2></br>
         <h2>Years to raise: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['searched']['years_to_raise'];?></span></h2>
-
+</br>
+<h2>Your next pay: <span id="techNextPay" style="color: #d7fca8; font-family: Georgia;">
+			<script>getTechNextPay();</script>;
+        		
+               </span></h2></br>
+<h2>Salary over selected Period: <span id="techSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
+        </h2>
+        </br>
+        <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker11"></label>
+        <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker22"></label>
+        <button style="margin-left: 20px;" class="submitButton" onclick="getTechSalary()">Apply</button>
+        
     </div>
 
-    </div>
-
-    <footer id="main-footer">
-        <aside>
-            <h5 id="text-footer">P Sherman, 42 Wallaby Way, Sydney, Australia | Phone: +62834856, Fax: +62849684 | Email: hello@cubicthemes.com</h5>
-            <div id="footer-copyright" class="clearfix">
-                <p>Copyright &copy; 2013 Cubicthemes.com, All Rights Reserved</p>
-                <a href="#" id="logo-footer"><img src="images/logo-footer.png" data-retina="images/logo-footer-retina.png" alt="Happy Health" /></a>
-            </div>
-        </aside>
-    </footer>
 </body>
 </html>
