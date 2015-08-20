@@ -17,6 +17,7 @@ session_start();
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" media="all" href="style/stylemobile.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <!--<link rel="stylesheet" type="text/css" media="all" href="style/mobilenavigation.css" />-->
 
     <script src="script/modernizr.js" type="text/javascript"></script>
@@ -29,7 +30,21 @@ session_start();
     <script src="script/jquery.flexslider.js" type="text/javascript"></script>
     <script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
     <script src="script/jquery.retina.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="script/helper.js" type="text/javascript"></script>
+    
+     <script>
+        $(function() {
+            $( "#datepicker11" ).datepicker();
+        });
+        $(function() {
+            $( "#datepicker22" ).datepicker();
+        });
+    </script>
     <script type="text/javascript">
+
+    
         $(document).ready(function (){
             $("a[data-rel^='prettyPhoto']").prettyPhoto({
                 default_width: 600,
@@ -133,6 +148,30 @@ session_start();
                     echo $_SESSION['searched']['employee_name'];
                 elseif ($_SESSION['employee_id'])
                     echo $_SESSION['employee_name']?></span></h1>
+                    
+    <?php
+        include 'php/fetch-tech-salary.php';
+        
+        if ($_SESSION['user']=== 'tech') {
+          
+            echo '
+        
+                    <!------************************ PAY INFO  ------->
+        		
+        <h2>Your next pay: <span id="techNextPay" style="color: #d7fca8; font-family: Georgia;">
+			<script>getTechNextPay();</script>;
+        		
+               </span></h2></br>
+
+        <h2>Salary over selected Period: <span id="techSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
+        </h2>
+        </br>
+        <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker11"></label>
+        <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker22"></label>
+        <button style="margin-left: 20px;" class="submitButton" onclick="getTechSalary()">Apply</button>';
+        }
+        ?>
+        
     </header>
     <div class="box user_info">
         <h1 style="text-align: center; font-size: larger; font-family: Georgia; text-decoration: underline">Technician's Information</h1></br>

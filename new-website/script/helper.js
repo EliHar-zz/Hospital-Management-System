@@ -115,6 +115,30 @@ function getNurseSalary(){
 	    $.post("../php/fetch-admin-salary.php",{start:start, end:end} ,function(data, status){
 	        document.getElementById("adminSalary").innerHTML="$"+data;
 	    });
+}
+ 
+function getTechNextPay(){
+	 start = "2015-05-16";
+	 end = "2015-06-02";
+	 
+	 $.post("../php/fetch-tech-salary.php",{start:start, end:end} ,function(data, status){
+	        document.getElementById("techNextPay").innerHTML="$"+data;
+	    }); 
+}
+ 
+ function getTechSalary(){
+	    var start = document.getElementById("datepicker11").value;
+
+	    start = start.substring(6,10)+'-'+start.substring(0,2)+'-'+start.substring(3,5);
+
+	    var end = document.getElementById("datepicker22").value;
+
+	    end = end.substring(6,10)+'-'+end.substring(0,2)+'-'+end.substring(3,5);
+
+
+	    $.post("../php/fetch-tech-salary.php",{start:start, end:end} ,function(data, status){
+	        document.getElementById("techSalary").innerHTML="$"+data;
+	    });
 	}
 
 function searchPeople(){
