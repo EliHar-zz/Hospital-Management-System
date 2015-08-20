@@ -139,10 +139,43 @@ session_start();
             </nav>
         </div>
     </div>
+
+    <div id="header-full" style="height: 50px; width: 100%;">
+
+        <div style="float: left; margin-top: 10px; margin-left: 40px; color:white;">
+            <input onkeyup="searchPeople()" class="inputField" style="float: left;font-size: small;" type="text" id="searchBox" placeholder="     Search for " name="patient_search">
+
+            <label style=" float: left; margin-left: 10px; margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="patient">&nbsp;Patient</label>
+
+            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="doctor">&nbsp;Doctor</label>
+
+            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="technician">&nbsp;Technician</label>
+
+            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type"  value="nurse">&nbsp;Nurse</label>
+
+            </div>
+
+        <div id="result" style="color: #333333; text-align: left; float: left; width: 20%; margin-top: 45px;margin-left: 41px;top:0px; position: absolute; z-index: 10;">
+        </div>
+
+        <div id="header" class="clearfix" >
+            <nav id="nav" class="clearfix" style="margin-top: 5px; margin-left: 0px; text-align: left;">
+                <div id="nav-container" >
+                    <ul id="nav-main" >
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
 </header>
 <div id="content" class="clearfix">
 
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
+
         <h1><span><?php
                 if ($_SESSION['searched'] && $_SESSION['user']!== 'nurse')
                     echo $_SESSION['searched']['employee_name'];

@@ -163,10 +163,20 @@ if(!isset($_SESSION['employee_id']))
             <label style=" float: left; margin-left: 10px; margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="patient">&nbsp;Patient</label>';
 
-        if ($_SESSION['user']==='admin' || $_SESSION['user']==='doctor')
+        if ($_SESSION['user']==='doctor')
             echo'
             <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="junior_doctor">&nbsp;Junior Doctor</label>';
+
+        if ($_SESSION['user']==='admin')
+            echo'
+            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="doctor">&nbsp;Doctor</label>
+
+            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="technician">&nbsp;Technician</label>
+
+                ';
 
         if ($_SESSION['user']!=='patient' && $_SESSION['user']!=='nurse')
             echo'
@@ -193,7 +203,11 @@ if(!isset($_SESSION['employee_id']))
 
 <div id="content" class="clearfix" style="overflow: hidden;">
     <header id="title-content" class="clearfix" style="background:url(images/img-34.jpg) no-repeat 50% 0 fixed">
-        <h1><span>Dr. <?php echo $_SESSION['employee_name'];?></span></h1>
+        <h1><span>Dr. <?php
+                if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor')
+                    echo $_SESSION['searched']['employee_name'];
+                elseif ($_SESSION['employee_id'])
+                    echo $_SESSION['employee_name'];?></span></h1>
     </header>
     <div class="box user_info">
         <h1 style="text-align: center; font-size: larger; font-family: Georgia; text-decoration: underline">Doctor's Information</h1></br>
@@ -201,13 +215,13 @@ if(!isset($_SESSION['employee_id']))
                 if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor')
                     echo $_SESSION['searched']['facility_name'];
                 elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['facility_name']?></span></h2></br>
+                    echo $_SESSION['facility_name'];?></span></h2></br>
 
         <h2>Maximum Weekly Hours: <span style="color: #d7fca8; font-family: Georgia;"> <?php
                 if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor')
                     echo $_SESSION['searched']['maximum_hours'];
                 elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['maximum_hours']?></span></h2></br>
+                    echo $_SESSION['maximum_hours'];?></span></h2></br>
 
         <?php
         if ($_SESSION['user']=== 'doctor') {

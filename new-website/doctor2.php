@@ -163,10 +163,20 @@ if(!isset($_SESSION['employee_id'])) {
             <label style=" float: left; margin-left: 10px; margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="patient">&nbsp;Patient</label>';
 
-        if ($_SESSION['user']==='admin' || $_SESSION['user']==='doctor')
+        if ($_SESSION['user']==='doctor')
             echo'
             <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
                 <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="junior_doctor">&nbsp;Junior Doctor</label>';
+
+        if ($_SESSION['user']==='admin')
+            echo'
+            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="doctor">&nbsp;Doctor</label>
+
+            <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="technician">&nbsp;Technician</label>
+
+                ';
 
         if ($_SESSION['user']!=='patient' && $_SESSION['user']!=='nurse')
             echo'
@@ -204,22 +214,22 @@ if(!isset($_SESSION['employee_id'])) {
                 if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
                     echo $_SESSION['searched']['facility_name'];
                 elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['facility_name']?></span></h2></br>
+                    echo $_SESSION['facility_name'];?></span></h2></br>
         <h2>Position: <span style="color: #d7fca8; font-family: Georgia;"><?php
                 if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
                     echo $_SESSION['searched']['employee_type'];
                 elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['employee_type']?></span></h2></br>
+                    echo $_SESSION['employee_type'];?></span></h2></br>
         <h2>Supervisor's Name: <span style="color: #d7fca8; font-family: Georgia;">Dr. <?php
                 if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
                     echo $_SESSION['searched']['supervisor'];
                 elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['supervisor']?></span></h2></br>
+                    echo $_SESSION['supervisor'];?></span></h2></br>
         <h2>Maximum Weekly Hours: <span style="color: #d7fca8; font-family: Georgia;"> <?php
                 if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor2')
                     echo $_SESSION['searched']['maximum_hours'];
                 elseif ($_SESSION['employee_id'])
-                    echo $_SESSION['maximum_hours']?></span></h2></br>
+                    echo $_SESSION['maximum_hours'];?></span></h2></br>
 
         <?php
         include 'php/fetch-nurse-salary.php';
