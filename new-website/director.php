@@ -30,6 +30,21 @@ if(!isset($_SESSION['employee_id']))
 	<script src="script/jquery.prettyPhoto.js" type="text/javascript"></script>
 	<script src="script/jquery.retina.js" type="text/javascript"></script>
     <script src="script/helper.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    
+     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="script/helper.js" type="text/javascript"></script>
+
+    <script>
+        $(function() {
+            $( "#datepicker11" ).datepicker();
+        });
+        $(function() {
+            $( "#datepicker22" ).datepicker();
+        });
+    </script>
+    
     <script type="text/javascript">
 	$(document).ready(function (){
         $("a[data-rel^='prettyPhoto']").prettyPhoto({
@@ -205,6 +220,29 @@ if(!isset($_SESSION['employee_id']))
                         echo $_SESSION['searched']['pay_frequency'];
                     elseif ($_SESSION['employee_id'])
                         echo $_SESSION['pay_frequency']?></span></h2></br>
+                        
+            <?php
+        include 'php/fetch-admin-salary.php';
+        
+        if ($_SESSION['user']=== 'director' || $_SESSION['user']=== 'administrator') {
+         
+            echo '
+        
+                    <!------************************ PAY INFO  ------->
+        		
+        <h2>Your next pay: <span id="adminNextPay" style="color: #d7fca8; font-family: Georgia;">
+			<script>getAdminNextPay();</script>;
+        		
+               </span></h2></br>
+
+        <h2>Salary over selected Period: <span id="adminSalary" style="color: #d7fca8; font-family: Georgia;"></span></h2></br>
+        </h2>
+        </br>
+        <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker11"></label>
+        <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker22"></label>
+        <button style="margin-left: 20px;" class="submitButton" onclick="getAdminSalary()">Apply</button>';
+        }
+        ?>
 
         </div>
 

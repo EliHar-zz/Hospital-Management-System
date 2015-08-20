@@ -15,7 +15,6 @@ $start_String = strtotime($start);
 $end_String = strtotime($end);
 $days = ($end_String - $start_String)/86400;
 
-$proratedSalary = $row * $days / 365;
 
 $salary = 0;
 while($row = mysqli_fetch_assoc($result)){

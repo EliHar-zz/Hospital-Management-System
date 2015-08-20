@@ -11,8 +11,8 @@ $result = $conn->query($sql);
 print_r($row);
 
 $start_date_string = $_SESSION['start_date'];
-$start_date_date = date('y/m/d', strtotime($start_date_string));
-$years_of_service = (date('y/m/d') - $start_date_date);
+$start_date_date = date('Y/m/d', strtotime($start_date_string));
+$years_of_service = (date('Y/m/d') - $start_date_date);
 
 $hourly_rate = $_SESSION['base_hourly_rate'] + floor($years_of_service / $_SESSION['years_to_raise']) * $_SESSION['raise_amount'];
 
