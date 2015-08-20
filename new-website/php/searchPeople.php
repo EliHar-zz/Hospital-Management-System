@@ -21,7 +21,7 @@ $sql = '';
             $sql = "select employee_id as id, employee_type_id as type_id, employee_name as person_name from employees where (employee_type_id = 11 or employee_type_id = 12 or employee_type_id = 13 or employee_type_id = 14 or employee_type_id = 6) AND employee_name LIKE '%".$_REQUEST['name']."%'";
             break;
         case 'technician':
-            $sql = "select * from technicians";
+            $sql = "select employee_id as id, employee_type_id as type_id, employee_name as person_name from employees where (employee_type_id = 5 or employee_type_id = 15 or employee_type_id = 16 or employee_type_id = 17 or employee_type_id = 18) AND employee_name LIKE '%".$_REQUEST['name']."%'";
             break;
     }
 
