@@ -19,7 +19,17 @@ if ($row['employee_id']) {
     switch ($_SESSION['employee_type_id']) {
         case 1:
             $_SESSION['employee_type'] = 'Director';
-            $_SESSION ['user']='director';
+            $_SESSION ['user']='admin';
+
+            $sql2 = "select pay_frequency, yearly_increase, base_yearly_salary from directors";
+
+            $result2 = $conn->query($sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+
+            $_SESSION['pay_frequency'] = $row2['pay_frequency'];
+            $_SESSION['yearly_increase'] = $row2['yearly_increase'];
+            $_SESSION['base_yearly_salary'] = $row2['base_yearly_salary'];
+
 
             header("Location: ../director.php");
 
@@ -27,7 +37,7 @@ if ($row['employee_id']) {
             break;
         case 2:
             $_SESSION['employee_type'] = 'Administrator';
-            $_SESSION ['user']='administrator';
+            $_SESSION ['user']='admin';
 
             header("Location: ../director.php");
             die();
@@ -135,7 +145,7 @@ if ($row['employee_id']) {
             break;
         case 10:
             $_SESSION['employee_type'] = 'Senior Administrator';
-            $_SESSION ['user']='administrator';
+            $_SESSION ['user']='admin';
 
             header("Location: ../director.php");
             die();

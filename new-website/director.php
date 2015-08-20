@@ -132,18 +132,25 @@ if(!isset($_SESSION['employee_id']))
                     <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="patient">&nbsp;Patient</label>
 
                 <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
-                    <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type" value="junior_doctor">&nbsp;Doctor</label>
+                    <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type" value="doctor">&nbsp;Doctor</label>
 
                 <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
-                    <input style=" float: left;" onclick="searchPeople()"  type="radio" name="person_type"  value="nurse">&nbsp;Nurse</label>
+                    <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="technician">&nbsp;Technician</label>
+
+                <label style="float: left; margin-right: 5px;margin-left: 20px;margin-top: 15px;" for="patient_search">
+                    <input style=" float: left;" onclick="searchPeople()" type="radio" name="person_type"  value="nurse">&nbsp;Nurse</label>
 
             </div>
-            <div id="header" class="clearfix" >
+
+            <div id="result" style="color: #333333; text-align: left; float: left; width: 20%; margin-top: 45px;margin-left: 41px;top:0px; position: absolute; z-index: 10;">
+            </div>
+
+            <div id="header" class="clearfix">
                 <nav id="nav" class="clearfix" style="margin-top: 5px; margin-left: 0px; text-align: left;">
                     <div id="nav-container" >
                         <ul id="nav-main" >
-                            <li><a href="director.php">Personal Info</a></li>
-                            <li><a href="#">Services</a>
+                            <li><a style="font-weight: bold; color: #494949;">Personal Info</a></li>
+                            <li><a>Services</a>
                                 <ul>
                                     <li><a href="directorServices.php?fac=palliative">Palliative</a></li>
                                     <li><a href="directorServices.php?fac=childrens_unit">Childrens Unit</a></li>
@@ -203,34 +210,14 @@ if(!isset($_SESSION['employee_id']))
         </header>
 
         <div class="box user_info">
-            <h2>Facility Name: <span style="color: #d7fca8; font-family: Georgia;"> <?php
-                    if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor')
-                        echo $_SESSION['searched']['facility_name'];
-                    elseif ($_SESSION['employee_id'])
-                        echo $_SESSION['facility_name']?></span></h2></br>
+            <h2>Facility Name: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['facility_name'];?></span></h2></br>
+            <h2>Base yearly salary: <span style="color: #d7fca8; font-family: Georgia;">$&nbsp;<?php echo $_SESSION['base_yearly_salary'];?></span></h2></br>
+            <h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;"> <?php echo $_SESSION['pay_frequency'];?></span></h2></br>
+            <h2>Yearly increase: <span style="color: #d7fca8; font-family: Georgia;"><?php echo '%'.$_SESSION['yearly_increase']*100;?></span></h2></br>
 
-            <h2>Maximum Weekly Hours: <span style="color: #d7fca8; font-family: Georgia;"> <?php
-                    if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor')
-                        echo $_SESSION['searched']['maximum_hours'];
-                    elseif ($_SESSION['employee_id'])
-                        echo $_SESSION['maximum_hours']?></span></h2></br>
-
-            <h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;"> <?php
-                    if ($_SESSION['searched'] && $_SESSION['user']!== 'doctor')
-                        echo $_SESSION['searched']['pay_frequency'];
-                    elseif ($_SESSION['employee_id'])
-                        echo $_SESSION['pay_frequency']?></span></h2></br>
                         
-            <?php
-        include 'php/fetch-admin-salary.php';
-        
-        if ($_SESSION['user']=== 'director' || $_SESSION['user']=== 'administrator') {
-         
-            echo '
-        
-                    <!------************************ PAY INFO  ------->
-        		
-        <h2>Your next pay: <span id="adminNextPay" style="color: #d7fca8; font-family: Georgia;">
+                    
+       <h2>Your next pay: <span id="adminNextPay" style="color: #d7fca8; font-family: Georgia;">
 			<script>getAdminNextPay();</script>;
         		
                </span></h2></br>
@@ -240,10 +227,7 @@ if(!isset($_SESSION['employee_id']))
         </br>
         <label style="float: left; margin-left: 20px;">Start:&nbsp;&nbsp; <input class="inputField" type="text" id="datepicker11"></label>
         <label style="float: left; margin-left: 20px;">End: &nbsp;&nbsp;<input class="inputField" type="text" id="datepicker22"></label>
-        <button style="margin-left: 20px;" class="submitButton" onclick="getAdminSalary()">Apply</button>';
-        }
-        ?>
-
+        <button style="margin-left: 20px;" class="submitButton" onclick="getAdminSalary()">Apply</button>
         </div>
 
     <!-- ######################################### PHP ##############################################-->
@@ -260,9 +244,6 @@ if(!isset($_SESSION['employee_id']))
 
         mysqli_close($con);
     ?>
-
-
-
     </div>
 </body>
 </html>

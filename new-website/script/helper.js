@@ -38,7 +38,7 @@ function getDoctorSalary(){
 
 
     $.post("../php/fetch-doctor-salary.php",{start:start, end:end} ,function(data, status){
-        document.getElementById("doctorSalary").innerHTML="$"+data;
+        document.getElementById("doctorSalary").innerHTML="$ "+data;
     });
 
 }
@@ -162,6 +162,15 @@ function goToSearchResultPage(type_id, name, searched_id, typeOption){
 
             case 3:
                 location.href = "../nurse.php";
+                break;
+            case 4:
+                location.href = "../doctor2.php";
+                break;
+            case 5:
+                location.href = "../technician.php";
+                break;
+            case 6:
+                location.href = "../doctor.php";
                 break;
             case 7:
                 location.href = "../nurse.php";
