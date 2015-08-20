@@ -231,8 +231,7 @@ if(!isset($_SESSION['employee_id'])) {
                     echo $_SESSION['shifts_per_week']?></span></h2></br>
               
         <?php
-        include 'php/fetch-nurse-salary.php';
-        
+
         if ($_SESSION['user']=== 'nurse') {
             echo '<h2>Years to raise: <span style="color: #d7fca8; font-family: Georgia;">';
             echo $_SESSION['years_to_raise'];

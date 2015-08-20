@@ -232,7 +232,6 @@ if(!isset($_SESSION['employee_id'])) {
                     echo $_SESSION['maximum_hours'];?></span></h2></br>
 
         <?php
-        include 'php/fetch-nurse-salary.php';
         if ($_SESSION['user']=== 'doctor2') {
             echo '<h2>Pay Frequency: <span style="color: #d7fca8; font-family: Georgia;">';
             echo $_SESSION['pay_frequency'];

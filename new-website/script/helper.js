@@ -148,7 +148,7 @@ function searchPeople(){
     nameQuery = document.getElementById('searchBox').value;
     typeOption = $('input[name="person_type"]:checked').val();
 
-    if(nameQuery.length>=3 && typeOption!==undefined) {
+    if(nameQuery.length>=2 && typeOption!==undefined) {
 
         $.post("../php/searchPeople.php", {name: nameQuery, typeOption: typeOption}, function (data, status) {
 
